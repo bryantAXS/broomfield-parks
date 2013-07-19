@@ -1,1 +1,1 @@
-console.log('Coffeescript Concat works')
+console.log('Coffeescript Concat works');

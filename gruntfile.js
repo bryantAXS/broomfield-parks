@@ -25,11 +25,11 @@ module.exports = function(grunt) {
     concat: {
       vendor_js: {
         src: vendorjs,
-        dest: 'public/js/vendor.js'
+        dest: 'public/dev/js/vendor.js'
       },
       app_js: {
-        src: ["app/src/js/*.js"],
-        dest: "public/js/app.js"
+        src: ["app/src/js/**/*.js"],
+        dest: "public/dev/js/app.js"
       }
     },
     copy: {
@@ -55,26 +55,14 @@ module.exports = function(grunt) {
         }
       }
     },
-    coffee: {
-      compile: {
-        files: {
-          'public/dev/js/app.js': ['tmp/app.coffee']
-        }
-      }
-    },
     uglify: {
-      app: {
+      build:{
         files: {
           'public/js/app.min.js': ['public/dev/js/app.js']
-        }
-      },
-      lib: {
-        files: {
-          'public/js/lib.min.js': ['public/js/lib.min.js']
+          //'public/js/vendor.min.js': ['public/dev/js/vendor.js']
         }
       }
     },
-    // compile .scss/.sass to .css using Compass
     compass: {
         dist: {
             options: {
@@ -101,11 +89,6 @@ module.exports = function(grunt) {
           create: ['dist/tmp','dist/tmp/logs','dist/tmp/cache']
         }
       }
-    },
-    open : {
-      server : {
-        path: 'http://localhost:8080'
-      },
     },
     assemble: {
       development_html: {
@@ -201,7 +184,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-open');
 
   // Compile tools
-  grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-compass');
 
   // Clean tools
@@ -220,40 +202,20 @@ module.exports = function(grunt) {
 
   // Basic tasks.
   grunt.registerTask('default', ['development']);
-  grunt.registerTask('build', ['concat:vendor_js','concat:app_js','uglify:app','compass']);
+  grunt.registerTask('build', ['concat:vendor_js','concat:app_js','uglify','compass']);
   grunt.registerTask('fetch', ['exec','bower']);
   grunt.registerTask('dist', ['production','copy:dist','clean:dist','mkdir:dist']);
-  grunt.registerTask('lib', function(env){
-    if(env == 'production'){
-      grunt.task.run(['concat:vendor_js','concat:app_js','uglify:lib']);
-    } else {
-      grunt.task.run(['concat:vendor_js', 'concat:app_js']);
-    }
-  });
+
+  // Testing tasks
   grunt.registerTask('test', ['jasmine']);
 
   // Setup foundation
   grunt.registerTask("init", ['copy:foundation']);
 
   // Setup environment for development
-  grunt.registerTask('development', ['build','lib','assemble:development_html','assemble:development_php','clean:development','mkdir:clean']);
+  grunt.registerTask('development', ['build','assemble:development_html','assemble:development_php','clean:development','mkdir:clean']);
 
   // Setup environment for production
-  grunt.registerTask('production', ['build','lib:production','assemble:production_html','assemble:production_php','clean:production','mkdir:clean']);
+  grunt.registerTask('production', ['build','assemble:production_html','assemble:production_php','clean:production','mkdir:clean']);
 
-  grunt.registerTask('server', function(env){
-    if(env == 'production'){
-      grunt.task.run(['production','parallel:server']);
-    } else {
-      grunt.task.run(['default','parallel:server']);
-    }
-  });
-
-  grunt.registerTask('browser', function(){
-    var done = this.async();
-    setTimeout(function(){
-      grunt.task.run(['open:server']);
-      done();
-    }, 1000);
-  });
 };

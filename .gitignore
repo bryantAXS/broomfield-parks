@@ -8,4 +8,4 @@ node_modules
 composer_modules
 composer.lock
 composer.phar
-.sass_cache
+.sass-cache
