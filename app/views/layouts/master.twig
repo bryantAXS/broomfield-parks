@@ -14,10 +14,9 @@
       <title>broomfieldparks - {{ viewName }}</title>
 
       {% block link %}
-      <link rel="stylesheet" href="/css/app.css" />
       {% endblock %}
 
-      <!-- include 'layouts/head.html' -->
+      {% include 'partials/header_styles.html' %}
 
     </head>
     <body>
@@ -33,9 +32,9 @@
     {% block inline%}{% endblock inline %}
 
     {% block script %}
-      <script src="/js/dev/vendor.js"></script>
-      <script src="/js/dev/app.js"></script>
     {% endblock %}
+
+    {% include 'partials/footer_scripts.html' %}
 
     </body>
 </html>

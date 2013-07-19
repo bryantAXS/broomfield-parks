@@ -9,7 +9,6 @@ var vendorjs = [
         'bower_modules/moment/min/moment.min.js',
         'bower_modules/moment/min/langs.min.js'
         ];
-
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -58,8 +57,8 @@ module.exports = function(grunt) {
     uglify: {
       build:{
         files: {
-          'public/js/app.min.js': ['public/dev/js/app.js']
-          //'public/js/vendor.min.js': ['public/dev/js/vendor.js']
+          'public/js/app.min.js': ['public/dev/js/app.js'],
+          'public/js/vendor.min.js': ['public/dev/js/vendor.js']
         }
       }
     },
@@ -98,7 +97,8 @@ module.exports = function(grunt) {
           ext: '.html'
         },
         files: {
-          "app/views/layouts/head.html": ["app/src/hbs/head.hbs"]
+          "app/views/partials/header_styles.html": ["app/src/hbs/header_styles.hbs"],
+          "app/views/partials/footer_scripts.html": ["app/src/hbs/footer_scripts.hbs"]
         }
       },
       development_php: {
@@ -118,7 +118,8 @@ module.exports = function(grunt) {
           ext: '.html'
         },
         files: {
-          "app/views/layouts/head.html": ["app/src/hbs/head.hbs"]
+          "app/views/partials/header_styles.html": ["app/src/hbs/header_styles.hbs"],
+          "app/views/partials/footer_scripts.html": ["app/src/hbs/footer_scripts.hbs"]
         }
       },
       production_php: {
@@ -144,6 +145,10 @@ module.exports = function(grunt) {
       compass:{
         files:['**/*.{scss,sass}'],
         tasks:'compass'
+      },
+      js:{
+        files: ['app/src/js/**/*.js'],
+        tasks: "concat"
       }
     },
     php: {

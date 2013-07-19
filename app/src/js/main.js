@@ -1,4 +1,4 @@
-if (jQuery){
+if(jQuery){
   console.log('jQuery Loaded');
 }
 if(_){
@@ -12,3 +12,4 @@ if(Backbone.Marionette){
 }
 
 conosle.log("asdf");
+console.log("yo what it do");
