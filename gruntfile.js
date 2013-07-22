@@ -7,7 +7,8 @@ var vendorjs = [
         'bower_modules/backbone.marionette/public/javascripts/backbone.wreqr.js',
         'bower_modules/backbone.marionette/lib/backbone.marionette.min.js',
         'bower_modules/moment/min/moment.min.js',
-        'bower_modules/moment/min/langs.min.js'
+        'bower_modules/moment/min/langs.min.js',
+        "bower_modules/jquery-backstretch/jquery.backstretch.min.js"
         ];
 module.exports = function(grunt) {
 
@@ -180,6 +181,9 @@ module.exports = function(grunt) {
       }
     }
   });
+
+  // Require JS
+  grunt.loadNpmTasks('grunt-bower-requirejs');
 
   // Basic tasks
   grunt.loadNpmTasks('grunt-exec');

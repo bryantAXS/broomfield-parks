@@ -9,6 +9,7 @@
     "underscore": ">=1.4.4",
     "backbone": ">=1.0.0",
     "backbone.marionette": ">=1.0.3",
-    "foundation": "~4.2.3"
+    "foundation": "~4.2.3",
+    "jquery-backstretch": "~2.0.4"
   }
 }

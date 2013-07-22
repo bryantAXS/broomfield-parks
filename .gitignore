@@ -9,3 +9,5 @@ composer_modules
 composer.lock
 composer.phar
 .sass-cache
+*.sublime-project
+*.sublime-workspace
