@@ -49,8 +49,8 @@
 // Modular html classes
 // $include-html-grid-classes: $include-html-classes;
 // $include-html-visibility-classes: $include-html-classes;
-// $include-html-button-classes: $include-html-classes;
-// $include-html-form-classes: $include-html-classes;
+$include-html-button-classes: false;
+$include-html-form-classes: false;
 // $include-html-media-classes: $include-html-classes;
 // $include-html-section-classes: $include-html-classes;
 // $include-html-reveal-classes: $include-html-classes;
@@ -68,6 +68,10 @@
 // $row-width: 62.5em;
 // $column-gutter: 1.875em;
 // $total-columns: 16;
+
+$row-width: (1170px);
+$column-gutter: (30px);
+$total-columns: 12;
 
 //
 // Block Grid Variables

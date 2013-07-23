@@ -1,10 +1,15 @@
 
+$light-green: #b5dfb3;
+$green: #7fc274;
+$dark-green: #4d7a49;
+$white: #fff;
+
 // speeds
 $slow: 600ms;
 $medium: 400ms;
 $fast: 150ms;
 
-.clearfix{
+.row, .clearfix{
   zoom:1;
   &:before, &:after {
       content: "\0020";
@@ -17,7 +22,14 @@ $fast: 150ms;
   }
 }
 
-@mixin font($font-name: "Open Sans", $font-size: false, $line-height:false, $font-weight: false){
+@mixin calc($property, $expression) {
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: -o-calc(#{$expression});
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+
+@mixin font($font-name: "Neue", $font-size: false, $line-height:false, $font-weight: false){
 
   font-family: $font-name;
   @if $font-size != false{

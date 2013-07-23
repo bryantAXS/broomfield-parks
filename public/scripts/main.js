@@ -6,36 +6,22 @@
 // Setting up require.js paths
 require.config( {
 
-  baseUrl: "/public/scripts",
+  baseUrl: "/scripts",
   urlArgs: "bust=" +  (new Date()).getTime(),
   paths:{
 
     // Dependencies
-    "jquery": "../../bower_modules/jquery/jquery",
-    "underscore": "../../bower_modules/underscore/underscore",
+    "jquery":                 'bower_modules/jquery/jquery',
+    "underscore":             'bower_modules/underscore/underscore',
+    "backbone":               'bower_modules/backbone/backbone',
+    "json":                   'bower_modules/backbone.marionette/public/javascripts/json2',
+    "backbone.babysitter":    'bower_modules/backbone.marionette/public/javascripts/backbone.babysitter',
+    "backbone.wreqr":         'bower_modules/backbone.marionette/public/javascripts/backbone.wreqr',
+    "marionette":             'bower_modules/backbone.marionette/lib/backbone.marionette.min',
+    "moment":                 'bower_modules/moment/min/moment',
 
-    "backbone": "../../bower_modules/backbone",
-    "backbone.wreqr": "../../bower_modules/backbone.wreqr/src/wreqr",
-    "backbone.babysitter": "../../bower_modules/backbone.babysitter",
-    "marionette": "../../bower_modules/marionette",
-
-    // "add2home": "vendor/add2home",
-    // "detectmobile": "vendor/detectmobile",
-    // "date": "vendor/date",
-    // "endlessscroll": "vendor/jquery-endlessscroll",
-    // "fancybox": "vendor/fancybox",
-    // "fastclick": "vendor/fastclick",
-    // "jquery-dropdown": "vendor/jquery-dropdown",
-    // 'jquery-transit': "vendor/jquery-transit",
-    // 'jquery-jpanelmenu': "vendor/jquery-jpanelmenu",
-    // "moment": "vendor/moment",
-    // "transitions": "vendor/jquery-page-transitions",
-    // "log": "vendor/log",
-    // "backstretch": "vendor/backstretch",
-    // "gauge": "vendor/gauge",
-
-    // // FIXME: These should be removed and included in their respective View files
-    // "exclusive-content-form": "libs/exclusive-content-form"
+    "backstretch":            'bower_modules/jquery-backstretch/jquery.backstretch',
+    "transit":                'bower_modules/jquery.transit/jquery.transit'
 
   },
   shim: {
@@ -50,23 +36,25 @@ require.config( {
     "marionette":{
       "deps": ["backbone", "backbone.wreqr", "backbone.babysitter"]
     },
-    // "backbone.wreqr":{
-    //   "deps": ["backbone"]
-    // },
-    // "backbone.babysitter":{
-    //   "deps": ["backbone"]
-    // },
+    "backbone.wreqr":{
+      "deps": ["backbone"]
+    },
+    "backbone.babysitter":{
+      "deps": ["backbone"]
+    },
+    "backstretch":{
+      "deps": ["jquery"]
+    },
+    "transit":{
+      "deps": ["jquery"]
+    }
   }
 
 });
 
+require(["apps/App"], function(App){
 
+  window.App = App;
+  App.start();
 
-
-// $(window).load(function(){
-
-//   console.log(AppRouter, AppController);
-//   ParksApp.start();
-//   console.log("test");
-
-// });
+});

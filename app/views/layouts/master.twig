@@ -34,6 +34,10 @@
     {% block script %}
     {% endblock %}
 
+    {% for template in templates %}
+    {% include template %}
+    {% endfor %}
+
     {% include 'partials/footer_scripts.html' %}
 
     </body>

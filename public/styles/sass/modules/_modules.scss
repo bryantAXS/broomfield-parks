@@ -1,0 +1,176 @@
+
+//
+// SEARCH BAR
+//
+
+.search-bar-container{
+  height:75px;
+  padding:0;
+  position:relative;
+  @include box-shadow(0 3px 10px rgba(0,0,0,.25))
+}
+
+.search-bar-left-container{
+  height:75px;
+  left:0;
+  position:absolute;
+  top:0;
+  width: 1020px;
+  z-index:2;
+}
+
+.search-bar-right-container{
+  background-color:$green;
+  height:75px;
+  position:absolute;
+  right:0;
+  top:0;
+  width:150px;
+  z-index:3;
+}
+
+input[name='search-text']{
+  border:none;
+  color:$dark-green;
+  height:30px;
+  display:block;
+  margin-top:23px;
+  outline:none;
+  padding-left:15px;
+  @include box-shadow(none);
+  @include calc(width, "100% - 95px");
+  @include font("NeueLight", 30px, 32px);
+}
+
+.search-button-container{
+  height: 75px;
+  position:absolute;
+  right:0;
+  top:0;
+  width: 75px;
+
+  button{
+    background:transparent;
+    border:none;
+    display:block;
+    height:100%;
+    left:0;
+    outline:none;
+    padding:0;
+    position:absolute;
+    width:100%;
+    top:0;
+  }
+
+}
+
+.search-button{
+  background-color: $white;
+  background-position: center center;
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+}
+
+#search-button{
+  @extend .search-button;
+  background-image:url(/images/icon-search.png);
+  z-index:3;
+}
+
+#clear-search-button{
+  @extend .search-button;
+  background-image:url(/images/icon-x.png);
+  z-index:2;
+}
+
+.green-nav-button{
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border:none;
+  display:block;
+  float:left;
+  height:75px;
+  outline:none;
+  width:75px;
+  @include transition(box-shadow 50ms linear);
+
+  &:first-child{
+    border-right:1px solid #6eb567;
+  }
+
+  &+.green-nav-button{
+    border-left: 1px solid #85d67e;
+  }
+
+  &:active{
+    @include box-shadow(inset 0 0 15px rgba(0,0,0,.15));
+  }
+
+}
+
+#goto-map-button{
+  @extend .green-nav-button;
+  background-size: 20px 24px;
+  background-image:url(/images/icon-nav-pin.png);
+}
+
+#map-options-button{
+  @extend .green-nav-button;
+  background-size: 21px 24px;
+  background-image:url(/images/icon-menu.png);
+}
+
+.map-options-container{
+  background-color:$green;
+  height:75px;
+  position:absolute;
+  overflow:hidden;
+  top:0;
+  right:0;
+  width:0;
+}
+
+.map-options-content-container{
+  height:75px;
+  width:423px;
+
+  span, a{
+    @include font("FuturaBold", 14px, 78px);
+  }
+
+  span{
+    color:$dark-green;
+    padding: 0 30px 0 30px;
+  }
+  a{
+    color: $light-green;
+    &.is-active{
+      color:$white;
+    }
+    &+a{
+      margin-left:25px;
+    }
+  }
+}
+
+// defining the is-open state here -- many styles for base
+// elements are defined above
+
+.search-bar-container.is-open{
+
+  /*
+  .search-bar-right-container{
+    width:500px;
+  }
+
+  .map-options-button{
+    @include opacity(0);
+  }
+
+  .map-options-container{
+    width:423px;
+  }
+  */
+
+}

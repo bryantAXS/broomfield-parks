@@ -167,21 +167,20 @@ module.exports = function(grunt) {
 
   // Basic tasks.
   grunt.registerTask('default', ['development']);
-  // grunt.registerTask('build', ['concat:vendor_js','concat:app_js','uglify','compass']);
-  // grunt.registerTask('fetch', ['exec','bower']);
-  // grunt.registerTask('dist', ['production','copy:dist','clean:dist','mkdir:dist']);
+  grunt.registerTask('build', ['compass']);
+  grunt.registerTask('fetch', ['exec','bower']);
+  grunt.registerTask('dist', ['production','copy:dist','clean:dist','mkdir:dist']);
 
   // Testing tasks
   // grunt.registerTask('test', ['jasmine']);
 
   // Setup foundation
-  // grunt.registerTask("init", ['copy:foundation']);
+  grunt.registerTask("init", ['copy:foundation', 'copy:requirejs']);
 
   // Setup environment for development
-  // grunt.registerTask('development', ['build','assemble:development_html','assemble:development_php','clean:development','mkdir:clean']);
-  grunt.registerTask('development', ["bower"]);
+  grunt.registerTask('development', ['build','assemble:development_html','clean:development','mkdir:clean']);
 
   // Setup environment for production
-  // grunt.registerTask('production', ['build','assemble:production_html','assemble:production_php','clean:production','mkdir:clean']);
+  grunt.registerTask('production', ['build','assemble:production_html','clean:production','mkdir:clean']);
 
 };
