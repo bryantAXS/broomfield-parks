@@ -19,8 +19,6 @@ Class Main extends \system\Controller
       "templates" => $this->_find_all_files(ROOT . "/app/views/templates")
     );
 
-    //var_dump($template_data);
-
     parent::render('index.twig', $template_data);
 
   }

@@ -1,42 +1,23 @@
-var vendorjs = [
-        'bower_modules/jquery/jquery.min.js',
-        'bower_modules/underscore/underscore-min.js',
-        'bower_modules/backbone/backbone-min.js',
-        'bower_modules/backbone.marionette/public/javascripts/json2.js',
-        'bower_modules/backbone.marionette/public/javascripts/backbone.babysitter.js',
-        'bower_modules/backbone.marionette/public/javascripts/backbone.wreqr.js',
-        'bower_modules/backbone.marionette/lib/backbone.marionette.min.js',
-        'bower_modules/moment/min/moment.min.js',
-        'bower_modules/moment/min/langs.min.js',
-        "bower_modules/jquery-backstretch/jquery.backstretch.min.js"
-        ];
+
 module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+
     pkg: grunt.file.readJSON('package.json'),
-    exec: {
-      composer_install: {
-        command: 'php composer.phar install',
-        stdout: false,
-        stderr: false
-      }
-    },
-    concat: {
-      vendor_js: {
-        src: vendorjs,
-        dest: 'public/dev/js/vendor.js'
-      },
-      app_js: {
-        src: ["app/src/js/**/*.js"],
-        dest: "public/dev/js/app.js"
-      }
-    },
+
+
+    // Copy task
     copy: {
       foundation: {
         files: [
-         {expand: true, flatten: false, cwd: "bower_modules/foundation/js", src: ['**'], dest: 'public/js/'},
-         {expand: true, flatten: false, cwd:"bower_modules/foundation/scss", src: '**', dest: 'app/src/sass'}
+         {expand: true, flatten: false, cwd: "bower_modules/foundation/js", src: '**', dest: 'public/scripts/vendor'},
+         {expand: true, flatten: false, cwd:"bower_modules/foundation/scss", src: '**', dest: 'public/styles/sass'}
+        ]
+      },
+      requirejs: {
+        files: [
+          {expand: true, flatten: false, cwd: "bower_modules/requirejs", src: 'require.js', dest: 'public/scripts/vendor'}
         ]
       },
       dist: {
@@ -48,6 +29,9 @@ module.exports = function(grunt) {
         ]
       }
     },
+
+
+    // Bower task
     bower: {
       install: {
         options: {
@@ -55,14 +39,9 @@ module.exports = function(grunt) {
         }
       }
     },
-    uglify: {
-      build:{
-        files: {
-          'public/js/app.min.js': ['public/dev/js/app.js'],
-          'public/js/vendor.min.js': ['public/dev/js/vendor.js']
-        }
-      }
-    },
+
+
+    // Compass task
     compass: {
         dist: {
             options: {
@@ -70,11 +49,16 @@ module.exports = function(grunt) {
             }
         }
     },
+
+    // Clean task
     clean: {
       dist: ["dist/app/src"],
       development: ["tmp"],
-      production: ["public/dev", "tmp"]
+      production: ["tmp"]
     },
+
+
+    // Mkdir task
     mkdir: {
       options: {
         // Task-specific options go here.
@@ -90,6 +74,8 @@ module.exports = function(grunt) {
         }
       }
     },
+
+    // Assemble task
     assemble: {
       development_html: {
         options: {
@@ -102,16 +88,6 @@ module.exports = function(grunt) {
           "app/views/partials/footer_scripts.html": ["app/src/hbs/footer_scripts.hbs"]
         }
       },
-      development_php: {
-        options: {
-          dev: true,
-          prod: false,
-          ext: '.php'
-        },
-        files: {
-          "app/config/config.env.php": ["app/src/hbs/config.env.hbs"]
-        }
-      },
       production_html: {
         options: {
           dev: false,
@@ -122,68 +98,51 @@ module.exports = function(grunt) {
           "app/views/partials/header_styles.html": ["app/src/hbs/header_styles.hbs"],
           "app/views/partials/footer_scripts.html": ["app/src/hbs/footer_scripts.hbs"]
         }
-      },
-      production_php: {
-        options: {
-          dev: false,
-          prod: true,
-          ext: '.php'
-        },
-        files: {
-          "app/config/config.env.php": ["app/src/hbs/config.env.hbs"]
-        }
-      },
-
+      }
     },
+
+
+    // Watch Task
     watch: {
       options: {
         nospawn: false,
         livereload: true
       },
-      twig: {
-        files: ['**/*.twig'],
-      },
       compass:{
         files:['**/*.{scss,sass}'],
         tasks:'compass'
-      },
-      js:{
-        files: ['app/src/js/**/*.js'],
-        tasks: "concat"
       }
+      // js:{
+      //   files: ['app/src/js/**/*.js'],
+      //   tasks: "concat"
+      // }
     },
-    php: {
-      server: {
-        options: {
-          port: 8080,
-          keepalive: true,
-          open: false,
-          base: 'public'
-        }
-      }
-    },
+
+
+    // Parallel  Task
     parallel: {
       server: {
         options: {
           grunt: true,
           stream: true
         },
-        tasks: ['php:server','watch','browser']
-      }
-    },
-    jasmine: {
-      app: {
-        src: 'public/js/*.js',
-        options: {
-          vendor: vendorjs,
-          specs: 'test/jasmine/*.js'
-        }
+        tasks: ['watch','browser']
       }
     }
+    // jasmine: {
+    //   app: {
+    //     src: 'public/js/*.js',
+    //     options: {
+    //       vendor: vendorjs,
+    //       specs: 'test/jasmine/*.js'
+    //     }
+    //   }
+    // }
+
   });
 
-  // Require JS
-  grunt.loadNpmTasks('grunt-bower-requirejs');
+  //require js
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
 
   // Basic tasks
   grunt.loadNpmTasks('grunt-exec');
@@ -196,35 +155,32 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass');
 
   // Clean tools
-  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Testing tools
   grunt.loadNpmTasks('grunt-contrib-jasmine');
 
   // Modules for server and watcher
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-php');
   grunt.loadNpmTasks('grunt-parallel');
   grunt.loadNpmTasks('assemble');
 
   // Basic tasks.
   grunt.registerTask('default', ['development']);
-  grunt.registerTask('build', ['concat:vendor_js','concat:app_js','uglify','compass']);
+  grunt.registerTask('build', ['compass']);
   grunt.registerTask('fetch', ['exec','bower']);
   grunt.registerTask('dist', ['production','copy:dist','clean:dist','mkdir:dist']);
 
   // Testing tasks
-  grunt.registerTask('test', ['jasmine']);
+  // grunt.registerTask('test', ['jasmine']);
 
   // Setup foundation
-  grunt.registerTask("init", ['copy:foundation']);
+  grunt.registerTask("init", ['copy:foundation', 'copy:requirejs']);
 
   // Setup environment for development
-  grunt.registerTask('development', ['build','assemble:development_html','assemble:development_php','clean:development','mkdir:clean']);
+  grunt.registerTask('development', ['build','assemble:development_html','clean:development','mkdir:clean']);
 
   // Setup environment for production
-  grunt.registerTask('production', ['build','assemble:production_html','assemble:production_php','clean:production','mkdir:clean']);
+  grunt.registerTask('production', ['build','assemble:production_html','clean:production','mkdir:clean']);
 
 };

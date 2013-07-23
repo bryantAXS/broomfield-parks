@@ -6,21 +6,22 @@
 // Setting up require.js paths
 require.config( {
 
-  baseUrl: "/public/scripts",
+  baseUrl: "/scripts",
   urlArgs: "bust=" +  (new Date()).getTime(),
   paths:{
 
     // Dependencies
-    "jquery":                 'bower_modules/jquery/jquery.min.js',
-    "underscore":             'bower_modules/underscore/underscore-min.js',
-    "backbone":               'bower_modules/backbone/backbone-min.js',
-    "json":                   'bower_modules/backbone.marionette/public/javascripts/json2.js',
-    "backbone.babysitter":    'bower_modules/backbone.marionette/public/javascripts/backbone.babysitter.js',
-    "backbone.wreqr":         'bower_modules/backbone.marionette/public/javascripts/backbone.wreqr.js',
-    "marionette":             'bower_modules/backbone.marionette/lib/backbone.marionette.min.js',
-    "moment":                 'bower_modules/moment/min/moment.min.js',
+    "jquery":                 'bower_modules/jquery/jquery',
+    "underscore":             'bower_modules/underscore/underscore',
+    "backbone":               'bower_modules/backbone/backbone',
+    "json":                   'bower_modules/backbone.marionette/public/javascripts/json2',
+    "backbone.babysitter":    'bower_modules/backbone.marionette/public/javascripts/backbone.babysitter',
+    "backbone.wreqr":         'bower_modules/backbone.marionette/public/javascripts/backbone.wreqr',
+    "marionette":             'bower_modules/backbone.marionette/lib/backbone.marionette.min',
+    "moment":                 'bower_modules/moment/min/moment',
 
-    "backstretch":                       "bower_modules/jquery-backstretch/jquery.backstretch.min.js"
+    "backstretch":            'bower_modules/jquery-backstretch/jquery.backstretch',
+    "transit":                'bower_modules/jquery.transit/jquery.transit'
 
   },
   shim: {
@@ -41,17 +42,19 @@ require.config( {
     "backbone.babysitter":{
       "deps": ["backbone"]
     },
+    "backstretch":{
+      "deps": ["jquery"]
+    },
+    "transit":{
+      "deps": ["jquery"]
+    }
   }
 
 });
 
+require(["apps/App"], function(App){
 
+  window.App = App;
+  App.start();
 
-
-// $(window).load(function(){
-
-//   console.log(AppRouter, AppController);
-//   ParksApp.start();
-//   console.log("test");
-
-// });
+});

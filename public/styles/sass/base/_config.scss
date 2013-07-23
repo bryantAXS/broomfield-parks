@@ -1,0 +1,81 @@
+
+$light-green: #b5dfb3;
+$green: #7fc274;
+$dark-green: #4d7a49;
+$white: #fff;
+
+// speeds
+$slow: 600ms;
+$medium: 400ms;
+$fast: 150ms;
+
+.row, .clearfix{
+  zoom:1;
+  &:before, &:after {
+      content: "\0020";
+      display: block;
+      height: 0;
+      overflow: hidden;
+  }
+  &:after {
+      clear: both;
+  }
+}
+
+@mixin calc($property, $expression) {
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: -o-calc(#{$expression});
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+
+@mixin font($font-name: "Neue", $font-size: false, $line-height:false, $font-weight: false){
+
+  font-family: $font-name;
+  @if $font-size != false{
+    font-size: $font-size;
+  }
+
+  @if $line-height != false{
+    line-height: $line-height;
+  }
+  @else{
+    line-height: $font-size + 6px;
+  }
+
+  @if $font-weight != false{
+    font-weight: $font-weight;
+  }
+  @else{
+    font-weight: 300;
+  }
+
+}
+
+@mixin respond-to($media){
+ // Phone
+ @if $media == phone{
+      @media (max-width: 480px) { @content }
+  }
+ // Tablet Landscape - Desktop
+ @if $media == tablet{
+      @media (min-width: 481px) and (max-width: 768px) { @content }
+  }
+ // Large Desktop
+ @if $media == desktop{
+      @media (min-width: 768px) { @content }
+  }
+ // Non-Retina
+ @if $media == non-retina{
+      @media screen and (-webkit-max-device-pixel-ratio: 1) { @content }
+  }
+ // Retina Only
+ @if $media == retina{
+      @media screen and (-webkit-min-device-pixel-ratio: 2) { @content }
+  }
+}
+
+// another way of doing a responsive query
+@mixin below-width($width){
+  @media (max-width: $width) { @content }
+}

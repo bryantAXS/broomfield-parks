@@ -1,0 +1,108 @@
+@font-face {
+  font-family: 'HelvNeue for IBM';
+  src: url('HelvNeueforIBM-Bold.eot'); /* IE9 Compat Modes */
+  src: url('HelvNeueforIBM-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('HelvNeueforIBM-Bold.woff') format('woff'), /* Modern Browsers */
+       url('HelvNeueforIBM-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('HelvNeueforIBM-Bold.svg#69abd27a5460cea1f8880d1bd99374c4') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'Futura Std ExtraBold';
+  src: url('FuturaStd-ExtraBold.eot'); /* IE9 Compat Modes */
+  src: url('FuturaStd-ExtraBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('FuturaStd-ExtraBold.woff') format('woff'), /* Modern Browsers */
+       url('FuturaStd-ExtraBold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('FuturaStd-ExtraBold.svg#c5848c9cabbbe464cb22cc47f7de3445') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'Futura Std Light';
+  src: url('FuturaStd-Light.eot'); /* IE9 Compat Modes */
+  src: url('FuturaStd-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('FuturaStd-Light.woff') format('woff'), /* Modern Browsers */
+       url('FuturaStd-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('FuturaStd-Light.svg#d83a536671d160add994a83c5144bd9a') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  200;
+}
+
+@font-face {
+  font-family: 'Futura Std Book';
+  src: url('FuturaStd-Bold.eot'); /* IE9 Compat Modes */
+  src: url('FuturaStd-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('FuturaStd-Bold.woff') format('woff'), /* Modern Browsers */
+       url('FuturaStd-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('FuturaStd-Bold.svg#e6614ac1ffeb97962de474601fd3ce1d') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  700;
+}
+
+@font-face {
+  font-family: 'Futura Std Book';
+  src: url('FuturaStd-Book.eot'); /* IE9 Compat Modes */
+  src: url('FuturaStd-Book.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('FuturaStd-Book.woff') format('woff'), /* Modern Browsers */
+       url('FuturaStd-Book.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('FuturaStd-Book.svg#db02aa682b3e193ac55da3558b4b0d6e') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'Futura Std Medium';
+  src: url('FuturaStd-Heavy.eot'); /* IE9 Compat Modes */
+  src: url('FuturaStd-Heavy.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('FuturaStd-Heavy.woff') format('woff'), /* Modern Browsers */
+       url('FuturaStd-Heavy.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('FuturaStd-Heavy.svg#f957ac4f7c9e44228c64976e40b8d5f5') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'HelvNeue for IBM';
+  src: url('HelvNeueforIBM.eot'); /* IE9 Compat Modes */
+  src: url('HelvNeueforIBM.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('HelvNeueforIBM.woff') format('woff'), /* Modern Browsers */
+       url('HelvNeueforIBM.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('HelvNeueforIBM.svg#13d080ded60f4b51daf80efde82773b9') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+
+@font-face {
+  font-family: 'HelvNeue for IBM Light';
+  src: url('HelvNeueforIBM-Light.eot'); /* IE9 Compat Modes */
+  src: url('HelvNeueforIBM-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('HelvNeueforIBM-Light.woff') format('woff'), /* Modern Browsers */
+       url('HelvNeueforIBM-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('HelvNeueforIBM-Light.svg#4baeff8a8bf0114c338eb607a9c7c8c5') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  200;
+}
+
+@font-face {
+  font-family: 'Futura Std Medium';
+  src: url('FuturaStd-Medium.eot'); /* IE9 Compat Modes */
+  src: url('FuturaStd-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('FuturaStd-Medium.woff') format('woff'), /* Modern Browsers */
+       url('FuturaStd-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('FuturaStd-Medium.svg#978bfeb47c41e9c6da434cb6375bf283') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+

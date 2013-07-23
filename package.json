@@ -20,7 +20,8 @@
     "grunt-php": "~0.1.1",
     "grunt-parallel": "~0.2.0",
     "grunt-contrib-compass": "~0.3.0",
-    "grunt-bower-requirejs": "~0.6.0"
+    "grunt-bower-requirejs": "~0.6.0",
+    "grunt-contrib-requirejs": "~0.4.1"
   },
   "engines": {
     "node": ">=0.10.0"
