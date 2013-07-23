@@ -15,6 +15,7 @@ define([
     ui: {
       //container
       searchBarContainer: ".search-bar-container",
+      searchBarLeftContainer: ".search-bar-left-container",
       searchBarRightContainer: ".search-bar-right-container",
 
       //search controls
@@ -34,6 +35,12 @@ define([
       "click #map-options-button": "toggleMapOptions"
     },
 
+    initialize: function(){
+
+      this.animationSpeed = 350;
+
+    },
+
     toggleMapOptions: function(){
 
       if(this.ui.searchBarContainer.hasClass("is-open")){
@@ -48,13 +55,17 @@ define([
 
       var self = this;
 
+      this.ui.searchBarLeftContainer.transition({
+        width: 1020
+      }, this.animationSpeed);
+
       this.ui.searchBarRightContainer.transition({
         width:150
-      }, 350);
+      }, this.animationSpeed);
 
       this.ui.mapOptionsContainer.transition({
         width: 0
-      }, 350, function(){
+      }, this.animationSpeed, function(){
         self.ui.searchBarContainer.removeClass("is-open");
       });
 
@@ -64,13 +75,17 @@ define([
 
       var self = this;
 
+      this.ui.searchBarLeftContainer.transition({
+        width: 595
+      }, this.animationSpeed);
+
       this.ui.searchBarRightContainer.transition({
         width:575
-      }, 350);
+      }, this.animationSpeed);
 
       this.ui.mapOptionsContainer.transition({
         width: 423
-      }, 350, function(){
+      }, this.animationSpeed, function(){
         self.ui.searchBarContainer.addClass("is-open");
       });
 

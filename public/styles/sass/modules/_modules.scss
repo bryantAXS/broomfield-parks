@@ -95,14 +95,6 @@ input[name='search-text']{
   width:75px;
   @include transition(box-shadow 50ms linear);
 
-  &:first-child{
-    border-right:1px solid #6eb567;
-  }
-
-  &+.green-nav-button{
-    border-left: 1px solid #85d67e;
-  }
-
   &:active{
     @include box-shadow(inset 0 0 15px rgba(0,0,0,.15));
   }
@@ -113,21 +105,24 @@ input[name='search-text']{
   @extend .green-nav-button;
   background-size: 20px 24px;
   background-image:url(/images/icon-nav-pin.png);
+  border-right:1px solid #6eb567;
 }
 
 #map-options-button{
   @extend .green-nav-button;
   background-size: 21px 24px;
   background-image:url(/images/icon-menu.png);
+  position:absolute;
+  top:0;
+  right:0;
 }
 
 .map-options-container{
   background-color:$green;
+  border-left:1px solid #85d67e;
+  float:left;
   height:75px;
-  position:absolute;
   overflow:hidden;
-  top:0;
-  right:0;
   width:0;
 }
 
