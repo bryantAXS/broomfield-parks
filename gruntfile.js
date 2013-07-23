@@ -17,7 +17,7 @@ module.exports = function(grunt) {
       },
       requirejs: {
         files: [
-          {expand: true, flatten: false, src: ['bower_modules/requirejs/require.js'], dest: 'public/scripts/vendor'}
+          {expand: true, flatten: false, cwd: "bower_modules/requirejs", src: 'require.js', dest: 'public/scripts/vendor'}
         ]
       },
       dist: {
@@ -37,9 +37,6 @@ module.exports = function(grunt) {
         options: {
           copy: false
         }
-      },
-      target: {
-        rjsConfig: 'public/scripts/main.js'
       }
     },
 
@@ -145,8 +142,7 @@ module.exports = function(grunt) {
   });
 
   //require js
-  // grunt.loadNpmTasks('grunt-bower-requirejs');
-  // grunt.loadNpmTasks('grunt-contrib-requirejs');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
 
   // Basic tasks
   grunt.loadNpmTasks('grunt-exec');

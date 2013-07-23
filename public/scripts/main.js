@@ -6,37 +6,36 @@
 // Setting up require.js paths
 require.config( {
 
-  baseUrl: "/assets/scripts",
+  baseUrl: "/public/scripts",
   urlArgs: "bust=" +  (new Date()).getTime(),
   paths:{
 
     // Dependencies
-    "jquery": "vendor/jquery",
-    "underscore": "vendor/underscore",
+    "jquery": "../../bower_modules/jquery/jquery",
+    "underscore": "../../bower_modules/underscore/underscore",
 
-    "backbone": "vendor/backbone",
-    "backbone.wreqr": "vendor/backbone.wreqr",
-    "backbone.babysitter": "vendor/backbone.babysitter",
-    "backbone-fetch-cache": "vendor/backbone-fetch-cache",
-    "marionette": "vendor/marionette",
+    "backbone": "../../bower_modules/backbone",
+    "backbone.wreqr": "../../bower_modules/backbone.wreqr/src/wreqr",
+    "backbone.babysitter": "../../bower_modules/backbone.babysitter",
+    "marionette": "../../bower_modules/marionette",
 
-    "add2home": "vendor/add2home",
-    "detectmobile": "vendor/detectmobile",
-    "date": "vendor/date",
-    "endlessscroll": "vendor/jquery-endlessscroll",
-    "fancybox": "vendor/fancybox",
-    "fastclick": "vendor/fastclick",
-    "jquery-dropdown": "vendor/jquery-dropdown",
-    'jquery-transit': "vendor/jquery-transit",
-    'jquery-jpanelmenu': "vendor/jquery-jpanelmenu",
-    "moment": "vendor/moment",
-    "transitions": "vendor/jquery-page-transitions",
-    "log": "vendor/log",
-    "backstretch": "vendor/backstretch",
-    "gauge": "vendor/gauge",
+    // "add2home": "vendor/add2home",
+    // "detectmobile": "vendor/detectmobile",
+    // "date": "vendor/date",
+    // "endlessscroll": "vendor/jquery-endlessscroll",
+    // "fancybox": "vendor/fancybox",
+    // "fastclick": "vendor/fastclick",
+    // "jquery-dropdown": "vendor/jquery-dropdown",
+    // 'jquery-transit': "vendor/jquery-transit",
+    // 'jquery-jpanelmenu': "vendor/jquery-jpanelmenu",
+    // "moment": "vendor/moment",
+    // "transitions": "vendor/jquery-page-transitions",
+    // "log": "vendor/log",
+    // "backstretch": "vendor/backstretch",
+    // "gauge": "vendor/gauge",
 
-    // FIXME: These should be removed and included in their respective View files
-    "exclusive-content-form": "libs/exclusive-content-form"
+    // // FIXME: These should be removed and included in their respective View files
+    // "exclusive-content-form": "libs/exclusive-content-form"
 
   },
   shim: {
@@ -51,59 +50,23 @@ require.config( {
     "marionette":{
       "deps": ["backbone", "backbone.wreqr", "backbone.babysitter"]
     },
-    "backbone.wreqr":{
-      "deps": ["backbone"]
-    },
-    "backbone.babysitter":{
-      "deps": ["backbone"]
-    },
-    "jquery-dropdown":{
-      "deps": ["jquery"]
-    },
-    "jquery-transit":{
-      "deps": ["jquery"]
-    },
-    "jquery-jpanelmenu":{
-      "deps": ["jquery"]
-    },
-    "detectmobile":{
-      "deps": ["jquery"]
-    },
-    "gauge":{
-      "exports": "Gauge"
-    }
+    // "backbone.wreqr":{
+    //   "deps": ["backbone"]
+    // },
+    // "backbone.babysitter":{
+    //   "deps": ["backbone"]
+    // },
   }
 
 });
 
 
-// Hiding the scroll bar
-window.addEventListener("load",function() {
-  // Set a timeout...
-  setTimeout(function(){
-    // Hide the address bar!
-    window.scrollTo(0, 1);
-  }, 0);
-});
 
 
-require(["apps/CrowdnoizeApp"], function(CrowdnoizeApp){
+// $(window).load(function(){
 
-  // Fixes a click delay on the iphone
-  window.addEventListener('load', function() {
-    new FastClick(document.body);
-  }, false);
+//   console.log(AppRouter, AppController);
+//   ParksApp.start();
+//   console.log("test");
 
-  window.App = CrowdnoizeApp;
-  App.start();
-
-});
-
-
-$(window).load(function(){
-
-  console.log(AppRouter, AppController);
-  ParksApp.start();
-  console.log("test");
-
-});
+// });
