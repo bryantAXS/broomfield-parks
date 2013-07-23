@@ -1,9 +1,7 @@
 {{#dev}}
-<script type="text/javascript" src="/dev/js/vendor.js"></script>
-<script type="text/javascript" src="/dev/js/app.js"></script>
+<script data-main="/scripts/main" src="/scripts/vendor/requirejs.js"></script>
 {{/dev}}
 
 {{#prod}}
-<script type="text/javascript" src="/js/vendor.min.js"></script>
-<script type="text/javascript" src="/js/app.min.js"></script>
+<script data-main="scripts/main.built" src="/scripts/vendor/require.js"></script>
 {{/prod}}
