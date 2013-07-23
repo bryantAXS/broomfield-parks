@@ -32,3 +32,18 @@ default_run_options[:pty] = true
 # after "deploy:update", "deploy:cleanup"
 # after "deploy:setup", "setup:assign_ownership"
 # after "deploy", "deploy:create_symlinks", "deploy:set_permissions"
+
+after "deploy", "deploy:cleanup"
+after "deploy:update_code", "composer:install"
+before "composer:install", "composer:copy_vendors"
+
+namespace :composer do
+  desc "Copy vendors from previous release"
+  task :copy_vendors, :except => { :no_release => true } do
+    run "if [ -d #{previous_release}/composer_modules ]; then cp -a #{previous_release}/composer_modules #{latest_release}/composer_modules; fi"
+  end
+  task :install do
+    run "sh -c 'cd #{latest_release} && curl -s http://getcomposer.org/installer | #{php_bin}'"
+    run "sh -c 'cd #{release_path} && ./composer.phar install'"
+  end
+end
