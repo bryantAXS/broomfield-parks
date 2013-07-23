@@ -36,6 +36,7 @@ default_run_options[:pty] = true
 after "deploy", "deploy:cleanup"
 after "deploy:update_code", "composer:install"
 before "composer:install", "composer:copy_vendors"
+#after "composer:install", "phpunit:run_tests"
 
 namespace :composer do
   desc "Copy vendors from previous release"
@@ -43,7 +44,6 @@ namespace :composer do
     run "if [ -d #{previous_release}/composer_modules ]; then cp -a #{previous_release}/composer_modules #{latest_release}/composer_modules; fi"
   end
   task :install do
-    run "sh -c 'cd #{latest_release} && curl -s http://getcomposer.org/installer | #{php_bin}'"
-    run "sh -c 'cd #{release_path} && ./composer.phar install'"
+    run "sh -c 'cd #{release_path} && composer install'"
   end
 end
