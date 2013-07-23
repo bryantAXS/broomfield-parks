@@ -6,6 +6,7 @@ set :user, 'root'
 set :port, 24
 set :deploy_to, "/var/www/#{application}"
 set :doc_root, "public"
+set :password, 'NJLinHV9gW7jUz'
 
 # Just run the commands since we are 'root'.
 set :run_method, :run

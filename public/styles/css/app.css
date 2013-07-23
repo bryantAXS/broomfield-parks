@@ -6798,7 +6798,7 @@ input[name='search-text'] {
   color: #4d7a49;
   height: 40px;
   display: block;
-  margin-top: 23px;
+  margin-top: 19px;
   outline: none;
   padding-left: 15px;
   -webkit-box-shadow: none;
@@ -6810,7 +6810,7 @@ input[name='search-text'] {
   width: calc(100% - 95px);
   font-family: "NeueLight";
   font-size: 30px;
-  line-height: 32px;
+  line-height: 44px;
   font-weight: 300;
 }
 

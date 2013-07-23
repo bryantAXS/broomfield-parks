@@ -43,13 +43,13 @@ input[name='search-text']{
   color:$dark-green;
   height:40px;
   display:block;
-  margin-top:23px;
+  margin-top:19px;
   outline:none;
   padding-left:15px;
 
   @include box-shadow(none);
   @include calc(width, "100% - 95px");
-  @include font("NeueLight", 30px, 32px);
+  @include font("NeueLight", 30px, 44px);
 }
 
 .search-button-container{
