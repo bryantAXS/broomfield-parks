@@ -4,10 +4,19 @@
 //
 
 .search-bar-container{
+  background-color:$white;
   height:75px;
   padding:0;
   position:relative;
-  @include box-shadow(0 3px 10px rgba(0,0,0,.25))
+  @include box-shadow(0 3px 10px rgba(0,0,0,.15));
+  @include opacity(.9);
+  @include transition(box-shadow $fast linear, opacity $fast linear);
+
+  &.has-focus{
+    @include box-shadow(0 3px 10px rgba(0,0,0,.35));
+    @include opacity(1);
+  }
+
 }
 
 .search-bar-left-container{
@@ -32,11 +41,12 @@
 input[name='search-text']{
   border:none;
   color:$dark-green;
-  height:30px;
+  height:40px;
   display:block;
   margin-top:23px;
   outline:none;
   padding-left:15px;
+
   @include box-shadow(none);
   @include calc(width, "100% - 95px");
   @include font("NeueLight", 30px, 32px);
@@ -62,6 +72,20 @@ input[name='search-text']{
     top:0;
   }
 
+  &.is-searching{
+
+    #search-button{
+      z-index:-1;
+      @include opacity(0);
+    }
+
+    #clear-search-button{
+      z-index:1;
+      @include opacity(1);
+    }
+
+  }
+
 }
 
 .search-button{
@@ -69,18 +93,21 @@ input[name='search-text']{
   background-position: center center;
   background-size: 40px 40px;
   background-repeat: no-repeat;
+  @include transition(opacity $fast linear);
 }
 
 #search-button{
   @extend .search-button;
   background-image:url(/images/icon-search.png);
-  z-index:3;
+  z-index:1;
+  @include opacity(1);
 }
 
 #clear-search-button{
   @extend .search-button;
   background-image:url(/images/icon-x.png);
-  z-index:2;
+  z-index:-1;
+  @include opacity(0);
 }
 
 .green-nav-button{
@@ -96,7 +123,7 @@ input[name='search-text']{
   @include transition(box-shadow 50ms linear);
 
   &:active{
-    @include box-shadow(inset 0 0 15px rgba(0,0,0,.15));
+    @include box-shadow(inset 0 0 15px rgba(0,0,0,.13));
   }
 
 }
@@ -140,12 +167,15 @@ input[name='search-text']{
   }
   a{
     color: $light-green;
-    &.is-active{
+    @include transition(color $fast linear);
+
+    &.is-active, &:hover{
       color:$white;
     }
     &+a{
       margin-left:25px;
     }
+
   }
 }
 
@@ -168,4 +198,40 @@ input[name='search-text']{
   }
   */
 
+}
+
+
+
+//
+// START PAGE
+//
+
+.backstretch{
+  img{
+    @include filter(blur(5px));
+  }
+}
+
+#start-layout-container{
+
+  background-color:transparent;
+  margin-top:240px;
+
+  p{
+    text-align:center;
+    a{
+      border-bottom:1px dotted $black;
+      color:$black;
+    }
+  }
+}
+
+.start-title{
+  color:$darker-green;
+  @include font("FuturaLight", 72px, 72px);
+}
+
+.start-subtitle{
+  color:$black;
+  @include font("FuturaBold", 18px, 24px);
 }

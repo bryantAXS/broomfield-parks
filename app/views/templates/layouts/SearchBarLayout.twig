@@ -1,33 +1,34 @@
 <script id="search-bar-layout-template" type="text/template">
 
-  <div id="search-bar-layout-container">
+  <!-- Inside SearchBarLayout.js <div id="search-bar-layout-container"> -->
 
     <div class="row">
-      <div class="search-bar-container clearfix">
-        <div class="search-bar-left-container clearfix">
-          <input class="search-text" type="text" name="search-text" value="Test" />
-          <div class="search-button-container">
-            <button id="search-button" href="javascript:;"></button>
-            <button id="clear-search-button" href="javascript:;"></button>
-          </div><!-- search-button-container -->
-        </div><!-- search-bar-left-container -->
+      <form id="search-form">
+        <div class="search-bar-container clearfix">
+          <div class="search-bar-left-container clearfix">
+            <input class="search-text" type="text" name="search-text" placeholer="Welcome to Broomfield, Colorado Parks Search" />
+            <div class="search-button-container">
+              <button id="search-button"></button>
+              <button id="clear-search-button" type="button"></button>
+            </div><!-- search-button-container -->
+          </div><!-- search-bar-left-container -->
 
-        <div class="search-bar-right-container">
-          <button id="goto-map-button" href="javascript:;"></button>
-          <div class="map-options-container">
-            <div class="map-options-content-container">
-              <span>SEARCH BY</span>
-              <a href="javascript:;">NAME</a>
-              <a href="javascript:;">AMENITY</a>
-              <a href="javascript:;">LOCATION</a>
-            </div><!-- map-options-content-container -->
-          </div><!-- map-options-button-container -->
-          <button id="map-options-button" href="javascript:;"></button>
-        </div><!-- search-bar-right-container -->
-
-      </div><!-- search-bar-container -->
+          <div class="search-bar-right-container">
+            <button id="goto-map-button" type="button"></button>
+            <div class="map-options-container">
+              <div class="map-options-content-container">
+                <span>SEARCH BY</span>
+                <a href="javascript:;">NAME</a>
+                <a href="javascript:;">AMENITY</a>
+                <a href="javascript:;">LOCATION</a>
+              </div><!-- map-options-content-container -->
+            </div><!-- map-options-button-container -->
+            <button id="map-options-button" type="button"></button>
+          </div><!-- search-bar-right-container -->
+        </div><!-- search-bar-container -->
+      </form>
     </div><!-- row -->
 
-  </div><!-- search-bar-layout-container -->
+  <!-- </div> search-bar-layout-container -->
 
 </script>

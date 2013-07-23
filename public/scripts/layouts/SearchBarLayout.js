@@ -12,6 +12,8 @@ define([
 
     template: "#search-bar-layout-template",
 
+    id: "search-bar-layout-container",
+
     ui: {
       //container
       searchBarContainer: ".search-bar-container",
@@ -19,9 +21,10 @@ define([
       searchBarRightContainer: ".search-bar-right-container",
 
       //search controls
-      searchButtonContainer: "#search-button-container",
+      searchButtonContainer: ".search-button-container",
       searchButton: "#search-button",
       clearSearchButton: "#clear-search-button",
+      searchField: ".search-text",
 
       //search options controls
       gotoMapButton: "#goto-map-button",
@@ -32,12 +35,26 @@ define([
     },
 
     events: {
-      "click #map-options-button": "toggleMapOptions"
+      "click #map-options-button": "toggleMapOptions",
+      "submit #search-form": "submitSearch",
+      "click #clear-search-button": "clearSearch",
+      "focus .search-text": "searchFocused",
+      "blur .search-text": "searchBlured"
     },
 
     initialize: function(){
 
+      var self = this;
+
       this.animationSpeed = 350;
+
+      App.vent.on("search:guide", function(){
+        self.searchGuide();
+      });
+
+      App.vent.on("search:all", function(){
+        self.searchAll();
+      });
 
     },
 
@@ -89,7 +106,82 @@ define([
         self.ui.searchBarContainer.addClass("is-open");
       });
 
+    },
+
+    submitSearch: function(){
+      this.showClearButton();
+      return false;
+    },
+
+    clearSearch: function(){
+      this.ui.searchField.val("");
+      this.showSearchButton();
+    },
+
+    showClearButton: function(){
+      this.ui.searchButtonContainer.addClass("is-searching");
+    },
+
+    showSearchButton: function(){
+      this.ui.searchButtonContainer.removeClass("is-searching");
+    },
+
+    searchFocused: function(){
+      this.ui.searchBarContainer.addClass("has-focus");
+    },
+
+    searchBlured: function(){
+      this.ui.searchBarContainer.removeClass("has-focus");
+    },
+
+    searchGuide: function(){
+      this.startAutoSearch("guide");
+    },
+
+    searchAll: function(){
+      this.startAutoSearch("all");
+    },
+
+    startAutoSearch: function(searchText){
+
+      var self = this;
+      var i = 0;
+      var intervalLength = 400;
+      var $done = $.Deferred();
+
+      $done.done(function(){
+        self.submitSearch();
+      });
+
+      this.searchFocused();
+      this.ui.searchField.val("");
+
+      for(i = 0; i < searchText.length; i++){
+        var letter = searchText.charAt(i);
+          setTimeout(
+            (function(i, letter, searchText){
+              return function(){
+                self.setAutoSearchLetter(i, letter, searchText);
+                if(i === searchText.length - 1){
+                  $done.resolve();
+                }
+              };
+            })(i, letter, searchText)
+          , intervalLength * (i + 1));
+      }
+
+    },
+
+    setAutoSearchLetter: function(i, letter, searchText){
+      var currentValue = this.ui.searchField.val();
+      this.ui.searchField.val(currentValue + letter);
+    },
+
+    submitSearch: function(){
+      console.log("Submit Search");
     }
+
+
 
   });
 
