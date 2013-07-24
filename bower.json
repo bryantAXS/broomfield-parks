@@ -12,6 +12,7 @@
     "foundation": "~4.2.3",
     "jquery-backstretch": "~2.0.4",
     "requirejs": "~2.1.8",
-    "jquery.transit": "~0.9.9"
+    "jquery.transit": "~0.9.9",
+    "in-viewport": "~0.3.0"
   }
 }

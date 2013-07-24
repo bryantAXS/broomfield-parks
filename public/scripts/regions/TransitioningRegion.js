@@ -10,71 +10,76 @@ define([
 
   var TransitioningRegion = Backbone.Marionette.Region.extend({
 
-    $pagesContainer: $(".pages-container"),
 
+    /**
+     * When we're opening a view
+     * @param  {object} view the view itself
+     * @return {void}
+     */
     open:function(view){
 
       var self = this;
 
-      if(App.traits.isMobile){
-
-        if(this.$closed !== undefined){
-
-          this.$closed.done(function(){
-            self._appendViewAndShow(view);
-          });
-
-        }else{
-
-          self._appendViewAndShow(view);
-
-        }
+      // check to see if their is an existing view, if so, proceed
+      if(this.has_closed !== undefined){
+        this.has_closed.done(function(){
+          self.appendViewAndShow(view);
+        });
       }else{
-
-       self._appendViewAndShow(view);
-
+        // if there is no view, we want to just show the new one
+        self.appendViewAndShow(view);
       }
 
     },
 
-    _appendViewAndShow: function(view){
+    /**
+     * Adding the new view to the dom and showing it
+     * @param  {view} view the view object
+     * @return {void}
+     */
+    appendViewAndShow: function(view){
 
       var self = this;
-
       self.$el.append(view.el);
       App.vent.trigger("page:opened");
 
     },
 
-    // Close the current view, if there is one. If there is no
-    // current view, it does nothing and returns immediately.
+    /**
+     * We want to close the current view (if their is one), or else just return
+     * @return {[type]} [description]
+     */
     close: function(){
 
       var self = this;
-
       var view = this.currentView;
-      if (!view || view.isClosed){ return; }
 
-      if(App.traits.isMobile){
-
-        //create a callback used to determine when the new view is added to the screen
-        this.$closed = $.Deferred();
-
-        // determining which direction we should move
-        var xPos = view.$networkButton !== undefined ? "-100%" : "100%";
-
-        self.$pagesContainer.transition({ x: xPos }, function(){
-          self.$closed.resolve();
-          self._closeView(view);
-          self.$pagesContainer.css({translate: [0,0] });
-        });
-
-
-      }else{
-        self._closeView(view);
+      // just return if there isn't a curent view or we're closed
+      if (!view || view.isClosed){
+        return;
       }
 
-      //we need to make sure this is deleted right away and not after the callback
+      //create a callback used to determine when the new view is added to the screen
+      this.has_closed = $.Deferred();
+
+      // determining which direction we should move
+      var xPos = "100%";
+
+      // this is where the transition happens
+      this.$el.transition({
+        x: xPos,
+        opacity: 0
+      }, function(){
+        self.has_closed.resolve();
+        self.closeView(view);
+        self.$el.css({
+          translate: [0,0],
+          opacity:1
+        });
+      });
+
+      // we need to make sure this is deleted right away and
+      // not after the callback
       delete this.currentView;
 
     },
@@ -84,12 +89,16 @@ define([
      * @param  {[type]} view [description]
      * @return {[type]}      [description]
      */
-    _closeView: function(view){
+    closeView: function(view){
 
       //call 'close' or 'remove', depending on which is found
-      if (view.close) { view.close(); }
-      else if (view.remove) { view.remove(); }
-      Marionette.triggerMethod.call(this, "close");
+      if(view.close){
+        view.close();
+      }else if(view.remove){
+        view.remove();
+      }
+
+      Backbone.Marionette.triggerMethod.call(this, "close");
 
     }
 

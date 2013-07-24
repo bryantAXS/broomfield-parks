@@ -5,8 +5,9 @@ define([
   "marionette",
   "routers/Router",
   "layouts/MapLayout",
-  "layouts/SearchBarLayout"
-], function($, _, Backbone, Marionette, Router, MapLayout, SearchBarLayout){
+  "layouts/SearchBarLayout",
+  "regions/TransitioningRegion"
+], function($, _, Backbone, Marionette, Router, MapLayout, SearchBarLayout, TransitioningRegion){
 
   var App = new Backbone.Marionette.Application();
 
@@ -16,7 +17,10 @@ define([
    */
   App.addRegions({
     searchRegion: "#search-region-container",
-    contentRegion: "#content-region-container",
+    contentRegion: {
+      selector: "#content-region-container",
+      regionType: TransitioningRegion
+    },
     mapRegion: "#map-region-container"
   });
 

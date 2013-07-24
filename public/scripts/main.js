@@ -22,7 +22,8 @@ require.config( {
 
     "backstretch":            'bower_modules/jquery-backstretch/jquery.backstretch',
     "transit":                'bower_modules/jquery.transit/jquery.transit',
-    "lazyload":                   'bower_modules/jquery.lazyload/jquery.lazyload'
+    "lazyload":               'bower_modules/jquery.lazyload/jquery.lazyload',
+    "viewport-selectors":     'vendor/viewport'
 
   },
   shim: {
@@ -50,6 +51,9 @@ require.config( {
       "deps": ["jquery"]
     },
     "lazyload":{
+      "deps": ["jquery"]
+    },
+    "viewport-selectors":{
       "deps": ["jquery"]
     }
   }
