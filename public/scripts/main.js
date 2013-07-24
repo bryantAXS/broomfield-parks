@@ -21,7 +21,8 @@ require.config( {
     "moment":                 'bower_modules/moment/min/moment',
 
     "backstretch":            'bower_modules/jquery-backstretch/jquery.backstretch',
-    "transit":                'bower_modules/jquery.transit/jquery.transit'
+    "transit":                'bower_modules/jquery.transit/jquery.transit',
+    "lazyload":                   'bower_modules/jquery.lazyload/jquery.lazyload'
 
   },
   shim: {
@@ -46,6 +47,9 @@ require.config( {
       "deps": ["jquery"]
     },
     "transit":{
+      "deps": ["jquery"]
+    },
+    "lazyload":{
       "deps": ["jquery"]
     }
   }

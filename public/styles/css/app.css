@@ -5332,18 +5332,18 @@ a.th {
     margin-top: -5px;
   }
 }
-/* line 14, ../sass/base/_config.scss */
+/* line 15, ../sass/base/_config.scss */
 .row, .clearfix {
   zoom: 1;
 }
-/* line 16, ../sass/base/_config.scss */
+/* line 17, ../sass/base/_config.scss */
 .row:before, .row:after, .clearfix:before, .clearfix:after {
   content: "\0020";
   display: block;
   height: 0;
   overflow: hidden;
 }
-/* line 22, ../sass/base/_config.scss */
+/* line 23, ../sass/base/_config.scss */
 .row:after, .clearfix:after {
   clear: both;
 }
@@ -5383,6 +5383,21 @@ html {
   height: 100%;
   width: 100%;
   z-index: 0;
+}
+
+/* line 33, ../sass/base/_layout.scss */
+#start-layout-container {
+  margin-top: 240px;
+}
+
+/* line 37, ../sass/base/_layout.scss */
+#results-layout-container {
+  margin-top: 180px;
+}
+
+/* line 1, ../sass/base/_overrides.scss */
+[class*="column"] + [class*="column"]:last-child {
+  float: left;
 }
 
 @font-face {
@@ -6983,22 +6998,17 @@ input[name='search-text'] {
   filter: blur(5px);
 }
 
-/* line 215, ../sass/modules/_modules.scss */
-#start-layout-container {
-  background-color: transparent;
-  margin-top: 240px;
-}
-/* line 220, ../sass/modules/_modules.scss */
+/* line 216, ../sass/modules/_modules.scss */
 #start-layout-container p {
   text-align: center;
 }
-/* line 222, ../sass/modules/_modules.scss */
+/* line 218, ../sass/modules/_modules.scss */
 #start-layout-container p a {
   border-bottom: 1px dotted #282828;
   color: #282828;
 }
 
-/* line 229, ../sass/modules/_modules.scss */
+/* line 225, ../sass/modules/_modules.scss */
 .start-title {
   color: #234d20;
   font-family: "FuturaLight";
@@ -7007,11 +7017,98 @@ input[name='search-text'] {
   font-weight: 300;
 }
 
-/* line 234, ../sass/modules/_modules.scss */
+/* line 230, ../sass/modules/_modules.scss */
 .start-subtitle {
   color: #282828;
   font-family: "FuturaBold";
   font-size: 18px;
   line-height: 24px;
+  font-weight: 300;
+}
+
+/* line 240, ../sass/modules/_modules.scss */
+.results-title {
+  display: block;
+  margin-bottom: 35px;
+  text-align: center;
+  font-family: "FuturaLight";
+  font-size: 36px;
+  line-height: 36px;
+  font-weight: 300;
+}
+
+/* line 247, ../sass/modules/_modules.scss */
+.result-container {
+  background-color: white;
+  margin-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* line 256, ../sass/modules/_modules.scss */
+.result-image-container {
+  position: absolute;
+  height: 149px;
+  left: 0;
+  top: 0;
+  width: 360px;
+}
+/* line 263, ../sass/modules/_modules.scss */
+.result-image-container img {
+  height: 149px;
+  width: 360px;
+}
+
+/* line 270, ../sass/modules/_modules.scss */
+.result-content-container {
+  position: relative;
+  padding-top: 149px;
+}
+
+/* line 275, ../sass/modules/_modules.scss */
+.result-title-row {
+  padding: 22px 0 9px 0;
+}
+
+/* line 279, ../sass/modules/_modules.scss */
+.result-title {
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+  font-family: "Neue";
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 300;
+}
+
+/* line 287, ../sass/modules/_modules.scss */
+.result-icons-container {
+  text-align: right;
+}
+
+/* line 291, ../sass/modules/_modules.scss */
+.result-show-details {
+  display: inline-block;
+  width: 16px;
+}
+
+/* line 296, ../sass/modules/_modules.scss */
+.result-show-pin {
+  display: inline-block;
+  margin-left: 4px;
+  width: 12px;
+}
+
+/* line 302, ../sass/modules/_modules.scss */
+.result-amenities {
+  color: #999999;
+  font-family: "FuturaBook";
+  font-size: 14px;
+  line-height: 20px;
   font-weight: 300;
 }

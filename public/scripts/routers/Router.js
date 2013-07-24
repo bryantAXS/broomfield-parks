@@ -13,7 +13,8 @@ define([
     appRoutes: {
 
       // Going back to the Events Listing page
-      "": "index"
+      "": "index",
+      "search/:searchTerm": "search"
 
     },
 

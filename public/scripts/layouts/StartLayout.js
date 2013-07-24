@@ -25,12 +25,12 @@ define([
 
     triggerGuide: function(){
       console.log("trigger guide");
-      App.vent.trigger("search:guide");
+      App.vent.trigger("searchbar:search:guide");
     },
 
     triggerAll: function(){
       console.log("trigger all");
-      App.vent.trigger("search:all");
+      App.vent.trigger("searchbar:search:all");
     }
 
   });

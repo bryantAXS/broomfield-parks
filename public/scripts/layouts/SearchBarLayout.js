@@ -48,13 +48,21 @@ define([
 
       this.animationSpeed = 350;
 
-      App.vent.on("search:guide", function(){
+      App.vent.on("searchbar:search:guide", function(){
         self.searchGuide();
       });
 
-      App.vent.on("search:all", function(){
+      App.vent.on("searchbar:search:all", function(){
         self.searchAll();
       });
+
+    },
+
+    onRender: function(){
+
+      if(this.areSearching()){
+        this.setSearchFieldsSilently(this.getSearchTermFromURL());
+      }
 
     },
 
@@ -116,6 +124,9 @@ define([
     clearSearch: function(){
       this.ui.searchField.val("");
       this.showSearchButton();
+      App.Router.navigate("/", {
+        trigger: true
+      });
     },
 
     showClearButton: function(){
@@ -178,10 +189,35 @@ define([
     },
 
     submitSearch: function(){
-      console.log("Submit Search");
+
+      var encodedSearchTerm = encodeURIComponent(this.ui.searchField.val());
+
+      App.Router.navigate("search/"+encodedSearchTerm, {
+        trigger: true
+      });
+
+      this.showClearButton();
+
+      // IMPORTANT -- leave this here so form doesn't submit
+      return false;
+    },
+
+    setSearchFieldsSilently: function(term){
+      this.ui.searchField.val(term);
+      this.showClearButton();
+    },
+
+    areSearching: function(){
+      if(Backbone.history.fragment.indexOf("search") > -1){
+        return true;
+      }else{
+        return false;
+      }
+    },
+
+    getSearchTermFromURL: function(){
+      return decodeURIComponent(Backbone.history.fragment.split("/")[1]);
     }
-
-
 
   });
 
