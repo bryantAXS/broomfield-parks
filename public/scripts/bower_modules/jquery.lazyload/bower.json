@@ -1,0 +1,8 @@
+{
+  "name": "jquery.lazyload",
+  "version": "1.8.4",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tuupola/jquery_lazyload.git"
+  }
+}

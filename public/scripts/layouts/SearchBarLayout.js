@@ -127,6 +127,7 @@ define([
       App.Router.navigate("/", {
         trigger: true
       });
+      this.ui.searchField.focus();
     },
 
     showClearButton: function(){
