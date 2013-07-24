@@ -14,7 +14,8 @@ define([
 
       // Going back to the Events Listing page
       "": "index",
-      "search/:searchTerm": "search"
+      "search/:searchTerm": "search",
+      "park/:parkName": "park"
 
     },
 

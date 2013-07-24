@@ -6,8 +6,9 @@ define([
   "backbone",
   "marionette",
   "layouts/StartLayout",
-  "layouts/ResultsLayout"
-], function($, _, Backbone, Marionette, StartLayout, ResultsLayout){
+  "layouts/ResultsLayout",
+  "layouts/ParkDetailLayout"
+], function($, _, Backbone, Marionette, StartLayout, ResultsLayout, ParkDetailLayout){
 
   var RoutingController = {
 
@@ -24,8 +25,16 @@ define([
      * Our /search route
      * @return {void} [description]
      */
-    search: function(){
-      this.showResults();
+    search: function(searchTerm){
+      this.showResults(searchTerm);
+    },
+
+    /**
+     * Our /park route
+     * @return {void}
+     */
+    park: function(parkName){
+      this.showPark(parkName);
     },
 
     /**
@@ -48,6 +57,19 @@ define([
       var resultsLayout = new ResultsLayout({
       });
       App.contentRegion.show(resultsLayout);
+
+    },
+
+    /**
+     * Showing the actual park detail layout
+     * @param  {string} parkName the name of the park
+     * @return {void}
+     */
+    showPark: function(parkName){
+
+      var parkDetailLayout = new ParkDetailLayout({
+      });
+      App.contentRegion.show(parkDetailLayout);
 
     }
 

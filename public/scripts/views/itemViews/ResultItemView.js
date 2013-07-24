@@ -59,7 +59,7 @@ define([
           this.$el.addClass("faded-in");
           this.$el.transition({
             opacity: 1
-          }, 250);
+          }, 350);
         }
       }
 
