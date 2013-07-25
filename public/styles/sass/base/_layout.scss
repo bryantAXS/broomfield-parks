@@ -14,6 +14,18 @@ html {
   z-index:1;
 }
 
+#blur-layer{
+  background-color:$white;
+  position:fixed;
+  height:100%;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1;
+  @include opacity(.5);
+
+}
+
 #map-region-container{
   height:100%;
   left:0;
@@ -28,6 +40,18 @@ html {
   height:100%;
   width:100%;
   z-index:0;
+
+  img{
+    @include filter(blur(5px));
+    @include transition(all $fast linear);
+  }
+
+  &.is-active{
+    img{
+      @include filter(blur(0));
+    }
+  }
+
 }
 
 #start-layout-container{

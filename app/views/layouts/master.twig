@@ -40,5 +40,46 @@
 
     {% include 'partials/footer_scripts.html' %}
 
+    <script>
+    var options = {
+        toolItems: [
+            {name: 'Search', eventToRaise: 'View:Search', iconclass: 'entypo-search'},
+            {name: 'Layer List', eventToRaise: 'View:LayerList', iconclass: 'entypo-map'},
+        ],
+        mapConfig :{
+            initialExtent: { "xmin": -11699191, "ymin": 4853633, "xmax": -11692391, "ymax": 4856274, "spatialReference": { "wkid": 102100 } },
+        centerPoint: {},
+            basemaps: [
+                {
+                    name: 'Topo Map',
+                    label:'topo',
+                    type: 'ArcGISTiledMapServiceLayer',
+                    visible: true,
+                    url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer'
+                },
+                {
+                    name: 'Satellite Imagery',
+                    label:'satellite',
+                    type: 'ArcGISTiledMapServiceLayer',
+                    visible: false,
+                    url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer'
+                },
+
+            ],
+            operationalLayers: [
+                {
+                    name: 'Broomfield Parks',
+                    url: 'http://test.broomfield.org/arcgis/rest/services/Parks/FindAParkOrange/MapServer',
+                    type: 'ArcGISDynamicMapServiceLayer',
+                    visibleLayers: [0,1,2,3,4],
+                    visible: true,
+                    opacity: 0.8
+                }
+            ] ,
+        },
+        appRoot:'marionette-map'
+    };
+    </script>
+
     </body>
 </html>

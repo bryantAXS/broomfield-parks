@@ -39,7 +39,8 @@ define([
       "submit #search-form": "submitSearch",
       "click #clear-search-button": "clearSearchGoHome",
       "focus .search-text": "searchFocused",
-      "blur .search-text": "searchBlured"
+      "blur .search-text": "searchBlured",
+      "click #goto-map-button": "gotoMap"
     },
 
     initialize: function(){
@@ -61,15 +62,15 @@ define([
       });
 
       App.vent.on("searchBar:populateFromURL", function(){
-        self.setSearchFieldsSilently(self.getSearchTermFromURL());
+        self.setSearchFieldsSilently(App.getSearchTerm());
       });
 
     },
 
     onRender: function(){
 
-      if(this.areSearching()){
-        this.setSearchFieldsSilently(this.getSearchTermFromURL());
+      if(App.areSearching()){
+        this.setSearchFieldsSilently(App.getSearchTerm());
       }
 
     },
@@ -220,16 +221,16 @@ define([
       this.showClearButton();
     },
 
-    areSearching: function(){
-      if(Backbone.history.fragment.indexOf("search") > -1){
-        return true;
-      }else{
-        return false;
-      }
-    },
+    gotoMap: function(){
 
-    getSearchTermFromURL: function(){
-      return decodeURIComponent(Backbone.history.fragment.split("/")[1]);
+      if(this.ui.gotoMapButton.hasClass("is-active")){
+        this.ui.gotoMapButton.removeClass("is-active");
+        App.deactivateMap();
+      }else{
+        this.ui.gotoMapButton.addClass("is-active");
+        App.activateMap();
+      }
+
     }
 
   });

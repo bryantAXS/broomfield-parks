@@ -118,11 +118,11 @@ input[name='search-text']{
   font-size:21px;
   height:75px;
   outline:none;
-  padding-top:7px;
+  padding-top:8px;
   width:75px;
   @include transition(box-shadow 50ms linear);
 
-  &:active{
+  &:active, &.is-active{
     @include box-shadow(inset 0 0 15px rgba(0,0,0,.13));
   }
 
@@ -313,6 +313,18 @@ input[name='search-text']{
 .result-amenities{
   color:$grey;
   @include font("FuturaBook", 14px, 20px);
+}
+
+.result-description{
+  color:$white;
+  @include font("FuturaBook", 14px, 20px);
+}
+
+.result-container.direct-to-map{
+  background-color:$orange;
+  .result-title{
+    color: $white;
+  }
 }
 
 

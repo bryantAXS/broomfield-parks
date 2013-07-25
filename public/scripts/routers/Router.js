@@ -12,7 +12,19 @@ define([
 
     initialize: function() {
       this.routesHit = 0;
-      Backbone.history.on('route', function() { this.routesHit++; }, this);
+
+      // Fires each time a route is site
+      Backbone.history.on('route', function(){
+
+        // This counter helps us keep track of our history -- used in various hide/close/open behavior patterns
+        this.routesHit++;
+
+        // we only want this to fire after our initial Map and SearchBar layouts have been rendered
+        App.layoutsRendered.done(function(){
+          App.deactivateMap();
+        });
+
+      }, this);
     },
 
     back: function() {

@@ -11,6 +11,27 @@ define([
 
   var App = new Backbone.Marionette.Application();
 
+  App.areSearching = function(){
+    if(Backbone.history.fragment.indexOf("search") > -1){
+      return true;
+    }else{
+      return false;
+    }
+  };
+
+  App.getSearchTerm = function(){
+    return decodeURIComponent(Backbone.history.fragment.split("/")[1]);
+  };
+
+  App.activateMap = function(){
+    App.contentRegion.close();
+    App.mapLayout.activate();
+  };
+
+  App.deactivateMap = function(){
+    App.mapLayout.deactivate();
+    App.searchBarLayout.ui.gotoMapButton.removeClass("is-active");
+  };
 
   /**
    * Adding regions to the app
@@ -24,6 +45,8 @@ define([
     mapRegion: "#map-region-container"
   });
 
+  // We need to know when our Map and SearchBar layouts have been rendered
+  App.layoutsRendered = $.Deferred();
 
   /**
    * Starting our routing
@@ -60,7 +83,6 @@ define([
 
   });
 
-
   /**
    * Starting up our Router
    * @return {void}
@@ -70,17 +92,20 @@ define([
     return App.vent.trigger("routing:started");
   });
 
-
   /**
    * Adding our Search Bar and Map layouts to the page
    * @return {void}
    */
   App.on("start", function(){
-    var searchBarLayout = new SearchBarLayout();
-    App.searchRegion.show(searchBarLayout);
 
-    var mapLayout = new MapLayout();
-    App.mapRegion.show(mapLayout);
+    this.searchBarLayout = new SearchBarLayout();
+    App.searchRegion.show(this.searchBarLayout);
+
+    this.mapLayout = new MapLayout();
+    App.mapRegion.show(this.mapLayout);
+
+    // when have officially started routing
+    App.layoutsRendered.resolve();
   });
 
   return App;

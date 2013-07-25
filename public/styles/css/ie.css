@@ -1,0 +1,66 @@
+/* line 1, ../sass/ie.scss */
+.leaflet-vml-shape {
+  width: 1px;
+  height: 1px;
+}
+
+/* line 5, ../sass/ie.scss */
+.lvml {
+  behavior: url(#default#VML);
+  display: inline-block;
+  position: absolute;
+}
+
+/* line 11, ../sass/ie.scss */
+.leaflet-control {
+  display: inline;
+}
+
+/* line 15, ../sass/ie.scss */
+.leaflet-popup-tip {
+  width: 21px;
+  _width: 27px;
+  margin: 0 auto;
+  _margin-top: -3px;
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)";
+}
+
+/* line 24, ../sass/ie.scss */
+.leaflet-popup-tip-container {
+  margin-top: -1px;
+}
+
+/* line 27, ../sass/ie.scss */
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  border: 1px solid #999;
+}
+
+/* line 30, ../sass/ie.scss */
+.leaflet-popup-content-wrapper {
+  zoom: 1;
+}
+
+/* line 35, ../sass/ie.scss */
+.leaflet-control-zoom,
+.leaflet-control-layers {
+  border: 3px solid #999;
+}
+
+/* line 42, ../sass/ie.scss */
+.leaflet-control-attribution,
+.leaflet-control-layers,
+.leaflet-control-scale-line {
+  background: white;
+}
+
+/* line 45, ../sass/ie.scss */
+.leaflet-zoom-box {
+  filter: alpha(opacity=50);
+}
+
+/* line 48, ../sass/ie.scss */
+.leaflet-control-attribution {
+  border-top: 1px solid #bbb;
+  border-left: 1px solid #bbb;
+}

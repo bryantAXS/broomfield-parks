@@ -21,6 +21,7 @@ define([
       this.showStart();
     },
 
+
     /**
      * Our /search route
      * @return {void} [description]
@@ -29,6 +30,7 @@ define([
       this.showResults(searchTerm);
     },
 
+
     /**
      * Our /park route
      * @return {void}
@@ -36,6 +38,7 @@ define([
     park: function(parkName){
       this.showPark(parkName);
     },
+
 
     /**
      * Showing the Start page
@@ -48,6 +51,7 @@ define([
 
     },
 
+
     /**
      * Showing the search results page
      * @return {void}
@@ -59,6 +63,7 @@ define([
       App.contentRegion.show(resultsLayout);
 
     },
+
 
     /**
      * Showing the actual park detail layout

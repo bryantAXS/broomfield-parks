@@ -11,20 +11,23 @@ require.config( {
   paths:{
 
     // Dependencies
-    "jquery":                 'bower_modules/jquery/jquery',
-    "underscore":             'bower_modules/underscore/underscore',
-    "backbone":               'bower_modules/backbone/backbone',
-    "json":                   'bower_modules/backbone.marionette/public/javascripts/json2',
-    "backbone.babysitter":    'bower_modules/backbone.marionette/public/javascripts/backbone.babysitter',
-    "backbone.wreqr":         'bower_modules/backbone.marionette/public/javascripts/backbone.wreqr',
-    "marionette":             'bower_modules/backbone.marionette/lib/backbone.marionette.min',
-    "moment":                 'bower_modules/moment/min/moment',
-    "symbolset":              'vendor/symbolset',
+    "jquery":                           'bower_modules/jquery/jquery',
+    "underscore":                       'bower_modules/underscore/underscore',
+    "backbone":                         'bower_modules/backbone/backbone',
+    "json":                             'bower_modules/backbone.marionette/public/javascripts/json2',
+    "backbone.babysitter":              'bower_modules/backbone.marionette/public/javascripts/backbone.babysitter',
+    "backbone.wreqr":                   'bower_modules/backbone.marionette/public/javascripts/backbone.wreqr',
+    "marionette":                       'bower_modules/backbone.marionette/lib/backbone.marionette.min',
+    "moment":                           'bower_modules/moment/min/moment',
+    "symbolset":                        'vendor/symbolset',
 
-    "backstretch":            'bower_modules/jquery-backstretch/jquery.backstretch',
-    "transit":                'bower_modules/jquery.transit/jquery.transit',
-    "lazyload":               'bower_modules/jquery.lazyload/jquery.lazyload',
-    "viewport-selectors":     'vendor/viewport'
+    "backstretch":                      'bower_modules/jquery-backstretch/jquery.backstretch',
+    "transit":                          'bower_modules/jquery.transit/jquery.transit',
+    "lazyload":                         'bower_modules/jquery.lazyload/jquery.lazyload',
+    "viewport-selectors":               'vendor/viewport',
+
+    'esri-leaflet':                     'vendor/esri-leaflet',
+    'leaflet':                          'vendor/leaflet'
 
   },
   shim: {
@@ -56,6 +59,11 @@ require.config( {
     },
     "viewport-selectors":{
       "deps": ["jquery"]
+    },
+    "esri-leaflet":{
+      "deps": [
+        "leaflet"
+      ]
     }
   }
 

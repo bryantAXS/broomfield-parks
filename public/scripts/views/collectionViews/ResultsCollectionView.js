@@ -20,6 +20,14 @@ define([
 
     },
 
+    onRender: function(){
+
+      if(this.options.isGuideTrigger){
+        this.addDirectToMapItem();
+      }
+
+    },
+
     onScroll: function(){
 
       console.log("scrolling");
@@ -28,6 +36,20 @@ define([
       this.children.each(function(itemView){
         itemView.fadeIn();
       });
+
+      if(this.options.isGuideTrigger){
+        this.directToMapItemView.fadeIn();
+      }
+
+    },
+
+    addDirectToMapItem: function(){
+
+      var DirectToMapItemView = ResultItemView.extend({
+        'template': '#direct-to-map-item-view-template'
+      });
+      this.directToMapItemView = new DirectToMapItemView();
+      this.$el.append(this.directToMapItemView.render().el);
 
     }
 

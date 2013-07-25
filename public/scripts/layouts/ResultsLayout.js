@@ -20,11 +20,16 @@ define([
       resultsContainer: "#results-container"
     },
 
+    ui: {
+      title: ".results-title"
+    },
+
     initialize: function(){
 
       this.resultsCollection = new ResultsCollection([{},{},{},{},{},{},{},{}]);
 
       this.resultsCollectionView = new ResultsCollectionView({
+        isGuideTrigger: App.getSearchTerm() === "guide" ? true : false,
         collection: this.resultsCollection
       });
 
@@ -33,8 +38,25 @@ define([
     onRender: function(){
 
       var self = this;
+
+      this.setTitle();
+
       this.resultsContainer.show(this.resultsCollectionView);
       App.vent.trigger("searchBar:populateFromURL");
+
+    },
+
+    setTitle: function(){
+
+      var term = App.getSearchTerm();
+
+      if(term === "guide"){
+        this.ui.title.html("You're getting started! Here are a few recomendations.");
+      }else if(term === "all"){
+        this.ui.title.html("Here's a list of all our parks.");
+      }else{
+        this.ui.title.html("The following results best matched your search.");
+      }
 
     }
 
