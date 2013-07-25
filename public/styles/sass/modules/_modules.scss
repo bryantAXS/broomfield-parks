@@ -88,24 +88,21 @@ input[name='search-text']{
 
 }
 
-.search-button{
-  background-color: $white;
-  background-position: center center;
-  background-size: 40px 40px;
-  background-repeat: no-repeat;
+.search-button.ss-icon{
+  color:$green;
+  font-size:30px;
+  padding-top:7px;
   @include transition(opacity $fast linear);
 }
 
 #search-button{
   @extend .search-button;
-  background-image:url(/images/icon-search.png);
   z-index:1;
   @include opacity(1);
 }
 
 #clear-search-button{
   @extend .search-button;
-  background-image:url(/images/icon-x.png);
   z-index:-1;
   @include opacity(0);
 }
@@ -115,10 +112,13 @@ input[name='search-text']{
   background-position: center center;
   background-repeat: no-repeat;
   border:none;
+  color:$dark-green;
   display:block;
   float:left;
+  font-size:21px;
   height:75px;
   outline:none;
+  padding-top:7px;
   width:75px;
   @include transition(box-shadow 50ms linear);
 
@@ -130,15 +130,11 @@ input[name='search-text']{
 
 #goto-map-button{
   @extend .green-nav-button;
-  background-size: 20px 24px;
-  background-image:url(/images/icon-nav-pin.png);
   border-right:1px solid #6eb567;
 }
 
 #map-options-button{
   @extend .green-nav-button;
-  background-size: 21px 24px;
-  background-image:url(/images/icon-menu.png);
   position:absolute;
   top:0;
   right:0;
@@ -201,16 +197,24 @@ input[name='search-text']{
 }
 
 
+//
+// MAP LAYOUT
+//
+
+#map-layout-container{
+  .backstretch{
+    img{
+      @include filter(blur(5px));
+    }
+  }
+}
+
+
 
 //
 // START PAGE
 //
 
-.backstretch{
-  img{
-    @include filter(blur(5px));
-  }
-}
 
 #start-layout-container{
   p{
@@ -289,17 +293,120 @@ input[name='search-text']{
 }
 
 .result-show-details{
+  color:$blue;
   display:inline-block;
   width:16px;
+  &:hover{
+    color:$blue;
+  }
 }
 
 .result-show-pin{
+  color:$orange;
   display:inline-block;
-  margin-left:4px;
   width:12px;
+  &:hover{
+    color:$orange;
+  }
 }
 
 .result-amenities{
   color:$grey;
   @include font("FuturaBook", 14px, 20px);
+}
+
+
+//
+// PARK DETAIL
+//
+
+#park-detail-item-container{
+  background-color: rgba($white, 0.7);
+  @include box-shadow(0 3px 10px rgba(0,0,0,.25));
+  @include border-radius(3px);
+}
+
+#park-detail-gallery-container{
+
+  height:600px;
+  position:relative;
+  width:770px;
+  z-index:100;
+
+  .placeholder{
+    display:none;
+  }
+
+  .dummy{
+    height:auto;
+    position:relative;
+    width:100%;
+    z-index:-1;
+    @include opacity(0);
+  }
+
+  .ss-icon{
+    color:$white;
+    font-size:46px;
+    margin-top:-23px;
+    position:absolute;
+    top:50%;
+    z-index:2;
+    @include opacity(.6);
+    @include transition(opacity $fast linear);
+
+    &:hover{
+      @include opacity(.8);
+    }
+
+  }
+
+  #park-detail-gallery-left{
+    left:20px;
+  }
+
+  #park-detail-gallery-right{
+    right:20px;
+  }
+
+}
+
+#park-detail-info-container{
+
+  padding: 40px 20px 40px 30px;
+
+  h1{
+    color:$black;
+  }
+
+  address{
+    color:$black;
+    margin: 10px 0 30px 0;
+    font-style:normal;
+    @include font("FuturaBook", 14px, 18px);
+  }
+
+  h2{
+    color: $dark-grey;
+  }
+
+  p{
+    color:$dark-grey;
+    @include font("FuturaBook", 14px, 18px);
+  }
+
+  .button{
+    margin-top:30px;
+  }
+
+  .close{
+    color:$orange;
+    position:absolute;
+    top:40px;
+    right:30px;
+    &:hover{
+      color:$orange;
+    }
+  }
+
 }

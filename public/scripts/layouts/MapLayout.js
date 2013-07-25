@@ -16,7 +16,7 @@ define([
 
     onRender: function(){
       // ESRI Stuff will eventually go here
-      this.$el.backstretch("/images/placeholder-map.jpg");
+      //this.$el.backstretch("/images/placeholder-map.jpg");
     }
 
   });

@@ -1,0 +1,28 @@
+
+.button{
+  color:$white;
+  display:inline-block;
+  height:40px;
+  line-height:40px !important;
+  text-align:center;
+  @include border-radius(3px);
+
+  .ss-icon{
+    font-size:16px;
+    position:relative;
+    margin-right:5px;
+    top:2px;
+  }
+
+  &:hover{
+    color:$white;
+  }
+
+}
+
+.orange{
+  color:$white;
+  background-color: $orange;
+  padding: 0 15px;
+  @include font("FuturaBold", 14px, inherit);
+}

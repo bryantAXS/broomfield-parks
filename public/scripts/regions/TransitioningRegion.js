@@ -40,9 +40,27 @@ define([
     appendViewAndShow: function(view){
 
       var self = this;
-      self.$el.append(view.el);
-      App.vent.trigger("page:opened");
 
+      if(view.el.id === "park-detail-layout-container"){
+
+        // if we're about to show the park detail page, let's transition that in
+
+        this.$el.append(view.el);
+        this.$el.css({
+          scale: 0,
+          opacity: 0
+        });
+        this.$el.transition({
+          scale: 1,
+          opacity: 1
+        }, function(){
+          App.vent.trigger("page:opened");
+        });
+
+      }else{
+        this.$el.append(view.el);
+        App.vent.trigger("page:opened");
+      }
     },
 
     /**

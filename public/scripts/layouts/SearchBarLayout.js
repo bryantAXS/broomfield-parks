@@ -37,7 +37,7 @@ define([
     events: {
       "click #map-options-button": "toggleMapOptions",
       "submit #search-form": "submitSearch",
-      "click #clear-search-button": "clearSearch",
+      "click #clear-search-button": "clearSearchGoHome",
       "focus .search-text": "searchFocused",
       "blur .search-text": "searchBlured"
     },
@@ -54,6 +54,14 @@ define([
 
       App.vent.on("searchbar:search:all", function(){
         self.searchAll();
+      });
+
+      App.vent.on("searchBar:reset", function(){
+        self.clearSearch();
+      });
+
+      App.vent.on("searchBar:populateFromURL", function(){
+        self.setSearchFieldsSilently(self.getSearchTermFromURL());
       });
 
     },
@@ -124,6 +132,10 @@ define([
     clearSearch: function(){
       this.ui.searchField.val("");
       this.showSearchButton();
+    },
+
+    clearSearchGoHome: function(){
+      this.clearSearch();
       App.Router.navigate("/", {
         trigger: true
       });

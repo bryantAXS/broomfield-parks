@@ -15,6 +15,11 @@ define([
 
     className: "columns large-4",
 
+    events: {
+      "click .result-show-details": "showDetails",
+      "click .result-show-pin": "showPin"
+    },
+
     /**
      * Before we render we need to turn them off so we can fade them in
      * @return {void}
@@ -72,6 +77,22 @@ define([
      */
     isInViewport: function(){
       return this.$el.is(":in-viewport(-100)");
+    },
+
+
+    /**
+     * Whent he user has clicked the details icon
+     * @return {void}
+     */
+    showDetails: function(){
+      App.vent.trigger("searchBar:reset");
+    },
+
+
+    showPin: function(){
+
+
+
     }
 
   });

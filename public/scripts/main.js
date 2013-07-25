@@ -19,6 +19,7 @@ require.config( {
     "backbone.wreqr":         'bower_modules/backbone.marionette/public/javascripts/backbone.wreqr',
     "marionette":             'bower_modules/backbone.marionette/lib/backbone.marionette.min',
     "moment":                 'bower_modules/moment/min/moment',
+    "symbolset":              'vendor/symbolset',
 
     "backstretch":            'bower_modules/jquery-backstretch/jquery.backstretch',
     "transit":                'bower_modules/jquery.transit/jquery.transit',
@@ -60,7 +61,7 @@ require.config( {
 
 });
 
-require(["apps/App"], function(App){
+require(["apps/App", "symbolset"], function(App, Symbolset){
 
   window.App = App;
   App.start();

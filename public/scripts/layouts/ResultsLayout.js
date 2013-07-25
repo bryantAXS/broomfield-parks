@@ -34,6 +34,7 @@ define([
 
       var self = this;
       this.resultsContainer.show(this.resultsCollectionView);
+      App.vent.trigger("searchBar:populateFromURL");
 
     }
 
