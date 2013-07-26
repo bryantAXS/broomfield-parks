@@ -37,22 +37,39 @@ define([
 
     fetch: function(){
 
-      // $.ajax("http://test.broomfield.org/arcgis/rest/services/Parks/FindAParkOrange/MapServer/0/query", {
-      //   data: {
-      //     f: 'json',
-      //     outSR: 4326,
-      //     outFields: "*",
-      //     where: "1=1"
-      //   },
-      //   type:"POST",
-      //   dataType: "json",
-      //   success: function(data){
-      //     self.set(self.parseResults(data));
-      //   },
-      //   error: function(){
-      //     console.log("There was an error fetching all parks.");
-      //   }
-      // });
+      var self = this;
+
+      return $.ajax("http://test.broomfield.org/arcgis/rest/services/Parks/FindAParkOrange/MapServer/0/query", {
+        data: {
+          f: 'json',
+          outSR: 4326,
+          outFields: "*",
+          text: "BRANDYWINE WEST PARK"
+        },
+        type:"POST",
+        dataType: "json",
+        success: function(data){
+          self.set(self.parseResults(data));
+        },
+        error: function(){
+          console.log("There was an error fetching all parks.");
+        }
+      });
+
+    },
+
+    parseResults: function(data){
+
+      var park = data.features[0];
+      var obj = {};
+
+      _.each(_.keys(park.attributes), function(attribute){
+        obj[attribute.toLowerCase()] = park.attributes[attribute];
+      });
+
+      obj.geometry = park.geometry;
+
+      return obj;
 
     }
 

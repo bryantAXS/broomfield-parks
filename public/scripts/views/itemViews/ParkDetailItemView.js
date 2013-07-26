@@ -26,6 +26,12 @@ define([
       "click .close": "closeView"
     },
 
+    initialize: function(){
+
+      this.model.bind("change", this.render);
+
+    },
+
     onRender: function(){
 
       var self = this;

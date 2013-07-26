@@ -42,10 +42,12 @@ define([
       });
 
       if(this.parkModel === undefined){
+
         this.parkModel = new ParkModel({
           "safe_place_name": this.options.safeParkName
         });
         this.parkModel.fetch();
+
       }
 
     }
