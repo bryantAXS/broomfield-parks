@@ -30,8 +30,6 @@ define([
 
     onScroll: function(){
 
-      console.log("scrolling");
-
       // fade in our itemViews
       this.children.each(function(itemView){
         itemView.fadeIn();

@@ -5351,9 +5351,10 @@ a.th {
 /* line 1, ../sass/base/_layout.scss */
 html {
   -webkit-font-smoothing: antialiased;
+  overflow-y: scroll;
 }
 
-/* line 5, ../sass/base/_layout.scss */
+/* line 6, ../sass/base/_layout.scss */
 #search-bar-layout-container {
   position: fixed;
   top: 60px;
@@ -5361,13 +5362,13 @@ html {
   z-index: 10;
 }
 
-/* line 12, ../sass/base/_layout.scss */
+/* line 13, ../sass/base/_layout.scss */
 #content-region-container {
   position: relative;
   z-index: 1;
 }
 
-/* line 17, ../sass/base/_layout.scss */
+/* line 18, ../sass/base/_layout.scss */
 #blur-layer {
   background-color: white;
   position: fixed;
@@ -5380,7 +5381,7 @@ html {
   opacity: 0.5;
 }
 
-/* line 29, ../sass/base/_layout.scss */
+/* line 30, ../sass/base/_layout.scss */
 #map-region-container {
   height: 100%;
   left: 0;
@@ -5390,14 +5391,14 @@ html {
   z-index: 0;
 }
 
-/* line 38, ../sass/base/_layout.scss */
+/* line 39, ../sass/base/_layout.scss */
 #map-layout-container {
   position: absolute;
   height: 100%;
   width: 100%;
   z-index: 0;
 }
-/* line 44, ../sass/base/_layout.scss */
+/* line 45, ../sass/base/_layout.scss */
 #map-layout-container img {
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
@@ -5407,24 +5408,24 @@ html {
   -o-transition: all 150ms linear;
   transition: all 150ms linear;
 }
-/* line 50, ../sass/base/_layout.scss */
+/* line 51, ../sass/base/_layout.scss */
 #map-layout-container.is-active img {
   -webkit-filter: blur(0);
   -moz-filter: blur(0);
   filter: blur(0);
 }
 
-/* line 57, ../sass/base/_layout.scss */
+/* line 58, ../sass/base/_layout.scss */
 #start-layout-container {
   margin-top: 240px;
 }
 
-/* line 61, ../sass/base/_layout.scss */
+/* line 62, ../sass/base/_layout.scss */
 #results-layout-container {
   margin-top: 180px;
 }
 
-/* line 65, ../sass/base/_layout.scss */
+/* line 66, ../sass/base/_layout.scss */
 #park-detail-layout-container {
   margin-top: 180px;
 }
@@ -9738,29 +9739,45 @@ html:hover [class^="ss-"] {
 
 /* zoom control */
 /* line 267, ../sass/base/_plugins.scss */
+.leaflet-control-zoom {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: opacity 150ms linear;
+  -moz-transition: opacity 150ms linear;
+  -o-transition: opacity 150ms linear;
+  transition: opacity 150ms linear;
+}
+
+/* line 272, ../sass/base/_plugins.scss */
+.is-active .leaflet-control-zoom {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+
+/* line 277, ../sass/base/_plugins.scss */
 .leaflet-control-zoom-in {
   font: bold 18px 'Lucida Console', Monaco, monospace;
 }
 
-/* line 270, ../sass/base/_plugins.scss */
+/* line 280, ../sass/base/_plugins.scss */
 .leaflet-control-zoom-out {
   font: bold 22px 'Lucida Console', Monaco, monospace;
 }
 
-/* line 274, ../sass/base/_plugins.scss */
+/* line 284, ../sass/base/_plugins.scss */
 .leaflet-touch .leaflet-control-zoom-in {
   font-size: 22px;
   line-height: 30px;
 }
 
-/* line 278, ../sass/base/_plugins.scss */
+/* line 288, ../sass/base/_plugins.scss */
 .leaflet-touch .leaflet-control-zoom-out {
   font-size: 28px;
   line-height: 30px;
 }
 
 /* layers control */
-/* line 286, ../sass/base/_plugins.scss */
+/* line 296, ../sass/base/_plugins.scss */
 .leaflet-control-layers {
   box-shadow: 0 1px 7px rgba(0, 0, 0, 0.4);
   background: #f8f8f9;
@@ -9768,57 +9785,57 @@ html:hover [class^="ss-"] {
   border-radius: 5px;
 }
 
-/* line 292, ../sass/base/_plugins.scss */
+/* line 302, ../sass/base/_plugins.scss */
 .leaflet-control-layers-toggle {
   background-image: url(/images/layers.png);
   width: 36px;
   height: 36px;
 }
 
-/* line 297, ../sass/base/_plugins.scss */
+/* line 307, ../sass/base/_plugins.scss */
 .leaflet-retina .leaflet-control-layers-toggle {
   background-image: url(/images/layers-2x.png);
   background-size: 26px 26px;
 }
 
-/* line 301, ../sass/base/_plugins.scss */
+/* line 311, ../sass/base/_plugins.scss */
 .leaflet-touch .leaflet-control-layers-toggle {
   width: 44px;
   height: 44px;
 }
 
-/* line 306, ../sass/base/_plugins.scss */
+/* line 316, ../sass/base/_plugins.scss */
 .leaflet-control-layers .leaflet-control-layers-list,
 .leaflet-control-layers-expanded .leaflet-control-layers-toggle {
   display: none;
 }
 
-/* line 309, ../sass/base/_plugins.scss */
+/* line 319, ../sass/base/_plugins.scss */
 .leaflet-control-layers-expanded .leaflet-control-layers-list {
   display: block;
   position: relative;
 }
 
-/* line 313, ../sass/base/_plugins.scss */
+/* line 323, ../sass/base/_plugins.scss */
 .leaflet-control-layers-expanded {
   padding: 6px 10px 6px 6px;
   color: #333;
   background: #fff;
 }
 
-/* line 318, ../sass/base/_plugins.scss */
+/* line 328, ../sass/base/_plugins.scss */
 .leaflet-control-layers-selector {
   margin-top: 2px;
   position: relative;
   top: 1px;
 }
 
-/* line 323, ../sass/base/_plugins.scss */
+/* line 333, ../sass/base/_plugins.scss */
 .leaflet-control-layers label {
   display: block;
 }
 
-/* line 326, ../sass/base/_plugins.scss */
+/* line 336, ../sass/base/_plugins.scss */
 .leaflet-control-layers-separator {
   height: 0;
   border-top: 1px solid #ddd;
@@ -9826,37 +9843,37 @@ html:hover [class^="ss-"] {
 }
 
 /* attribution and scale controls */
-/* line 335, ../sass/base/_plugins.scss */
+/* line 345, ../sass/base/_plugins.scss */
 .leaflet-container .leaflet-control-attribution {
   background-color: rgba(255, 255, 255, 0.7);
   box-shadow: 0 0 5px #bbb;
   margin: 0;
 }
 
-/* line 341, ../sass/base/_plugins.scss */
+/* line 351, ../sass/base/_plugins.scss */
 .leaflet-control-attribution,
 .leaflet-control-scale-line {
   padding: 0 5px;
   color: #333;
 }
 
-/* line 346, ../sass/base/_plugins.scss */
+/* line 356, ../sass/base/_plugins.scss */
 .leaflet-container .leaflet-control-attribution,
 .leaflet-container .leaflet-control-scale {
   font-size: 11px;
 }
 
-/* line 349, ../sass/base/_plugins.scss */
+/* line 359, ../sass/base/_plugins.scss */
 .leaflet-left .leaflet-control-scale {
   margin-left: 5px;
 }
 
-/* line 352, ../sass/base/_plugins.scss */
+/* line 362, ../sass/base/_plugins.scss */
 .leaflet-bottom .leaflet-control-scale {
   margin-bottom: 5px;
 }
 
-/* line 355, ../sass/base/_plugins.scss */
+/* line 365, ../sass/base/_plugins.scss */
 .leaflet-control-scale-line {
   border: 2px solid #777;
   border-top: none;
@@ -9871,7 +9888,7 @@ html:hover [class^="ss-"] {
   overflow: hidden;
 }
 
-/* line 368, ../sass/base/_plugins.scss */
+/* line 378, ../sass/base/_plugins.scss */
 .leaflet-control-scale-line:not(:first-child) {
   border-top: 2px solid #777;
   border-bottom: none;
@@ -9879,32 +9896,32 @@ html:hover [class^="ss-"] {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* line 374, ../sass/base/_plugins.scss */
+/* line 384, ../sass/base/_plugins.scss */
 .leaflet-control-scale-line:not(:first-child):not(:last-child) {
   border-bottom: 2px solid #777;
 }
 
-/* line 380, ../sass/base/_plugins.scss */
+/* line 390, ../sass/base/_plugins.scss */
 .leaflet-touch .leaflet-control-attribution,
 .leaflet-touch .leaflet-control-layers,
 .leaflet-touch .leaflet-bar {
   box-shadow: none;
 }
 
-/* line 384, ../sass/base/_plugins.scss */
+/* line 394, ../sass/base/_plugins.scss */
 .leaflet-touch .leaflet-control-layers,
 .leaflet-touch .leaflet-bar {
   border: 4px solid rgba(0, 0, 0, 0.3);
 }
 
 /* popup */
-/* line 391, ../sass/base/_plugins.scss */
+/* line 401, ../sass/base/_plugins.scss */
 .leaflet-popup {
   position: absolute;
   text-align: center;
 }
 
-/* line 395, ../sass/base/_plugins.scss */
+/* line 405, ../sass/base/_plugins.scss */
 .leaflet-popup-content-wrapper {
   padding: 1px;
   text-align: left;
@@ -9912,18 +9929,18 @@ html:hover [class^="ss-"] {
   border-radius: 12px;
 }
 
-/* line 401, ../sass/base/_plugins.scss */
+/* line 411, ../sass/base/_plugins.scss */
 .leaflet-popup-content {
   margin: 13px 19px;
   line-height: 1.4;
 }
 
-/* line 405, ../sass/base/_plugins.scss */
+/* line 415, ../sass/base/_plugins.scss */
 .leaflet-popup-content p {
   margin: 18px 0;
 }
 
-/* line 408, ../sass/base/_plugins.scss */
+/* line 418, ../sass/base/_plugins.scss */
 .leaflet-popup-tip-container {
   margin: 0 auto;
   width: 40px;
@@ -9932,7 +9949,7 @@ html:hover [class^="ss-"] {
   overflow: hidden;
 }
 
-/* line 415, ../sass/base/_plugins.scss */
+/* line 425, ../sass/base/_plugins.scss */
 .leaflet-popup-tip {
   width: 17px;
   height: 17px;
@@ -9945,13 +9962,13 @@ html:hover [class^="ss-"] {
   transform: rotate(45deg);
 }
 
-/* line 428, ../sass/base/_plugins.scss */
+/* line 438, ../sass/base/_plugins.scss */
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {
   background: white;
   box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
 }
 
-/* line 433, ../sass/base/_plugins.scss */
+/* line 443, ../sass/base/_plugins.scss */
 .leaflet-container a.leaflet-popup-close-button {
   position: absolute;
   top: 0;
@@ -9967,12 +9984,12 @@ html:hover [class^="ss-"] {
   background: transparent;
 }
 
-/* line 447, ../sass/base/_plugins.scss */
+/* line 457, ../sass/base/_plugins.scss */
 .leaflet-container a.leaflet-popup-close-button:hover {
   color: #999;
 }
 
-/* line 450, ../sass/base/_plugins.scss */
+/* line 460, ../sass/base/_plugins.scss */
 .leaflet-popup-scrolled {
   overflow: auto;
   border-bottom: 1px solid #ddd;
@@ -9980,13 +9997,13 @@ html:hover [class^="ss-"] {
 }
 
 /* div icon */
-/* line 459, ../sass/base/_plugins.scss */
+/* line 469, ../sass/base/_plugins.scss */
 .leaflet-div-icon {
   background: #fff;
   border: 1px solid #666;
 }
 
-/* line 463, ../sass/base/_plugins.scss */
+/* line 473, ../sass/base/_plugins.scss */
 .leaflet-editing-icon {
   -webkit-border-radius: 2px;
   border-radius: 2px;
@@ -10303,6 +10320,7 @@ input[name='search-text'] {
 /* line 251, ../sass/modules/_modules.scss */
 .result-container {
   background-color: white;
+  min-height: 282px;
   margin-bottom: 30px;
   padding-left: 20px;
   padding-right: 20px;
@@ -10312,7 +10330,7 @@ input[name='search-text'] {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* line 260, ../sass/modules/_modules.scss */
+/* line 261, ../sass/modules/_modules.scss */
 .result-image-container {
   position: absolute;
   height: 149px;
@@ -10320,24 +10338,24 @@ input[name='search-text'] {
   top: 0;
   width: 360px;
 }
-/* line 267, ../sass/modules/_modules.scss */
+/* line 268, ../sass/modules/_modules.scss */
 .result-image-container img {
   height: 149px;
   width: 360px;
 }
 
-/* line 274, ../sass/modules/_modules.scss */
+/* line 275, ../sass/modules/_modules.scss */
 .result-content-container {
   position: relative;
   padding-top: 149px;
 }
 
-/* line 279, ../sass/modules/_modules.scss */
+/* line 280, ../sass/modules/_modules.scss */
 .result-title-row {
   padding: 22px 0 9px 0;
 }
 
-/* line 283, ../sass/modules/_modules.scss */
+/* line 284, ../sass/modules/_modules.scss */
 .result-title {
   margin-bottom: 0;
   margin-top: 0;
@@ -10345,38 +10363,38 @@ input[name='search-text'] {
   padding-top: 0;
   font-family: "Neue";
   font-size: 18px;
-  line-height: 18px;
+  line-height: 22px;
   font-weight: 300;
 }
 
-/* line 291, ../sass/modules/_modules.scss */
+/* line 292, ../sass/modules/_modules.scss */
 .result-icons-container {
   text-align: right;
 }
 
-/* line 295, ../sass/modules/_modules.scss */
+/* line 296, ../sass/modules/_modules.scss */
 .result-show-details {
   color: #7fd9f4;
   display: inline-block;
   width: 16px;
 }
-/* line 299, ../sass/modules/_modules.scss */
+/* line 300, ../sass/modules/_modules.scss */
 .result-show-details:hover {
   color: #7fd9f4;
 }
 
-/* line 304, ../sass/modules/_modules.scss */
+/* line 305, ../sass/modules/_modules.scss */
 .result-show-pin {
   color: #f26c4f;
   display: inline-block;
   width: 12px;
 }
-/* line 308, ../sass/modules/_modules.scss */
+/* line 309, ../sass/modules/_modules.scss */
 .result-show-pin:hover {
   color: #f26c4f;
 }
 
-/* line 313, ../sass/modules/_modules.scss */
+/* line 314, ../sass/modules/_modules.scss */
 .result-amenities {
   color: #999999;
   font-family: "FuturaBook";
@@ -10385,7 +10403,7 @@ input[name='search-text'] {
   font-weight: 300;
 }
 
-/* line 318, ../sass/modules/_modules.scss */
+/* line 319, ../sass/modules/_modules.scss */
 .result-description {
   color: white;
   font-family: "FuturaBook";
@@ -10394,16 +10412,16 @@ input[name='search-text'] {
   font-weight: 300;
 }
 
-/* line 323, ../sass/modules/_modules.scss */
+/* line 324, ../sass/modules/_modules.scss */
 .result-container.direct-to-map {
   background-color: #f26c4f;
 }
-/* line 325, ../sass/modules/_modules.scss */
+/* line 326, ../sass/modules/_modules.scss */
 .result-container.direct-to-map .result-title {
   color: white;
 }
 
-/* line 335, ../sass/modules/_modules.scss */
+/* line 336, ../sass/modules/_modules.scss */
 #park-detail-item-container {
   background-color: rgba(255, 255, 255, 0.7);
   -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
@@ -10416,18 +10434,18 @@ input[name='search-text'] {
   border-radius: 3px;
 }
 
-/* line 341, ../sass/modules/_modules.scss */
+/* line 342, ../sass/modules/_modules.scss */
 #park-detail-gallery-container {
   height: 600px;
   position: relative;
   width: 770px;
   z-index: 100;
 }
-/* line 348, ../sass/modules/_modules.scss */
+/* line 349, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .placeholder {
   display: none;
 }
-/* line 352, ../sass/modules/_modules.scss */
+/* line 353, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .dummy {
   height: auto;
   position: relative;
@@ -10436,7 +10454,7 @@ input[name='search-text'] {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-/* line 360, ../sass/modules/_modules.scss */
+/* line 361, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .ss-icon {
   color: white;
   font-size: 46px;
@@ -10451,29 +10469,29 @@ input[name='search-text'] {
   -o-transition: opacity 150ms linear;
   transition: opacity 150ms linear;
 }
-/* line 370, ../sass/modules/_modules.scss */
+/* line 371, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .ss-icon:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
 }
-/* line 376, ../sass/modules/_modules.scss */
+/* line 377, ../sass/modules/_modules.scss */
 #park-detail-gallery-container #park-detail-gallery-left {
   left: 20px;
 }
-/* line 380, ../sass/modules/_modules.scss */
+/* line 381, ../sass/modules/_modules.scss */
 #park-detail-gallery-container #park-detail-gallery-right {
   right: 20px;
 }
 
-/* line 386, ../sass/modules/_modules.scss */
+/* line 387, ../sass/modules/_modules.scss */
 #park-detail-info-container {
   padding: 40px 20px 40px 30px;
 }
-/* line 390, ../sass/modules/_modules.scss */
+/* line 391, ../sass/modules/_modules.scss */
 #park-detail-info-container h1 {
   color: #282828;
 }
-/* line 394, ../sass/modules/_modules.scss */
+/* line 395, ../sass/modules/_modules.scss */
 #park-detail-info-container address {
   color: #282828;
   margin: 10px 0 30px 0;
@@ -10483,11 +10501,11 @@ input[name='search-text'] {
   line-height: 18px;
   font-weight: 300;
 }
-/* line 401, ../sass/modules/_modules.scss */
+/* line 402, ../sass/modules/_modules.scss */
 #park-detail-info-container h2 {
   color: #666666;
 }
-/* line 405, ../sass/modules/_modules.scss */
+/* line 406, ../sass/modules/_modules.scss */
 #park-detail-info-container p {
   color: #666666;
   font-family: "FuturaBook";
@@ -10495,18 +10513,18 @@ input[name='search-text'] {
   line-height: 18px;
   font-weight: 300;
 }
-/* line 410, ../sass/modules/_modules.scss */
+/* line 411, ../sass/modules/_modules.scss */
 #park-detail-info-container .button {
   margin-top: 30px;
 }
-/* line 414, ../sass/modules/_modules.scss */
+/* line 415, ../sass/modules/_modules.scss */
 #park-detail-info-container .close {
   color: #f26c4f;
   position: absolute;
   top: 40px;
   right: 30px;
 }
-/* line 419, ../sass/modules/_modules.scss */
+/* line 420, ../sass/modules/_modules.scss */
 #park-detail-info-container .close:hover {
   color: #f26c4f;
 }

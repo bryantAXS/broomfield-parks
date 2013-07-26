@@ -125,11 +125,6 @@ define([
 
     },
 
-    submitSearch: function(){
-      this.showClearButton();
-      return false;
-    },
-
     clearSearch: function(){
       this.ui.searchField.val("");
       this.showSearchButton();
@@ -225,7 +220,7 @@ define([
 
       if(this.ui.gotoMapButton.hasClass("is-active")){
         this.ui.gotoMapButton.removeClass("is-active");
-        App.deactivateMap();
+        App.deactivateMap(true);
       }else{
         this.ui.gotoMapButton.addClass("is-active");
         App.activateMap();

@@ -47,7 +47,7 @@ define([
     showStart: function(){
 
       var startLayout = new StartLayout();
-      App.contentRegion.show(startLayout);
+      App.showContentLayout(startLayout);
 
     },
 
@@ -60,21 +60,22 @@ define([
 
       var resultsLayout = new ResultsLayout({
       });
-      App.contentRegion.show(resultsLayout);
+      App.showContentLayout(resultsLayout);
 
     },
 
 
     /**
      * Showing the actual park detail layout
-     * @param  {string} parkName the name of the park
+     * @param  {string} safeParkName the name of the park (encoded for the url)
      * @return {void}
      */
-    showPark: function(parkName){
+    showPark: function(safeParkName){
 
       var parkDetailLayout = new ParkDetailLayout({
+        safeParkName: safeParkName
       });
-      App.contentRegion.show(parkDetailLayout);
+      App.showContentLayout(parkDetailLayout);
 
     }
 

@@ -60,6 +60,9 @@ require.config( {
     "viewport-selectors":{
       "deps": ["jquery"]
     },
+    "friendurl":{
+      "deps": ["jquery"]
+    },
     "esri-leaflet":{
       "deps": [
         "leaflet"

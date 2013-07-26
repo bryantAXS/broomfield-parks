@@ -14,23 +14,25 @@
 
     <div id='park-detail-info-container' class="columns large-4">
       <a href="javascript:;" class="close ss-icon ss-pika">close</a>
-      <h1>Kohl Park</h1>
+      <h1>
+        <%= place_name %>
+      </h1>
       <address>
-        2590 13th Ave & Birch Street <br />
-        Broomfield, CO
+        <%= address %> <br />
+        <%= city %>, <%= state %>
       </address>
       <p>
-        Kohl Park is kogi four loko Truffaut seitan, jean shorts master cleanse mlkshk blue bottle stumptown wayfarers Pinterest irony. Flexitarian kogi bitters keytar. Jean shorts Vice semiotics hashtag.
+        <%= description %>
       </p>
       <h2>Amenities</h2>
       <p>
-        Baseball Field, Basketball Court, Benches, Offstreet Parking, Jean Shorts, Lo-fi, Wes Anderson Twee Bitters.
+        <%= facilities %>
       </p>
       <h2>Directions</h2>
       <p>
-        From US-36, next level aesthetic neutra swag pickled, keffiyeh literally tattooed irony plaid single-origin coffee.
+        <%= directions %>
       </p>
-      <a class="button orange" href=""><span class="ss-icon ss-pika">location</span>Map It</a>
+      <a class="button orange" href="javascript:;" data-park-id="<%= gis_id %>"><span class="ss-icon ss-pika">location</span>Map It</a>
     </div><!-- #park-detail-gallery-container -->
 
   </div><!-- row -->

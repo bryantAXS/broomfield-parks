@@ -19,10 +19,10 @@
     <div class="result-content-container">
       <div class="row result-title-row">
         <p class="columns large-8 result-title">
-          Title Park
+          <%= place_name %>
         </p>
         <div class="columns large-4 result-icons-container">
-          <a class="result-show-details ss-icon ss-pika" href="/park/name">
+          <a class="result-show-details ss-icon ss-pika" href="/park/<%= safe_place_name %>">
             notepad
           </a>
           <a class="result-show-pin ss-icon ss-pika" href="javascript:;">location</a>
@@ -30,7 +30,7 @@
       </div><!-- row -->
       <div class="row">
         <p class="result-amenities columns large-12">
-          Baseball Field, Basketball Court, Benches, Offstreet Parking
+          <%= facilities %>
         </p>
       </div>
     </div>

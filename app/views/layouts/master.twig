@@ -38,10 +38,8 @@
     {% include template %}
     {% endfor %}
 
-    {% include 'partials/footer_scripts.html' %}
-
     <script>
-    var options = {
+    window.mapoptions = {
         toolItems: [
             {name: 'Search', eventToRaise: 'View:Search', iconclass: 'entypo-search'},
             {name: 'Layer List', eventToRaise: 'View:LayerList', iconclass: 'entypo-map'},
@@ -80,6 +78,8 @@
         appRoot:'marionette-map'
     };
     </script>
+
+    {% include 'partials/footer_scripts.html' %}
 
     </body>
 </html>

@@ -6,8 +6,9 @@ define([
   "routers/Router",
   "layouts/MapLayout",
   "layouts/SearchBarLayout",
-  "regions/TransitioningRegion"
-], function($, _, Backbone, Marionette, Router, MapLayout, SearchBarLayout, TransitioningRegion){
+  "regions/TransitioningRegion",
+  "collections/ResultsCollection"
+], function($, _, Backbone, Marionette, Router, MapLayout, SearchBarLayout, TransitioningRegion, ResultsCollection){
 
   var App = new Backbone.Marionette.Application();
 
@@ -24,13 +25,42 @@ define([
   };
 
   App.activateMap = function(){
-    App.contentRegion.close();
+    App.closeContentLayout();
     App.mapLayout.activate();
   };
 
-  App.deactivateMap = function(){
+  App.deactivateMap = function(showPreviousLayout){
+
+    showPreviousLayout = showPreviousLayout === true ? true : false;
+
+    if(this.previousContentLayout !== undefined && showPreviousLayout){
+      App.showContentLayout(this.previousContentLayout);
+    }
+
     App.mapLayout.deactivate();
     App.searchBarLayout.ui.gotoMapButton.removeClass("is-active");
+
+  };
+
+  App.showContentLayout = function(view){
+    this.currentContentLayout = view;
+    App.contentRegion.show(view);
+  };
+
+  App.closeContentLayout = function(){
+    this.previousContentLayout = this.currentContentLayout;
+    App.contentRegion.close();
+  };
+
+  App.allParksCollection = (function(){
+    var allParksCollection = new ResultsCollection();
+    allParksCollection.all();
+    return allParksCollection;
+  })();
+
+  App.getFriendlyString = function(string){
+    var cleanString = (string + "").replace(/[^a-zA-Z0-9]+/g, "-");
+    return cleanString.slice(0, cleanString.length).toLowerCase();
   };
 
   /**

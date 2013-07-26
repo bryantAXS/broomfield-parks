@@ -264,6 +264,16 @@ transition: none;
 
 /* zoom control */
 
+.leaflet-control-zoom{
+  @include opacity(0);
+  @include transition(opacity $fast linear);
+}
+.is-active{
+  .leaflet-control-zoom{
+    @include opacity(1);
+  }
+}
+
 .leaflet-control-zoom-in {
   font: bold 18px 'Lucida Console', Monaco, monospace;
   }

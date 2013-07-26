@@ -21,8 +21,8 @@ define([
       var self = this;
 
       // check to see if their is an existing view, if so, proceed
-      if(this.has_closed !== undefined){
-        this.has_closed.done(function(){
+      if(this.hasClosed !== undefined){
+        this.hasClosed.done(function(){
           self.appendViewAndShow(view);
         });
       }else{
@@ -43,24 +43,31 @@ define([
 
       if(view.el.id === "park-detail-layout-container"){
 
-        // if we're about to show the park detail page, let's transition that in
+        //create a callback used to determine when the new view is added to the screen
+        this.hasOpened = $.Deferred();
 
+        // if we're about to show the park detail page, let's transition that in
         this.$el.append(view.el);
         this.$el.css({
-          scale: 0,
+          translate: ["-100%", 0],
           opacity: 0
         });
+
         this.$el.transition({
-          scale: 1,
+          x: 0,
           opacity: 1
         }, function(){
           App.vent.trigger("page:opened");
+          self.hasOpened.resolve();
         });
 
       }else{
+
         this.$el.append(view.el);
         App.vent.trigger("page:opened");
+
       }
+
     },
 
     /**
@@ -78,7 +85,7 @@ define([
       }
 
       //create a callback used to determine when the new view is added to the screen
-      this.has_closed = $.Deferred();
+      this.hasClosed = $.Deferred();
 
       // determining which direction we should move
       var xPos = "100%";
@@ -88,12 +95,16 @@ define([
         x: xPos,
         opacity: 0
       }, function(){
-        self.has_closed.resolve();
-        self.closeView(view);
+
         self.$el.css({
           translate: [0,0],
           opacity:1
         });
+        self.closeView(view);
+
+        // this needs to be at the end, so we don't trigger an open animation before ouro final styles are set a few lines above.
+        self.hasClosed.resolve();
+
       });
 
       // we need to make sure this is deleted right away and

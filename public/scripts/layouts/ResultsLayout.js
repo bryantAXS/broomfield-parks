@@ -26,7 +26,8 @@ define([
 
     initialize: function(){
 
-      this.resultsCollection = new ResultsCollection([{},{},{},{},{},{},{},{}]);
+      this.resultsCollection = new ResultsCollection();
+      this.resultsCollection.all();
 
       this.resultsCollectionView = new ResultsCollectionView({
         isGuideTrigger: App.getSearchTerm() === "guide" ? true : false,

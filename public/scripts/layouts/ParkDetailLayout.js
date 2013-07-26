@@ -19,14 +19,34 @@ define([
       detailContainer: "#park-detail-item-container"
     },
 
+    initialize: function(options){
+
+      this.initParkModel();
+
+    },
+
     onRender: function(){
 
-      this.model = new ParkModel({});
       this.parkDetailItemView = new ParkDetailItemView({
-        model: this.model
+        model: this.parkModel
       });
 
       this.detailContainer.show(this.parkDetailItemView);
+
+    },
+
+    initParkModel: function(){
+
+      this.parkModel = App.allParksCollection.findWhere({
+        "safe_place_name": this.options.safeParkName
+      });
+
+      if(this.parkModel === undefined){
+        this.parkModel = new ParkModel({
+          "safe_place_name": this.options.safeParkName
+        });
+        this.parkModel.fetch();
+      }
 
     }
 

@@ -29,12 +29,22 @@ define([
       L.Icon.Default.imagePath = '/images';
 
       var map = L.map(this.el.id, {
-        center: [39.920541,-105.08665],
-        zoom: 12
+        center: [39.920541,-105.06665],
+        zoom: 14
       });
 
       // ArcGIS Online Basemaps - Streets, Topographic, Gray, GrayLabels, Oceans, NationalGeographic, Imagery, ImageryLabels
-      L.esri.basemapLayer("Streets").addTo(map);
+      L.esri.basemapLayer("Topographic").addTo(map);
+
+      // Adding Dynamic map layers (options are in master.twig)
+      _.each(window.mapoptions.mapConfig.operationalLayers, function(layer){
+
+        L.esri.dynamicMapLayer(layer.url, {
+          opacity: layer.opacity,
+          visible: layer.visible
+        }).addTo(map);
+
+      });
 
       function onLocationFound(e) {
         var radius = e.accuracy / 2;
