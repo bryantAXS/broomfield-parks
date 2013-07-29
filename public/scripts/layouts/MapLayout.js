@@ -162,6 +162,12 @@ define([
 
     },
 
+
+    /**
+     * Sending user to google maps with their location
+     * @param  {location object} location geolocation of the users
+     * @return {void}
+     */
     navigateWithLocation: function(location){
 
       var startLatLng = {
@@ -175,25 +181,56 @@ define([
       };
 
       var link = this.buildDirectionsLink(startLatLng, endLatLng);
-
       window.location.href = link;
 
     },
 
+
+    /**
+     * Sending the user to Google maps without knowing their location
+     * @param  {error} e Error returned from the this.maps.locate() method
+     * @return {void}
+     */
     navigateWithoutLocation: function(e){
 
-      console.log(e);
-      console.log("Couldn't find user's location.");
+      var endLatLng = {
+        lat: this.currentlyOpenPopup._latlng.lat,
+        lng: this.currentlyOpenPopup._latlng.lng
+      };
+
+      var link = this.buildMapLink(endLatLng);
+      window.location.href = link;
 
     },
 
+
+    /**
+     * Building a google maps link to give us directions based on the users location
+     * @param  {object} startLatLng starting lat lng coords
+     * @param  {object} endLatLng   ending lat lng coords
+     * @return {string}             link
+     */
     buildDirectionsLink: function(startLatLng, endLatLng){
 
       var link = "http://maps.google.com/maps?";
       link += "f=d&";
       link += "saddr="+startLatLng.lat+","+startLatLng.lng+"&";
       link += "daddr="+endLatLng.lat+","+endLatLng.lng;
+      return link;
 
+    },
+
+
+    /**
+     * Create a google maps link (when user location cannot be calculated)
+     * @param  {object} endLatLng object with lat and lng coords
+     * @return {string}           link
+     */
+    buildMapLink: function(endLatLng){
+
+      var link = "http://maps.google.com/maps?";
+      link += "f=q&";
+      link += "q="+endLatLng.lat+","+endLatLng.lng;
       return link;
 
     },
