@@ -423,3 +423,71 @@ input[name='search-text']{
   }
 
 }
+
+
+// Pop Up Item View
+
+.map-popup{
+  @include box-shadow(0 2px 2px rgba(0,0,0,.2));
+}
+
+.popup-header-container{
+
+  background-color:$orange;
+  padding: 15px 15px 7px 15px;
+  width:200px;
+  @include border-radius(3px 3px 0 0);
+  p{
+    color:$white;
+    margin:0;
+    padding:0;
+    @include font("Neue", 16px, 21px);
+  }
+}
+
+.popup-links{
+
+  background-color:$white;
+  margin:0;
+  padding:0;
+  width:200px;
+  @include border-radius(0 0 3px 3px);
+
+  li{
+
+    margin:0;
+    padding:0;
+    list-style-type:none;
+
+    a{
+      color:$dark-grey;
+      display:block;
+      padding-left:15px;
+      @include font("FuturaBold", 11px, 35px);
+
+      span{
+        color:$blue;
+        font-size:18px;
+        margin-right:5px;
+        position:relative;
+        top:4px;
+      }
+
+      span.icon-google-maps{
+        background: transparent url(/images/icon-google-maps.png) no-repeat left top;
+        display:inline-block;
+        height:16px;
+        margin-right:11px;
+        top:3px;
+        width:16px;
+      }
+
+    }
+
+    &+li{
+      border-top:1px solid #f2f2f2;
+    }
+
+  }
+
+}

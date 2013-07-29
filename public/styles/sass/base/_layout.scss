@@ -3,6 +3,12 @@ html {
   overflow-y: scroll;
 }
 
+.spinner{
+  position:fixed !important;
+  top:50% !important;
+  left:50% !important;
+}
+
 #search-bar-layout-container{
   position:fixed;
   top:60px;

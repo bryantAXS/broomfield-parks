@@ -25,6 +25,7 @@ require.config( {
     "transit":                          'bower_modules/jquery.transit/jquery.transit',
     "lazyload":                         'bower_modules/jquery.lazyload/jquery.lazyload',
     "viewport-selectors":               'vendor/viewport',
+    "spin":                             'bower_modules/spin.js/dist/spin',
 
     'esri-leaflet':                     'vendor/esri-leaflet',
     'leaflet':                          'vendor/leaflet'

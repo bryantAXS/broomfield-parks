@@ -20,7 +20,7 @@ define([
 
       var self = this;
 
-      $.ajax("http://test.broomfield.org/arcgis/rest/services/Parks/FindAParkOrange/MapServer/0/query", {
+      return $.ajax("http://test.broomfield.org/arcgis/rest/services/Parks/FindAParkOrange/MapServer/0/query", {
         data: {
           f: 'json',
           outSR: 4326,
