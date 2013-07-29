@@ -23,7 +23,8 @@ define([
       size: null,
       thumbnail_image: "",
       city: "Broomfield",
-      state: "CO"
+      state: "CO",
+      safe_place_name: ""
     },
 
     initialize: function(){

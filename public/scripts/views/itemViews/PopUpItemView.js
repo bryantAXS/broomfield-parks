@@ -14,6 +14,13 @@ define([
     className: "map-popup",
 
     events: {
+      "click .get-directions": "getDirections"
+    },
+
+    initialize: function(){
+
+      this.map = this.options.map;
+
     },
 
   });

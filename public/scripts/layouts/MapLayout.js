@@ -16,6 +16,15 @@ define([
 
     id: "map-layout-container",
 
+    events: {
+      "click .get-directions": "getDirections"
+    },
+
+
+    /**
+     * After our view had been rendered
+     * @return {void}
+     */
     onRender: function(){
 
       var self = this;
@@ -40,6 +49,8 @@ define([
      */
     initMap: function(){
 
+      var self = this;
+
       L.Icon.Default.imagePath = '/images';
 
       this.map = L.map(this.el.id, {
@@ -50,37 +61,38 @@ define([
       // ArcGIS Online Basemaps - Streets, Topographic, Gray, GrayLabels, Oceans, NationalGeographic, Imagery, ImageryLabels
       L.esri.basemapLayer("Topographic").addTo(this.map);
 
-      // Adding Dynamic map layers (options are in master.twig)
-      // _.each(window.mapoptions.mapConfig.operationalLayers, function(layer){
 
-      //   L.esri.dynamicMapLayer(layer.url, {
-      //     opacity: layer.opacity,
-      //     visible: layer.visible
-      //   }).addTo(map);
+      // Event when a popup is opened
+      this.map.on("popupopen", function(e){
 
-      // });
+        // Tracking the popup currently open
+        self.currentlyOpenPopup = e.popup;
 
-      function onLocationFound(e) {
-        var radius = e.accuracy / 2;
-        L.marker(e.latlng).addTo(map).bindPopup("You are within " + radius + " meters from this point").openPopup();
-        L.circle(e.latlng, radius).addTo(map);
-      }
+      });
 
-      function onLocationError(e) {
-        alert(e.message);
-      }
-
-      // map.on('locationfound', onLocationFound);
-      // map.on('locationerror', onLocationError);
-      // map.locate({setView: true, maxZoom: 16});
+      // Event bindings for the "locate" event, fired when we detect the users location
+      this.map.on('locationfound', function(location){ self.navigateWithLocation(location); });
+      this.map.on('locationerror', function(e){ self.navigateWithoutLocation(e); });
 
     },
 
+
+    /**
+     * Starting the process of drawing markers and popups onto the map
+     * @param  {collection} collection a collection of locations
+     * @return {void}
+     */
     initMarkers: function(collection){
       this.collection = collection;
       this.renderMarkers();
     },
 
+
+    /**
+     * Loops over each park model in the collection and creates a market and popup
+     * then adds the market to the map
+     * @return {void}
+     */
     renderMarkers: function(){
 
       var self = this;
@@ -88,7 +100,7 @@ define([
       _.each(this.collection.models, function(model){
 
         var latlng = new L.LatLng(model.get("geometry").y, model.get("geometry").x);
-        L.marker(latlng, {
+        var marker = L.marker(latlng, {
           icon: L.icon({
             iconUrl: '/images/icon-pin.png',
             iconRetinaUrl: '/images/icon-pin-2x@2x.png',
@@ -100,30 +112,112 @@ define([
             // shadowSize: [68, 95],
             // shadowAnchor: [22, 94]
           })
-        }).addTo(self.map).bindPopup(self.getPopup(model));
+        });
+
+        var popupItemView = self.getPopupItemView(model);
+        var popup = self.getPopup(popupItemView);
+        popup.itemView = popupItemView;
+
+        marker.addTo(self.map).bindPopup(popup);
+        model.set("marker", marker);
+        model.set("popupItemView", popupItemView);
 
       });
 
     },
 
-    getPopup: function(model){
 
-      var popupItemView = new PopUpItemView({
-        model: model
+    /**
+     * Creates an ItemView for our popup, which holds some popup specific logic.
+     * @param  {model} model ParkModel
+     * @return {itemview}       PopupItemView
+     */
+    getPopupItemView: function(model){
+      return new PopUpItemView({
+        model: model,
+        map: this.map
       });
+    },
 
-      var popup = new L.Popup({}).setContent(popupItemView.render().$el.html());
+    /**
+     * Create a new popup object and return it
+     * @param  {itemView} itemView the popupItemView we've already created
+     * @return {popup}
+     */
+    getPopup: function(itemView){
+      return new L.Popup({}).setContent(itemView.render().$el.html());
+    },
 
-      return popup;
+
+    /**
+     * Event handler when a get directions link is clicked on
+     * @return {void}
+     */
+    getDirections: function(){
+
+      this.map.locate({
+        enableHighAccuracy: true,
+        setView: false
+      });
 
     },
 
+    navigateWithLocation: function(location){
+
+      var startLatLng = {
+        lat: location.latitude,
+        lng: location.longitude
+      };
+
+      var endLatLng = {
+        lat: this.currentlyOpenPopup._latlng.lat,
+        lng: this.currentlyOpenPopup._latlng.lng
+      };
+
+      var link = this.buildDirectionsLink(startLatLng, endLatLng);
+
+      window.location.href = link;
+
+    },
+
+    navigateWithoutLocation: function(e){
+
+      console.log(e);
+      console.log("Couldn't find user's location.");
+
+    },
+
+    buildDirectionsLink: function(startLatLng, endLatLng){
+
+      var link = "http://maps.google.com/maps?";
+      link += "f=d&";
+      link += "saddr="+startLatLng.lat+","+startLatLng.lng+"&";
+      link += "daddr="+endLatLng.lat+","+endLatLng.lng;
+
+      return link;
+
+    },
+
+
+    /**
+     * Activating the Map Layer
+     * @return {void}
+     */
     activate: function(){
       this.$el.addClass("is-active");
     },
 
+
+    /**
+     * Deactivating the map layer and loading in the previous view
+     * @return {void}
+     */
     deactivate: function(){
       this.$el.removeClass("is-active");
+
+      if(this.map !== undefined){
+        this.map.closePopup();
+      }
     }
 
   });
