@@ -17,9 +17,67 @@ define([
     id: "map-layout-container",
 
     events: {
-      "click .get-directions": "getDirections"
+      "click .get-directions": "getDirections",
+      "click .more-information": "moreInformation"
     },
 
+    /**
+     * Showing all parks in the map layer
+     * @return {void}
+     */
+    showAllParks: function(){
+
+      this.map.addLayer(this.allParksLayer);
+      this.map.removeLayer(this.singleParkLayer);
+      this.map.removeLayer(this.resultsParkLayer);
+
+      this.currentLayer = this.allParksLayer;
+    },
+
+    /**
+     * Showing the results layer, which is populated after a search
+     * @param  {collection} collection Collection of ParkModels sent typically from the ResultsLayout
+     * @return {void}
+     */
+    showResults: function(collection){
+
+      this.removeMarkers(this.resultsParkLayer);
+      this.renderMarkers(this.resultsParkLayer, collection);
+
+      this.map.addLayer(this.resultsParkLayer);
+      this.map.removeLayer(this.singleParkLayer);
+      this.map.removeLayer(this.allParksLayer);
+
+    },
+
+    /**
+     * Showing a single park
+     * @param  {ParkModel} model a park model
+     * @return {void}
+     */
+    showSinglePark: function(model){
+
+      this.removeMarkers(this.singleParkLayer);
+
+      var fakeCollection = {
+        models: [model]
+      }
+
+      this.renderMarkers(this.singleParkLayer, fakeCollection);
+
+      var marker = model.get("marker");
+
+      this.map.panTo([marker._latlng.lat, marker._latlng.lng]);
+
+      this.map.addLayer(this.singleParkLayer);
+      this.map.removeLayer(this.resultsParkLayer);
+      this.map.removeLayer(this.allParksLayer);
+
+      setTimeout(function(){
+        marker.openPopup();
+      }, 500);
+
+    },
 
     /**
      * After our view had been rendered
@@ -35,8 +93,15 @@ define([
       setTimeout(function(){
 
         self.initMap();
+
         App.allParksCollectionLoaded.done(function(){
-          self.initMarkers(App.allParksCollection);
+
+          self.allParksCollection = App.allParksCollection;
+          self.renderMarkers(self.allParksLayer, self.allParksCollection);
+
+          // resolving a deferred variable from App.js letting us start routing
+          self.options.intialCollectionLoaded.resolve();
+
         });
 
       }, 50);
@@ -55,18 +120,25 @@ define([
 
       this.map = L.map(this.el.id, {
         center: [39.920541,-105.06665],
-        zoom: 14
+        zoom: 14,
       });
+
+      // Creating our Map Layers
+      this.allParksLayer = new L.LayerGroup();
+      this.singleParkLayer = new L.LayerGroup();
+      this.resultsParkLayer = new L.LayerGroup();
 
       // ArcGIS Online Basemaps - Streets, Topographic, Gray, GrayLabels, Oceans, NationalGeographic, Imagery, ImageryLabels
       L.esri.basemapLayer("Topographic").addTo(this.map);
-
 
       // Event when a popup is opened
       this.map.on("popupopen", function(e){
 
         // Tracking the popup currently open
         self.currentlyOpenPopup = e.popup;
+
+        // Moving the map to the currently opened popup
+        self.map.panTo([e.popup._latlng.lat, e.popup._latlng.lng]);
 
       });
 
@@ -78,26 +150,16 @@ define([
 
 
     /**
-     * Starting the process of drawing markers and popups onto the map
-     * @param  {collection} collection a collection of locations
-     * @return {void}
-     */
-    initMarkers: function(collection){
-      this.collection = collection;
-      this.renderMarkers();
-    },
-
-
-    /**
      * Loops over each park model in the collection and creates a market and popup
      * then adds the market to the map
+     * @param  {LayerGroup} layer The Layer Group we want to render these markers inside
      * @return {void}
      */
-    renderMarkers: function(){
+    renderMarkers: function(layer, collection){
 
       var self = this;
 
-      _.each(this.collection.models, function(model){
+      _.each(collection.models, function(model){
 
         var latlng = new L.LatLng(model.get("geometry").y, model.get("geometry").x);
         var marker = L.marker(latlng, {
@@ -118,7 +180,7 @@ define([
         var popup = self.getPopup(popupItemView);
         popup.itemView = popupItemView;
 
-        marker.addTo(self.map).bindPopup(popup);
+        marker.addTo(layer).bindPopup(popup);
         model.set("marker", marker);
         model.set("popupItemView", popupItemView);
 
@@ -162,6 +224,14 @@ define([
 
     },
 
+    /**
+     * Removing all markers from a layer
+     * @param  {LayerGroup} layer Layer group we want to remove from
+     * @return {void}
+     */
+    removeMarkers: function(layer){
+      layer.clearLayers();
+    },
 
     /**
      * Sending user to google maps with their location
@@ -232,6 +302,16 @@ define([
       link += "f=q&";
       link += "q="+endLatLng.lat+","+endLatLng.lng;
       return link;
+
+    },
+
+    moreInformation: function(el, a, b){
+
+      if(Backbone.history.fragment.indexOf("park/") > -1){
+        App.deactivateMap({
+          showPreviousLayout: true
+        });
+      }
 
     },
 

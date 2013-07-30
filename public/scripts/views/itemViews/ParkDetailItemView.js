@@ -23,12 +23,30 @@ define([
     events: {
       "click #park-detail-gallery-right": "showNextImage",
       "click #park-detail-gallery-left": "showPreviousImage",
-      "click .close": "closeView"
+      "click .close": "closeView",
+      "click .map-it-button": "showOnMap"
     },
 
     initialize: function(){
 
+      var self = this;
+
       this.model.bind("change", this.render);
+
+      // sometimes our model data isn't quite loaded fast enough
+      setTimeout(function(){
+        self.initMarker();
+      }, 100);
+
+    },
+
+    initMarker: function(){
+
+      var self = this;
+
+      App.layoutsRendered.done(function(){
+        App.mapLayout.showSinglePark(self.model);
+      });
 
     },
 
@@ -53,11 +71,6 @@ define([
         galleryImages.push($(el).attr("src"));
       });
 
-      galleryImages = [
-        "/images/placeholder-detail-gallery-1.png",
-        "/images/placeholder-detail-gallery-2.png"
-      ];
-
       return galleryImages;
 
     },
@@ -65,6 +78,10 @@ define([
     initGallery: function(){
 
       var self = this;
+
+      var galleryImages = this.getGalleryImages();
+
+      if(!galleryImages.length){ return ; }
 
       this.ui.galleryContainer.backstretch(this.getGalleryImages(), {
         duration: 20000,
@@ -85,6 +102,12 @@ define([
 
     showPreviousImage: function(){
       this.ui.galleryContainer.backstretch("prev");
+    },
+
+    showOnMap: function(){
+      App.activateMap({
+        activateMapButton: true
+      });
     },
 
     closeView: function(){

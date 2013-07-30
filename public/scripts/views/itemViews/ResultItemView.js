@@ -91,7 +91,8 @@ define([
 
     showPin: function(){
 
-
+      App.mapLayout.showSinglePark(this.model);
+      App.activateMap();
 
     }
 

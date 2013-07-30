@@ -12,8 +12,9 @@ define([
     defaults: {
       address: "",
       description: "",
-      directions: "DIRECTION PLACEHOLDER",
+      general_directions: "",
       facilities: "",
+      gallery_images: null,
       geometry: null,
       gis_id: null,
       objectid: null,
@@ -30,10 +31,27 @@ define([
     initialize: function(){
       this.bind("change:place_name", this.setSafeParkName);
       this.trigger("change:place_name");
+
+      this.bind("change:gallery_images", this.setGalleryImages);
+      this.trigger("change:gallery_images");
     },
 
     setSafeParkName: function(){
       this.set("safe_place_name", App.getFriendlyString(this.get("place_name")));
+    },
+
+    setGalleryImages: function(){
+
+      if(this.get("gallery_images") === null || typeof this.get("gallery_images") === "object"){ return; }
+
+      var imagesArray = [];
+      var images = this.get("gallery_images").split("|");
+      _.each(images, function(image){
+        imagesArray.push(image.trim());
+      });
+
+      this.set("gallery_images", imagesArray);
+
     },
 
     fetch: function(){

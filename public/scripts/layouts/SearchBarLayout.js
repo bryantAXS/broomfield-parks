@@ -219,14 +219,26 @@ define([
     gotoMap: function(){
 
       if(this.ui.gotoMapButton.hasClass("is-active")){
-        this.ui.gotoMapButton.removeClass("is-active");
-        App.deactivateMap(true);
+        this.deactivateMapButton();
+        App.deactivateMap({
+          showPreviousLayout: true
+        });
       }else{
-        this.ui.gotoMapButton.addClass("is-active");
+        this.activateMapButton();
         App.activateMap();
       }
 
+    },
+
+    activateMapButton: function(){
+      this.ui.gotoMapButton.addClass("is-active");
+    },
+
+    deactivateMapButton: function(){
+      this.ui.gotoMapButton.removeClass("is-active");
     }
+
+
 
   });
 

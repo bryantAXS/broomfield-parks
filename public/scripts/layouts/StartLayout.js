@@ -23,6 +23,15 @@ define([
       "click #all-trigger": "triggerAll"
     },
 
+    initialize: function(){
+
+      // Show all parks on the map
+      App.layoutsRendered.done(function(){
+        App.mapLayout.showAllParks();
+      });
+
+    },
+
     triggerGuide: function(){
       App.vent.trigger("searchbar:search:guide");
     },

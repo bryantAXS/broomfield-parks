@@ -26,8 +26,17 @@ define([
 
     initialize: function(){
 
+      var self = this;
+
       this.resultsCollection = new ResultsCollection();
-      this.resultsCollection.all();
+      this.resultsCollection.all().done(function(){
+
+        // Showing all parks on the map
+        App.layoutsRendered.done(function(){
+          App.mapLayout.showResults(self.resultsCollection);
+        });
+
+      });
 
       this.resultsCollectionView = new ResultsCollectionView({
         isGuideTrigger: App.getSearchTerm() === "guide" ? true : false,
@@ -41,7 +50,6 @@ define([
       var self = this;
 
       this.setTitle();
-
       this.resultsContainer.show(this.resultsCollectionView);
       App.vent.trigger("searchBar:populateFromURL");
 

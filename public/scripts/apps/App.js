@@ -39,7 +39,18 @@ define([
    * Activate the map and hide whatever content view that is currently in place
    * @return {void}
    */
-  App.activateMap = function(){
+  App.activateMap = function(params){
+
+    // extending some options
+    var options = {
+      activateMapButton: false
+    }
+    $.extend(options, params);
+
+    if(options.activateMapButton){
+      App.searchBarLayout.activateMapButton();
+    }
+
     App.closeContentLayout();
     App.mapLayout.activate();
   };
@@ -50,11 +61,16 @@ define([
    * @param  {view} showPreviousLayout previous view we were looking at
    * @return {void}
    */
-  App.deactivateMap = function(showPreviousLayout){
+  App.deactivateMap = function(params){
 
-    showPreviousLayout = showPreviousLayout === true ? true : false;
+    // extending some options
+    var options = {
+      showPreviousLayout: false
+    }
+    $.extend(options, params);
 
-    if(this.previousContentLayout !== undefined && showPreviousLayout){
+
+    if(this.previousContentLayout !== undefined && options.showPreviousLayout){
       App.showContentLayout(this.previousContentLayout);
     }
 
@@ -197,11 +213,13 @@ define([
     this.searchBarLayout = new SearchBarLayout();
     App.searchRegion.show(this.searchBarLayout);
 
-    this.mapLayout = new MapLayout();
+    // When the initialCollectionLoaded gets resolved, we can start routing
+    this.mapLayout = new MapLayout({
+      intialCollectionLoaded: App.layoutsRendered
+    });
+
     App.mapRegion.show(this.mapLayout);
 
-    // when have officially started routing
-    App.layoutsRendered.resolve();
   });
 
   return App;
