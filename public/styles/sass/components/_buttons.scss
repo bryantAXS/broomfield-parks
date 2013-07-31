@@ -1,4 +1,3 @@
-
 .button{
   color:$white;
   display:inline-block;
@@ -20,9 +19,29 @@
 
 }
 
+.start{
+  margin-right: 10px;
+
+  &:last-child{
+    margin-right: 0;
+  }
+
+}
+
 .orange{
   color:$white;
   background-color: $orange;
   padding: 0 15px;
   @include font("FuturaBold", 14px, inherit);
+}
+
+.lighter-green{
+  color:$white;
+  background-color: $lighter-green;
+  padding: 0 15px;
+  @include font("FuturaBold", 16px, inherit);
+}
+
+.map-it-button{
+  padding-right: 20px;
 }

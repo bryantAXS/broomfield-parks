@@ -5332,18 +5332,18 @@ a.th {
     margin-top: -5px;
   }
 }
-/* line 18, ../sass/base/_config.scss */
+/* line 20, ../sass/base/_config.scss */
 .row, .clearfix {
   zoom: 1;
 }
-/* line 20, ../sass/base/_config.scss */
+/* line 22, ../sass/base/_config.scss */
 .row:before, .row:after, .clearfix:before, .clearfix:after {
   content: "\0020";
   display: block;
   height: 0;
   overflow: hidden;
 }
-/* line 26, ../sass/base/_config.scss */
+/* line 28, ../sass/base/_config.scss */
 .row:after, .clearfix:after {
   clear: both;
 }
@@ -5429,12 +5429,12 @@ html {
 
 /* line 68, ../sass/base/_layout.scss */
 #results-layout-container {
-  margin-top: 180px;
+  margin-top: 160px;
 }
 
 /* line 72, ../sass/base/_layout.scss */
 #park-detail-layout-container {
-  margin-top: 180px;
+  margin-top: 160px;
 }
 
 /* line 1, ../sass/base/_overrides.scss */
@@ -9974,16 +9974,19 @@ html:hover [class^="ss-"] {
 /* line 440, ../sass/base/_plugins.scss */
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {
   background: transparent;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* line 443, ../sass/base/_plugins.scss */
+/* line 444, ../sass/base/_plugins.scss */
 .leaflet-container a.leaflet-popup-close-button {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 3px 3px 0 0;
+  padding: 14px 6px 0 0;
   text-align: center;
-  width: 18px;
+  width: 32px;
   height: 14px;
   font: 14px/14px Tahoma, Verdana, sans-serif;
   color: white;
@@ -9992,12 +9995,12 @@ html:hover [class^="ss-"] {
   background: transparent;
 }
 
-/* line 457, ../sass/base/_plugins.scss */
+/* line 458, ../sass/base/_plugins.scss */
 .leaflet-container a.leaflet-popup-close-button:hover {
   color: white;
 }
 
-/* line 460, ../sass/base/_plugins.scss */
+/* line 461, ../sass/base/_plugins.scss */
 .leaflet-popup-scrolled {
   overflow: auto;
   border-bottom: 1px solid #ddd;
@@ -10005,19 +10008,19 @@ html:hover [class^="ss-"] {
 }
 
 /* div icon */
-/* line 469, ../sass/base/_plugins.scss */
+/* line 470, ../sass/base/_plugins.scss */
 .leaflet-div-icon {
   background: #fff;
   border: 1px solid #666;
 }
 
-/* line 473, ../sass/base/_plugins.scss */
+/* line 474, ../sass/base/_plugins.scss */
 .leaflet-editing-icon {
   -webkit-border-radius: 2px;
   border-radius: 2px;
 }
 
-/* line 2, ../sass/components/_buttons.scss */
+/* line 1, ../sass/components/_buttons.scss */
 .button {
   color: white;
   display: inline-block;
@@ -10030,19 +10033,28 @@ html:hover [class^="ss-"] {
   -o-border-radius: 3px;
   border-radius: 3px;
 }
-/* line 10, ../sass/components/_buttons.scss */
+/* line 9, ../sass/components/_buttons.scss */
 .button .ss-icon {
   font-size: 16px;
   position: relative;
   margin-right: 5px;
   top: 2px;
 }
-/* line 17, ../sass/components/_buttons.scss */
+/* line 16, ../sass/components/_buttons.scss */
 .button:hover {
   color: white;
 }
 
-/* line 23, ../sass/components/_buttons.scss */
+/* line 22, ../sass/components/_buttons.scss */
+.start {
+  margin-right: 10px;
+}
+/* line 25, ../sass/components/_buttons.scss */
+.start:last-child {
+  margin-right: 0;
+}
+
+/* line 31, ../sass/components/_buttons.scss */
 .orange {
   color: white;
   background-color: #f26c4f;
@@ -10051,6 +10063,22 @@ html:hover [class^="ss-"] {
   font-size: 14px;
   line-height: inherit;
   font-weight: 300;
+}
+
+/* line 38, ../sass/components/_buttons.scss */
+.lighter-green {
+  color: white;
+  background-color: #7ac474;
+  padding: 0 15px;
+  font-family: "FuturaBold";
+  font-size: 16px;
+  line-height: inherit;
+  font-weight: 300;
+}
+
+/* line 45, ../sass/components/_buttons.scss */
+.map-it-button {
+  padding-right: 20px;
 }
 
 /* line 6, ../sass/modules/_modules.scss */
@@ -10247,7 +10275,7 @@ input[name='search-text'] {
 }
 /* line 164, ../sass/modules/_modules.scss */
 .map-options-content-container a {
-  color: #b5dfb3;
+  color: #428c3c;
   -webkit-transition: color 150ms linear;
   -moz-transition: color 150ms linear;
   -o-transition: color 150ms linear;
@@ -10286,10 +10314,6 @@ input[name='search-text'] {
   filter: blur(5px);
 }
 
-/* line 220, ../sass/modules/_modules.scss */
-#start-layout-container p {
-  text-align: center;
-}
 /* line 222, ../sass/modules/_modules.scss */
 #start-layout-container p a {
   border-bottom: 1px dotted #282828;
@@ -10298,23 +10322,15 @@ input[name='search-text'] {
 
 /* line 229, ../sass/modules/_modules.scss */
 .start-title {
-  color: #234d20;
+  color: #428c3c;
+  margin-bottom: 30px;
   font-family: "FuturaLight";
-  font-size: 72px;
-  line-height: 72px;
+  font-size: 53px;
+  line-height: 63px;
   font-weight: 300;
 }
 
-/* line 234, ../sass/modules/_modules.scss */
-.start-subtitle {
-  color: #282828;
-  font-family: "FuturaBold";
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 300;
-}
-
-/* line 244, ../sass/modules/_modules.scss */
+/* line 239, ../sass/modules/_modules.scss */
 .results-title {
   display: block;
   margin-bottom: 35px;
@@ -10325,7 +10341,7 @@ input[name='search-text'] {
   font-weight: 300;
 }
 
-/* line 251, ../sass/modules/_modules.scss */
+/* line 246, ../sass/modules/_modules.scss */
 .result-container {
   background-color: white;
   min-height: 282px;
@@ -10338,7 +10354,7 @@ input[name='search-text'] {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* line 261, ../sass/modules/_modules.scss */
+/* line 256, ../sass/modules/_modules.scss */
 .result-image-container {
   position: absolute;
   height: 149px;
@@ -10346,24 +10362,24 @@ input[name='search-text'] {
   top: 0;
   width: 360px;
 }
-/* line 268, ../sass/modules/_modules.scss */
+/* line 263, ../sass/modules/_modules.scss */
 .result-image-container img {
   height: 149px;
   width: 360px;
 }
 
-/* line 275, ../sass/modules/_modules.scss */
+/* line 270, ../sass/modules/_modules.scss */
 .result-content-container {
   position: relative;
   padding-top: 149px;
 }
 
-/* line 280, ../sass/modules/_modules.scss */
+/* line 275, ../sass/modules/_modules.scss */
 .result-title-row {
   padding: 22px 0 9px 0;
 }
 
-/* line 284, ../sass/modules/_modules.scss */
+/* line 279, ../sass/modules/_modules.scss */
 .result-title {
   margin-bottom: 0;
   margin-top: 0;
@@ -10375,34 +10391,34 @@ input[name='search-text'] {
   font-weight: 300;
 }
 
-/* line 292, ../sass/modules/_modules.scss */
+/* line 287, ../sass/modules/_modules.scss */
 .result-icons-container {
   text-align: right;
 }
 
-/* line 296, ../sass/modules/_modules.scss */
+/* line 291, ../sass/modules/_modules.scss */
 .result-show-details {
   color: #7fd9f4;
   display: inline-block;
   width: 16px;
 }
-/* line 300, ../sass/modules/_modules.scss */
+/* line 295, ../sass/modules/_modules.scss */
 .result-show-details:hover {
   color: #7fd9f4;
 }
 
-/* line 305, ../sass/modules/_modules.scss */
+/* line 300, ../sass/modules/_modules.scss */
 .result-show-pin {
   color: #f26c4f;
   display: inline-block;
   width: 12px;
 }
-/* line 309, ../sass/modules/_modules.scss */
+/* line 304, ../sass/modules/_modules.scss */
 .result-show-pin:hover {
   color: #f26c4f;
 }
 
-/* line 314, ../sass/modules/_modules.scss */
+/* line 309, ../sass/modules/_modules.scss */
 .result-amenities {
   color: #999999;
   font-family: "FuturaBook";
@@ -10411,7 +10427,7 @@ input[name='search-text'] {
   font-weight: 300;
 }
 
-/* line 319, ../sass/modules/_modules.scss */
+/* line 314, ../sass/modules/_modules.scss */
 .result-description {
   color: white;
   font-family: "FuturaBook";
@@ -10420,16 +10436,16 @@ input[name='search-text'] {
   font-weight: 300;
 }
 
-/* line 324, ../sass/modules/_modules.scss */
+/* line 319, ../sass/modules/_modules.scss */
 .result-container.direct-to-map {
   background-color: #f26c4f;
 }
-/* line 326, ../sass/modules/_modules.scss */
+/* line 321, ../sass/modules/_modules.scss */
 .result-container.direct-to-map .result-title {
   color: white;
 }
 
-/* line 336, ../sass/modules/_modules.scss */
+/* line 331, ../sass/modules/_modules.scss */
 #park-detail-item-container {
   background-color: rgba(255, 255, 255, 0.7);
   -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
@@ -10442,18 +10458,18 @@ input[name='search-text'] {
   border-radius: 3px;
 }
 
-/* line 342, ../sass/modules/_modules.scss */
+/* line 337, ../sass/modules/_modules.scss */
 #park-detail-gallery-container {
-  height: 600px;
+  height: 500px;
   position: relative;
   width: 770px;
   z-index: 100;
 }
-/* line 349, ../sass/modules/_modules.scss */
+/* line 344, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .placeholder {
   display: none;
 }
-/* line 353, ../sass/modules/_modules.scss */
+/* line 348, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .dummy {
   height: auto;
   position: relative;
@@ -10462,7 +10478,7 @@ input[name='search-text'] {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-/* line 361, ../sass/modules/_modules.scss */
+/* line 356, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .ss-icon {
   color: white;
   font-size: 46px;
@@ -10477,29 +10493,30 @@ input[name='search-text'] {
   -o-transition: opacity 150ms linear;
   transition: opacity 150ms linear;
 }
-/* line 371, ../sass/modules/_modules.scss */
+/* line 366, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .ss-icon:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
 }
-/* line 377, ../sass/modules/_modules.scss */
+/* line 372, ../sass/modules/_modules.scss */
 #park-detail-gallery-container #park-detail-gallery-left {
   left: 20px;
 }
-/* line 381, ../sass/modules/_modules.scss */
+/* line 376, ../sass/modules/_modules.scss */
 #park-detail-gallery-container #park-detail-gallery-right {
   right: 20px;
 }
 
-/* line 387, ../sass/modules/_modules.scss */
+/* line 382, ../sass/modules/_modules.scss */
 #park-detail-info-container {
   padding: 40px 20px 40px 30px;
 }
-/* line 391, ../sass/modules/_modules.scss */
+/* line 386, ../sass/modules/_modules.scss */
 #park-detail-info-container h1 {
   color: #282828;
+  width: 300px;
 }
-/* line 395, ../sass/modules/_modules.scss */
+/* line 391, ../sass/modules/_modules.scss */
 #park-detail-info-container address {
   color: #282828;
   margin: 10px 0 30px 0;
@@ -10509,11 +10526,11 @@ input[name='search-text'] {
   line-height: 18px;
   font-weight: 300;
 }
-/* line 402, ../sass/modules/_modules.scss */
+/* line 398, ../sass/modules/_modules.scss */
 #park-detail-info-container h2 {
   color: #666666;
 }
-/* line 406, ../sass/modules/_modules.scss */
+/* line 402, ../sass/modules/_modules.scss */
 #park-detail-info-container p {
   color: #666666;
   font-family: "FuturaBook";
@@ -10521,30 +10538,30 @@ input[name='search-text'] {
   line-height: 18px;
   font-weight: 300;
 }
-/* line 411, ../sass/modules/_modules.scss */
+/* line 407, ../sass/modules/_modules.scss */
 #park-detail-info-container .button {
   margin-top: 30px;
 }
-/* line 415, ../sass/modules/_modules.scss */
+/* line 411, ../sass/modules/_modules.scss */
 #park-detail-info-container .close {
   color: #f26c4f;
   position: absolute;
   top: 40px;
   right: 30px;
 }
-/* line 420, ../sass/modules/_modules.scss */
+/* line 416, ../sass/modules/_modules.scss */
 #park-detail-info-container .close:hover {
   color: #f26c4f;
 }
 
-/* line 430, ../sass/modules/_modules.scss */
+/* line 426, ../sass/modules/_modules.scss */
 .map-popup {
   -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* line 434, ../sass/modules/_modules.scss */
+/* line 430, ../sass/modules/_modules.scss */
 .popup-header-container {
   background-color: #f26c4f;
   padding: 15px 15px 7px 15px;
@@ -10555,36 +10572,38 @@ input[name='search-text'] {
   -o-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0;
 }
-/* line 440, ../sass/modules/_modules.scss */
+/* line 436, ../sass/modules/_modules.scss */
 .popup-header-container p {
   color: white;
   margin: 0;
   padding: 0;
+  width: 165px;
   font-family: "Neue";
   font-size: 16px;
   line-height: 21px;
   font-weight: 300;
 }
 
-/* line 448, ../sass/modules/_modules.scss */
+/* line 445, ../sass/modules/_modules.scss */
 .popup-links {
   background-color: white;
   margin: 0;
   padding: 0;
   width: 200px;
+  text-transform: uppercase;
   -webkit-border-radius: 0 0 3px 3px;
   -moz-border-radius: 0 0 3px 3px;
   -ms-border-radius: 0 0 3px 3px;
   -o-border-radius: 0 0 3px 3px;
   border-radius: 0 0 3px 3px;
 }
-/* line 456, ../sass/modules/_modules.scss */
+/* line 454, ../sass/modules/_modules.scss */
 .popup-links li {
   margin: 0;
-  padding: 0;
+  padding: 4px 0;
   list-style-type: none;
 }
-/* line 462, ../sass/modules/_modules.scss */
+/* line 460, ../sass/modules/_modules.scss */
 .popup-links li a {
   color: #666666;
   display: block;
@@ -10594,15 +10613,14 @@ input[name='search-text'] {
   line-height: 35px;
   font-weight: 300;
 }
-/* line 468, ../sass/modules/_modules.scss */
+/* line 466, ../sass/modules/_modules.scss */
 .popup-links li a span {
-  color: #7fd9f4;
   font-size: 18px;
-  margin-right: 5px;
+  margin-right: 8px;
   position: relative;
   top: 4px;
 }
-/* line 476, ../sass/modules/_modules.scss */
+/* line 473, ../sass/modules/_modules.scss */
 .popup-links li a span.icon-google-maps {
   background: transparent url(/images/icon-google-maps.png) no-repeat left top;
   display: inline-block;
@@ -10611,7 +10629,7 @@ input[name='search-text'] {
   top: 3px;
   width: 16px;
 }
-/* line 487, ../sass/modules/_modules.scss */
+/* line 484, ../sass/modules/_modules.scss */
 .popup-links li + li {
   border-top: 1px solid #f2f2f2;
 }

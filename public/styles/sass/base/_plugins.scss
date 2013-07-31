@@ -439,14 +439,15 @@ transition: none;
   }
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {
   background: transparent;
+  @include box-shadow(0 3px 10px rgba(0,0,0,.15));
   }
 .leaflet-container a.leaflet-popup-close-button {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 3px 3px 0 0;
+  padding: 14px 6px 0 0;
   text-align: center;
-  width: 18px;
+  width: 32px;
   height: 14px;
   font: 14px/14px Tahoma, Verdana, sans-serif;
   color: $white;

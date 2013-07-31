@@ -218,7 +218,7 @@ input[name='search-text']{
 
 #start-layout-container{
   p{
-    text-align:center;
+    //text-align:center;
     a{
       border-bottom:1px dotted $black;
       color:$black;
@@ -227,15 +227,10 @@ input[name='search-text']{
 }
 
 .start-title{
-  color:$darker-green;
-  @include font("FuturaLight", 72px, 72px);
+  color:$light-green;
+  margin-bottom: 30px;
+  @include font("FuturaLight", 53px, 63px);
 }
-
-.start-subtitle{
-  color:$black;
-  @include font("FuturaBold", 18px, 24px);
-}
-
 
 //
 // RESULTS PAGE
@@ -341,7 +336,7 @@ input[name='search-text']{
 
 #park-detail-gallery-container{
 
-  height:600px;
+  height:500px;
   position:relative;
   width:770px;
   z-index:100;
@@ -390,6 +385,7 @@ input[name='search-text']{
 
   h1{
     color:$black;
+    width: 300px;
   }
 
   address{
@@ -441,6 +437,7 @@ input[name='search-text']{
     color:$white;
     margin:0;
     padding:0;
+    width: 165px;
     @include font("Neue", 16px, 21px);
   }
 }
@@ -451,12 +448,13 @@ input[name='search-text']{
   margin:0;
   padding:0;
   width:200px;
+  text-transform: uppercase;
   @include border-radius(0 0 3px 3px);
 
   li{
 
     margin:0;
-    padding:0;
+    padding:4px 0;
     list-style-type:none;
 
     a{
@@ -466,9 +464,8 @@ input[name='search-text']{
       @include font("FuturaBold", 11px, 35px);
 
       span{
-        color:$blue;
         font-size:18px;
-        margin-right:5px;
+        margin-right:8px;
         position:relative;
         top:4px;
       }
