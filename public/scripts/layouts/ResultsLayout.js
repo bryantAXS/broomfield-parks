@@ -29,17 +29,23 @@ define([
       var self = this;
 
       this.resultsCollection = new ResultsCollection();
-      this.resultsCollection.all().done(function(){
 
-        // Showing all parks on the map
-        App.layoutsRendered.done(function(){
-          App.mapLayout.showResults(self.resultsCollection);
-        });
+      var callback;
 
+      if(this.options.searchTerm === "guide"){
+        callback = this.initGuide();
+      }else if(this.options.searchTerm === "all"){
+        callback = this.initAll();
+      }else{
+        callback = this.initSearch();
+      }
+
+      callback.done(function(){
+        App.mapLayout.showResults(self.resultsCollection);
       });
 
       this.resultsCollectionView = new ResultsCollectionView({
-        isGuideTrigger: App.getSearchTerm() === "guide" ? true : false,
+        isGuideTrigger: App.getSearchTerm() === "guide" || App.getSearchTerm() === "all" ? true : false,
         collection: this.resultsCollection
       });
 
@@ -53,6 +59,18 @@ define([
       this.resultsContainer.show(this.resultsCollectionView);
       App.vent.trigger("searchBar:populateFromURL");
 
+    },
+
+    initGuide: function(){
+      return this.resultsCollection.guide();
+    },
+
+    initAll: function(){
+      return this.resultsCollection.all();
+    },
+
+    initSearch: function(){
+      return this.resultsCollection.search(this.options.searchTerm);
     },
 
     setTitle: function(){

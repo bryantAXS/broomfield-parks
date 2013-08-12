@@ -43,10 +43,7 @@ define([
     initMarker: function(){
 
       var self = this;
-
-      App.layoutsRendered.done(function(){
-        App.mapLayout.showSinglePark(self.model);
-      });
+      App.mapLayout.showSinglePark(self.model);
 
     },
 

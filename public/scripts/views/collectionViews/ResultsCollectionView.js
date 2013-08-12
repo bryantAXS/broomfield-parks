@@ -5,8 +5,9 @@ define([
   "underscore",
   "backbone",
   "marionette",
-  "views/itemViews/ResultItemView"
-], function($, _, Backbone, Marionette, ResultItemView){
+  "views/itemViews/ResultItemView",
+  "views/itemViews/DirectToMapItemView"
+], function($, _, Backbone, Marionette, ResultItemView, DirectToMapItemView){
 
   var ResultsCollectionView = Backbone.Marionette.CollectionView.extend({
 
@@ -20,12 +21,24 @@ define([
 
     },
 
+    onClose: function(){
+      this.$el.find(".direct-to-map").parent().remove();
+    },
+
     onRender: function(){
 
+      var self = this;
+
       if(this.options.isGuideTrigger){
-        this.addDirectToMapItem();
+        if(!self.directToMapRendered()){
+          this.addDirectToMapItem();
+        }
       }
 
+    },
+
+    directToMapRendered: function(){
+      return this.$el.find(".direct-to-map").length;
     },
 
     onScroll: function(){
@@ -43,9 +56,6 @@ define([
 
     addDirectToMapItem: function(){
 
-      var DirectToMapItemView = ResultItemView.extend({
-        'template': '#direct-to-map-item-view-template'
-      });
       this.directToMapItemView = new DirectToMapItemView();
       this.$el.append(this.directToMapItemView.render().el);
 

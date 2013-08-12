@@ -8,8 +8,9 @@ define([
   "layouts/SearchBarLayout",
   "regions/TransitioningRegion",
   "collections/ResultsCollection",
-  "spin"
-], function($, _, Backbone, Marionette, Router, MapLayout, SearchBarLayout, TransitioningRegion, ResultsCollection, Spinner){
+  "spin",
+  "purl"
+], function($, _, Backbone, Marionette, Router, MapLayout, SearchBarLayout, TransitioningRegion, ResultsCollection, Spinner, Purl){
 
   var App = new Backbone.Marionette.Application();
 
@@ -18,11 +19,15 @@ define([
    * @return {boolean} are we searching?
    */
   App.areSearching = function(){
-    if(Backbone.history.fragment.indexOf("search") > -1){
+
+    var url = $.url();
+
+    if(url.attr("path").indexOf("search") > -1){
       return true;
     }else{
       return false;
     }
+
   };
 
 
@@ -31,7 +36,9 @@ define([
    * @return {string} search term
    */
   App.getSearchTerm = function(){
-    return decodeURIComponent(Backbone.history.fragment.split("/")[1]);
+
+    var url = $.url();
+    return decodeURIComponent(url.attr("path").split("/")[2]);
   };
 
 
@@ -44,7 +51,7 @@ define([
     // extending some options
     var options = {
       activateMapButton: false
-    }
+    };
     $.extend(options, params);
 
     if(options.activateMapButton){
@@ -66,7 +73,7 @@ define([
     // extending some options
     var options = {
       showPreviousLayout: false
-    }
+    };
     $.extend(options, params);
 
 
@@ -152,9 +159,6 @@ define([
     mapRegion: "#map-region-container"
   });
 
-  // We need to know when our Map and SearchBar layouts have been rendered
-  App.layoutsRendered = $.Deferred();
-
   /**
    * Starting our routing
    * @return {void}
@@ -190,7 +194,8 @@ define([
 
   });
 
-  App.on("start", function(){
+
+  App.initSpinner = function(){
 
     var opts = {
       lines: 13, // The number of lines to draw
@@ -203,35 +208,44 @@ define([
       hwaccel: true, // Whether to use hardware acceleration
       className: "spinner",
     };
-    var target = $("html").get(0);
-    //var spinner = new Spinner(opts).spin(target);
 
-  });
+    var target = $("html").get(0);
+    App.spinner = new Spinner(opts).spin(target);
+
+  };
 
   /**
    * Starting up our Router
    * @return {void}
    */
   App.on("start", function(){
-    App.Router = new Router();
-    return App.vent.trigger("routing:started");
-  });
 
-  /**
-   * Adding our Search Bar and Map layouts to the page
-   * @return {void}
-   */
-  App.on("start", function(){
+    var self = this;
 
-    this.searchBarLayout = new SearchBarLayout();
-    App.searchRegion.show(this.searchBarLayout);
+    // On the intial load we want to create our Map and Searchbar Layouts
 
-    // When the initialCollectionLoaded gets resolved, we can start routing
-    this.mapLayout = new MapLayout({
-      intialCollectionLoaded: App.layoutsRendered
+    self.mapLayout = new MapLayout();
+    App.mapRegion.show(self.mapLayout);
+
+    self.searchBarLayout = new SearchBarLayout();
+    App.searchRegion.show(self.searchBarLayout);
+
+
+    // lets start the spinner because we might need to  wait a little for the
+    // initial load of the parks collection
+    App.initSpinner();
+
+
+    // After ALL parks have been cached in our collection, lets start
+    // the router and load our page
+    App.allParksCollectionLoaded.done(function(){
+
+      App.Router = new Router();
+      App.vent.trigger("routing:started");
+
+      App.spinner.stop();
+
     });
-
-    App.mapRegion.show(this.mapLayout);
 
   });
 

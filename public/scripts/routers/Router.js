@@ -20,9 +20,7 @@ define([
         this.routesHit++;
 
         // we only want this to fire after our initial Map and SearchBar layouts have been rendered
-        App.layoutsRendered.done(function(){
-          App.deactivateMap();
-        });
+        App.deactivateMap();
 
       }, this);
     },

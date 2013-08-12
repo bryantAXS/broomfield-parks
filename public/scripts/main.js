@@ -26,6 +26,7 @@ require.config( {
     "lazyload":                         'bower_modules/jquery.lazyload/jquery.lazyload',
     "viewport-selectors":               'vendor/viewport',
     "spin":                             'bower_modules/spin.js/dist/spin',
+    "purl":                             'bower_modules/url-parser/purl',
 
     'esri-leaflet':                     'vendor/esri-leaflet',
     'leaflet':                          'vendor/leaflet'
@@ -62,6 +63,9 @@ require.config( {
       "deps": ["jquery"]
     },
     "friendurl":{
+      "deps": ["jquery"]
+    },
+    "purl":{
       "deps": ["jquery"]
     },
     "esri-leaflet":{

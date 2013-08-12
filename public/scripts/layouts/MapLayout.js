@@ -99,9 +99,6 @@ define([
           self.allParksCollection = App.allParksCollection;
           self.renderMarkers(self.allParksLayer, self.allParksCollection);
 
-          // resolving a deferred variable from App.js letting us start routing
-          self.options.intialCollectionLoaded.resolve();
-
         });
 
       }, 50);

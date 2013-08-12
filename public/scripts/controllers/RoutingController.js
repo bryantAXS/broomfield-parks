@@ -59,6 +59,7 @@ define([
     showResults: function(searchTerm){
 
       var resultsLayout = new ResultsLayout({
+        searchTerm: searchTerm
       });
       App.showContentLayout(resultsLayout);
 
