@@ -229,7 +229,8 @@ input[name='search-text']{
 .start-title{
   color:$light-green;
   margin-bottom: 30px;
-  @include font("FuturaLight", 53px, 63px);
+  letter-spacing: 0.02em;
+  @include font("FuturaMedium", 53px, 63px);
 }
 
 //
