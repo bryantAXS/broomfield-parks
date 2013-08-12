@@ -86,8 +86,21 @@ define([
    * @return {void}
    */
   App.showContentLayout = function(view){
+
     this.currentContentLayout = view;
+
+    // when we were loading a cached view (this.previousContentLayout) our evenst
+    // wre being unbound on the closing of the view initially, and we need to rebind them
+    // when the view is re-populated.  we do that below the showing
+    var isClosed = view.isClosed;
+
     App.contentRegion.show(view);
+
+    // second part of the rebinding of the events mentioned above.
+    if(isClosed === true){
+      view.delegateEvents();
+    }
+
   };
 
 

@@ -120,7 +120,7 @@ define([
 
       this.map = L.map(this.el.id, {
         center: [39.920541,-105.06665],
-        zoom: 14,
+        zoom: 15,
       });
 
       // Creating our Map Layers

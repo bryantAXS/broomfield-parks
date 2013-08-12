@@ -10344,6 +10344,7 @@ input[name='search-text'] {
 /* line 246, ../sass/modules/_modules.scss */
 .result-container {
   background-color: white;
+  display: block;
   min-height: 282px;
   margin-bottom: 30px;
   padding-left: 20px;
@@ -10354,7 +10355,7 @@ input[name='search-text'] {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* line 256, ../sass/modules/_modules.scss */
+/* line 257, ../sass/modules/_modules.scss */
 .result-image-container {
   position: absolute;
   height: 149px;
@@ -10362,25 +10363,26 @@ input[name='search-text'] {
   top: 0;
   width: 360px;
 }
-/* line 263, ../sass/modules/_modules.scss */
+/* line 264, ../sass/modules/_modules.scss */
 .result-image-container img {
   height: 149px;
   width: 360px;
 }
 
-/* line 270, ../sass/modules/_modules.scss */
+/* line 271, ../sass/modules/_modules.scss */
 .result-content-container {
   position: relative;
   padding-top: 149px;
 }
 
-/* line 275, ../sass/modules/_modules.scss */
+/* line 276, ../sass/modules/_modules.scss */
 .result-title-row {
   padding: 22px 0 9px 0;
 }
 
-/* line 279, ../sass/modules/_modules.scss */
+/* line 280, ../sass/modules/_modules.scss */
 .result-title {
+  color: #282828;
   margin-bottom: 0;
   margin-top: 0;
   padding-bottom: 0;
@@ -10391,34 +10393,7 @@ input[name='search-text'] {
   font-weight: 300;
 }
 
-/* line 287, ../sass/modules/_modules.scss */
-.result-icons-container {
-  text-align: right;
-}
-
-/* line 291, ../sass/modules/_modules.scss */
-.result-show-details {
-  color: #7fd9f4;
-  display: inline-block;
-  width: 16px;
-}
-/* line 295, ../sass/modules/_modules.scss */
-.result-show-details:hover {
-  color: #7fd9f4;
-}
-
-/* line 300, ../sass/modules/_modules.scss */
-.result-show-pin {
-  color: #f26c4f;
-  display: inline-block;
-  width: 12px;
-}
-/* line 304, ../sass/modules/_modules.scss */
-.result-show-pin:hover {
-  color: #f26c4f;
-}
-
-/* line 309, ../sass/modules/_modules.scss */
+/* line 289, ../sass/modules/_modules.scss */
 .result-amenities {
   color: #999999;
   font-family: "FuturaBook";
@@ -10427,7 +10402,7 @@ input[name='search-text'] {
   font-weight: 300;
 }
 
-/* line 314, ../sass/modules/_modules.scss */
+/* line 294, ../sass/modules/_modules.scss */
 .result-description {
   color: white;
   font-family: "FuturaBook";
@@ -10436,16 +10411,16 @@ input[name='search-text'] {
   font-weight: 300;
 }
 
-/* line 319, ../sass/modules/_modules.scss */
+/* line 299, ../sass/modules/_modules.scss */
 .result-container.direct-to-map {
   background-color: #f26c4f;
 }
-/* line 321, ../sass/modules/_modules.scss */
+/* line 301, ../sass/modules/_modules.scss */
 .result-container.direct-to-map .result-title {
   color: white;
 }
 
-/* line 331, ../sass/modules/_modules.scss */
+/* line 311, ../sass/modules/_modules.scss */
 #park-detail-item-container {
   background-color: rgba(255, 255, 255, 0.7);
   -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
@@ -10458,18 +10433,18 @@ input[name='search-text'] {
   border-radius: 3px;
 }
 
-/* line 337, ../sass/modules/_modules.scss */
+/* line 317, ../sass/modules/_modules.scss */
 #park-detail-gallery-container {
   height: 500px;
   position: relative;
   width: 770px;
   z-index: 100;
 }
-/* line 344, ../sass/modules/_modules.scss */
+/* line 324, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .placeholder {
   display: none;
 }
-/* line 348, ../sass/modules/_modules.scss */
+/* line 328, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .dummy {
   height: auto;
   position: relative;
@@ -10478,7 +10453,7 @@ input[name='search-text'] {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-/* line 356, ../sass/modules/_modules.scss */
+/* line 336, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .ss-icon {
   color: white;
   font-size: 46px;
@@ -10493,30 +10468,30 @@ input[name='search-text'] {
   -o-transition: opacity 150ms linear;
   transition: opacity 150ms linear;
 }
-/* line 366, ../sass/modules/_modules.scss */
+/* line 346, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .ss-icon:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
 }
-/* line 372, ../sass/modules/_modules.scss */
+/* line 352, ../sass/modules/_modules.scss */
 #park-detail-gallery-container #park-detail-gallery-left {
   left: 20px;
 }
-/* line 376, ../sass/modules/_modules.scss */
+/* line 356, ../sass/modules/_modules.scss */
 #park-detail-gallery-container #park-detail-gallery-right {
   right: 20px;
 }
 
-/* line 382, ../sass/modules/_modules.scss */
+/* line 362, ../sass/modules/_modules.scss */
 #park-detail-info-container {
   padding: 40px 20px 40px 30px;
 }
-/* line 386, ../sass/modules/_modules.scss */
+/* line 366, ../sass/modules/_modules.scss */
 #park-detail-info-container h1 {
   color: #282828;
   width: 300px;
 }
-/* line 391, ../sass/modules/_modules.scss */
+/* line 371, ../sass/modules/_modules.scss */
 #park-detail-info-container address {
   color: #282828;
   margin: 10px 0 30px 0;
@@ -10526,11 +10501,11 @@ input[name='search-text'] {
   line-height: 18px;
   font-weight: 300;
 }
-/* line 398, ../sass/modules/_modules.scss */
+/* line 378, ../sass/modules/_modules.scss */
 #park-detail-info-container h2 {
   color: #666666;
 }
-/* line 402, ../sass/modules/_modules.scss */
+/* line 382, ../sass/modules/_modules.scss */
 #park-detail-info-container p {
   color: #666666;
   font-family: "FuturaBook";
@@ -10538,30 +10513,30 @@ input[name='search-text'] {
   line-height: 18px;
   font-weight: 300;
 }
-/* line 407, ../sass/modules/_modules.scss */
+/* line 387, ../sass/modules/_modules.scss */
 #park-detail-info-container .button {
   margin-top: 30px;
 }
-/* line 411, ../sass/modules/_modules.scss */
+/* line 391, ../sass/modules/_modules.scss */
 #park-detail-info-container .close {
   color: #f26c4f;
   position: absolute;
   top: 40px;
   right: 30px;
 }
-/* line 416, ../sass/modules/_modules.scss */
+/* line 396, ../sass/modules/_modules.scss */
 #park-detail-info-container .close:hover {
   color: #f26c4f;
 }
 
-/* line 426, ../sass/modules/_modules.scss */
+/* line 406, ../sass/modules/_modules.scss */
 .map-popup {
   -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* line 430, ../sass/modules/_modules.scss */
+/* line 410, ../sass/modules/_modules.scss */
 .popup-header-container {
   background-color: #f26c4f;
   padding: 15px 15px 7px 15px;
@@ -10572,7 +10547,7 @@ input[name='search-text'] {
   -o-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0;
 }
-/* line 436, ../sass/modules/_modules.scss */
+/* line 416, ../sass/modules/_modules.scss */
 .popup-header-container p {
   color: white;
   margin: 0;
@@ -10584,7 +10559,7 @@ input[name='search-text'] {
   font-weight: 300;
 }
 
-/* line 445, ../sass/modules/_modules.scss */
+/* line 425, ../sass/modules/_modules.scss */
 .popup-links {
   background-color: white;
   margin: 0;
@@ -10597,13 +10572,13 @@ input[name='search-text'] {
   -o-border-radius: 0 0 3px 3px;
   border-radius: 0 0 3px 3px;
 }
-/* line 454, ../sass/modules/_modules.scss */
+/* line 434, ../sass/modules/_modules.scss */
 .popup-links li {
   margin: 0;
   padding: 4px 0;
   list-style-type: none;
 }
-/* line 460, ../sass/modules/_modules.scss */
+/* line 440, ../sass/modules/_modules.scss */
 .popup-links li a {
   color: #666666;
   display: block;
@@ -10613,14 +10588,14 @@ input[name='search-text'] {
   line-height: 35px;
   font-weight: 300;
 }
-/* line 466, ../sass/modules/_modules.scss */
+/* line 446, ../sass/modules/_modules.scss */
 .popup-links li a span {
   font-size: 18px;
   margin-right: 8px;
   position: relative;
   top: 4px;
 }
-/* line 473, ../sass/modules/_modules.scss */
+/* line 453, ../sass/modules/_modules.scss */
 .popup-links li a span.icon-google-maps {
   background: transparent url(/images/icon-google-maps.png) no-repeat left top;
   display: inline-block;
@@ -10629,7 +10604,7 @@ input[name='search-text'] {
   top: 3px;
   width: 16px;
 }
-/* line 484, ../sass/modules/_modules.scss */
+/* line 464, ../sass/modules/_modules.scss */
 .popup-links li + li {
   border-top: 1px solid #f2f2f2;
 }

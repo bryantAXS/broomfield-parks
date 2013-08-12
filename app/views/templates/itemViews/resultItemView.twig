@@ -2,38 +2,32 @@
 
   <!-- Added in ResultItemView.js <div class="result-container columns large-4"> -->
 
-    <div class="result-container">
+    <a class="result-container" href="/park/<%= safe_place_name %>">
 
-    <div class="result-image-container">
+      <div class="result-image-container">
 
-      <!--
-      If we want to lazy load use this instead
-      <img class="lazy" src="/images/image-load-dot.png" data-original="/images/placeholder-result-1.png" />
-      -->
+        <!--
+        If we want to lazy load use this instead
+        <img class="lazy" src="/images/image-load-dot.png" data-original="/images/placeholder-result-1.png" />
+        -->
 
-      <img src="<%= thumbnail_image %>" />
-    </div>
-
-    <div class="result-content-container">
-      <div class="row result-title-row">
-        <p class="columns large-8 result-title">
-          <%= place_name %>
-        </p>
-        <div class="columns large-4 result-icons-container">
-          <a class="result-show-details ss-icon ss-pika" href="/park/<%= safe_place_name %>">
-            notepad
-          </a>
-          <a class="result-show-pin ss-icon ss-pika" href="javascript:;">location</a>
-        </div>
-      </div><!-- row -->
-      <div class="row">
-        <p class="result-amenities columns large-12">
-          <%= facilities %>
-        </p>
+        <img src="<%= thumbnail_image %>" />
       </div>
-    </div>
 
-    </div>
+      <div class="result-content-container">
+        <div class="row result-title-row">
+          <p class="columns large-12 result-title">
+            <%= place_name %>
+          </p>
+        </div><!-- row -->
+        <div class="row">
+          <p class="result-amenities columns large-12">
+            <%= facilities %>
+          </p>
+        </div>
+      </div>
+
+    </a>
 
   <!-- </div> result-container -->
 

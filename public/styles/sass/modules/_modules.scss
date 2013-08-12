@@ -245,6 +245,7 @@ input[name='search-text']{
 
 .result-container{
   background-color:$white;
+  display:block;
   min-height:282px;
   margin-bottom:30px;
   padding-left:20px;
@@ -277,33 +278,12 @@ input[name='search-text']{
 }
 
 .result-title{
+  color:$black;
   margin-bottom:0;
   margin-top:0;
   padding-bottom:0;
   padding-top:0;
   @include font("Neue", 18px, 22px);
-}
-
-.result-icons-container{
-  text-align:right;
-}
-
-.result-show-details{
-  color:$blue;
-  display:inline-block;
-  width:16px;
-  &:hover{
-    color:$blue;
-  }
-}
-
-.result-show-pin{
-  color:$orange;
-  display:inline-block;
-  width:12px;
-  &:hover{
-    color:$orange;
-  }
 }
 
 .result-amenities{
