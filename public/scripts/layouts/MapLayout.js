@@ -188,7 +188,7 @@ define([
         opacity : 0.8,
         type: 'ArcGISDynamicMapServiceLayer',
         visible: true,
-        visibleLayers: [0,1,2,3,4]
+        layers: [1,2,3,4]
       }).addTo(this.map);
 
       // Event when a popup is opened
