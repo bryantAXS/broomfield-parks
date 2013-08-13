@@ -7,3 +7,4 @@
 /.sass-cache
 /*.sublime-project
 /*.sublime-workspace
+/config/deploy.rb
