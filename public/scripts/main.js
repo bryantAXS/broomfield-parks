@@ -11,23 +11,23 @@ require.config( {
   paths:{
 
     // Dependencies
-    "jquery":                           'bower_modules/jquery/jquery',
-    "underscore":                       'bower_modules/underscore/underscore',
-    "backbone":                         'bower_modules/backbone/backbone',
-    "json":                             'bower_modules/backbone.marionette/public/javascripts/json2',
-    "backbone.babysitter":              'bower_modules/backbone.marionette/public/javascripts/backbone.babysitter',
-    "backbone.wreqr":                   'bower_modules/backbone.marionette/public/javascripts/backbone.wreqr',
-    "marionette":                       'bower_modules/backbone.marionette/lib/backbone.marionette.min',
-    "moment":                           'bower_modules/moment/min/moment',
+    "jquery":                           'vendor/jquery',
+    "underscore":                       'vendor/underscore',
+    "backbone":                         'vendor/backbone',
+    "json":                             'vendor/json2',
+    "backbone.babysitter":              'vendor/backbone.babysitter',
+    "backbone.wreqr":                   'vendor/backbone.wreqr',
+    "marionette":                       'vendor/backbone.marionette',
+    "moment":                           'vendor/moment',
     "symbolset":                        'vendor/symbolset',
 
-    "backstretch":                      'bower_modules/jquery-backstretch/jquery.backstretch',
-    "transit":                          'bower_modules/jquery.transit/jquery.transit',
-    "lazyload":                         'bower_modules/jquery.lazyload/jquery.lazyload',
+    "backstretch":                      'vendor/jquery.backstretch',
+    "transit":                          'vendor/jquery.transit',
+    "lazyload":                         'vendor/jquery.lazyload',
     "viewport-selectors":               'vendor/viewport',
-    "spin":                             'bower_modules/spin.js/dist/spin',
-    "purl":                             'bower_modules/url-parser/purl',
-    "typeahead":                        'bower_modules/typeahead.js/dist/typeahead',
+    "spin":                             'vendor/spin',
+    "purl":                             'vendor/purl',
+    "typeahead":                        'vendor/typeahead',
 
     'esri-leaflet':                     'vendor/esri-leaflet',
     'leaflet':                          'vendor/leaflet'
