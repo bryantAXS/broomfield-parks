@@ -9,10 +9,11 @@ module.exports = function(grunt) {
 
     // Copy task
     copy: {
-      foundation: {
+
+      init: {
         files: [
-         {expand: true, flatten: false, cwd: "bower_modules/foundation/js", src: '**', dest: 'public/scripts/vendor'},
-         {expand: true, flatten: false, cwd:"bower_modules/foundation/scss", src: '**', dest: 'public/styles/sass'}
+          {expand: true, flatten: false, cwd: "bower_modules/foundation/js", src: '**', dest: 'public/scripts/vendor'},
+          {expand: true, flatten: false, cwd: "bower_modules/foundation/scss", src: 'foundation', dest: 'public/styles/sass'}
         ]
       },
       requirejs: {
@@ -43,11 +44,11 @@ module.exports = function(grunt) {
 
     // Compass task
     compass: {
-        dist: {
-            options: {
-                config: "config/compass.rb"
-            }
+      dist: {
+        options: {
+            config: "config/compass.rb"
         }
+      }
     },
 
     // Clean task
@@ -101,44 +102,6 @@ module.exports = function(grunt) {
       }
     },
 
-
-    // Watch Task
-    watch: {
-      options: {
-        nospawn: false,
-        livereload: true
-      },
-      compass:{
-        files:['**/*.{scss,sass}'],
-        tasks:'compass'
-      }
-      // js:{
-      //   files: ['app/src/js/**/*.js'],
-      //   tasks: "concat"
-      // }
-    },
-
-
-    // Parallel  Task
-    parallel: {
-      server: {
-        options: {
-          grunt: true,
-          stream: true
-        },
-        tasks: ['watch','browser']
-      }
-    }
-    // jasmine: {
-    //   app: {
-    //     src: 'public/js/*.js',
-    //     options: {
-    //       vendor: vendorjs,
-    //       specs: 'test/jasmine/*.js'
-    //     }
-    //   }
-    // }
-
   });
 
   //require js
@@ -157,14 +120,6 @@ module.exports = function(grunt) {
   // Clean tools
   grunt.loadNpmTasks('grunt-contrib-clean');
 
-  // Testing tools
-  grunt.loadNpmTasks('grunt-contrib-jasmine');
-
-  // Modules for server and watcher
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-parallel');
-  grunt.loadNpmTasks('assemble');
-
   // Basic tasks.
   grunt.registerTask('default', ['development']);
   grunt.registerTask('build', ['compass']);
@@ -175,7 +130,7 @@ module.exports = function(grunt) {
   // grunt.registerTask('test', ['jasmine']);
 
   // Setup foundation
-  grunt.registerTask("init", ['copy:foundation', 'copy:requirejs']);
+  grunt.registerTask("init", ['copy:init']);
 
   // Setup environment for development
   grunt.registerTask('development', ['build','assemble:development_html','clean:development','mkdir:clean']);

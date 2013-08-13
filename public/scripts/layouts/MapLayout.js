@@ -156,7 +156,7 @@ define([
 
       setTimeout(function(){
         self.disableIntroScreen();
-      }, 350);
+      }, 3000);
 
     },
 
@@ -183,7 +183,7 @@ define([
       // ArcGIS Online Basemaps - Streets, Topographic, Gray, GrayLabels, Oceans, NationalGeographic, Imagery, ImageryLabels
       L.esri.basemapLayer("Topographic").addTo(this.map);
 
-      // Park details layer;
+      // Park details layer
       this.parkDetailsLayer = new L.esri.dynamicMapLayer("http://test.broomfield.org/arcgis/rest/services/Parks/FindAPark/MapServer", {
         opacity : 0.8,
         type: 'ArcGISDynamicMapServiceLayer',

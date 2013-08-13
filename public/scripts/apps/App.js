@@ -183,14 +183,16 @@ define([
   App.initSpinner = function(){
 
     var opts = {
-      lines: 13, // The number of lines to draw
-      length: 10, // The length of each line
-      width: 4, // The line thickness
-      radius: 10, // The radius of the inner circle
-      corners: .8, // Corner roundness (0..1)
-      color: '#000', // #rgb or #rrggbb
-      trail: 60, // Afterglow percentage
+      lines: 7, // The number of lines to draw
+      length: 0, // The length of each line
+      width: 14, // The line thickness
+      radius: 27, // The radius of the inner circle
+      corners: 1.0, // Corner roundness (0..1)
+      color: '#7ac474', // #rgb or #rrggbb
+      trail: 80, // Afterglow percentage
       hwaccel: true, // Whether to use hardware acceleration
+      speed: 1.0,
+      direction: 1,
       className: "spinner",
     };
 
