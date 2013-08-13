@@ -10439,13 +10439,23 @@ html:hover [class^="ss-"] {
 /* line 306, ../sass/modules/_modules.scss */
 .result-amenities {
   color: #999999;
+  margin-bottom: 10px;
   font-family: "FuturaBook";
   font-size: 14px;
   line-height: 20px;
   font-weight: 300;
 }
 
-/* line 311, ../sass/modules/_modules.scss */
+/* line 312, ../sass/modules/_modules.scss */
+.result-address {
+  color: #4d7a49;
+  font-family: "FuturaBold";
+  font-size: 10px;
+  line-height: 18px;
+  font-weight: 300;
+}
+
+/* line 317, ../sass/modules/_modules.scss */
 .result-description {
   color: white;
   font-family: "FuturaBook";
@@ -10454,16 +10464,16 @@ html:hover [class^="ss-"] {
   font-weight: 300;
 }
 
-/* line 316, ../sass/modules/_modules.scss */
+/* line 322, ../sass/modules/_modules.scss */
 .result-container.direct-to-map {
   background-color: #f26c4f;
 }
-/* line 318, ../sass/modules/_modules.scss */
+/* line 324, ../sass/modules/_modules.scss */
 .result-container.direct-to-map .result-title {
   color: white;
 }
 
-/* line 328, ../sass/modules/_modules.scss */
+/* line 334, ../sass/modules/_modules.scss */
 #park-detail-item-container {
   background-color: rgba(255, 255, 255, 0.7);
   -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
@@ -10476,18 +10486,18 @@ html:hover [class^="ss-"] {
   border-radius: 3px;
 }
 
-/* line 334, ../sass/modules/_modules.scss */
+/* line 340, ../sass/modules/_modules.scss */
 #park-detail-gallery-container {
   height: 500px;
   position: relative;
   width: 770px;
   z-index: 100;
 }
-/* line 341, ../sass/modules/_modules.scss */
+/* line 347, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .placeholder {
   display: none;
 }
-/* line 345, ../sass/modules/_modules.scss */
+/* line 351, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .dummy {
   height: auto;
   position: relative;
@@ -10496,7 +10506,7 @@ html:hover [class^="ss-"] {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-/* line 353, ../sass/modules/_modules.scss */
+/* line 359, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .ss-icon {
   color: white;
   font-size: 46px;
@@ -10511,30 +10521,30 @@ html:hover [class^="ss-"] {
   -o-transition: opacity 150ms linear;
   transition: opacity 150ms linear;
 }
-/* line 363, ../sass/modules/_modules.scss */
+/* line 369, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .ss-icon:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
 }
-/* line 369, ../sass/modules/_modules.scss */
+/* line 375, ../sass/modules/_modules.scss */
 #park-detail-gallery-container #park-detail-gallery-left {
   left: 20px;
 }
-/* line 373, ../sass/modules/_modules.scss */
+/* line 379, ../sass/modules/_modules.scss */
 #park-detail-gallery-container #park-detail-gallery-right {
   right: 20px;
 }
 
-/* line 379, ../sass/modules/_modules.scss */
+/* line 385, ../sass/modules/_modules.scss */
 #park-detail-info-container {
   padding: 40px 20px 40px 30px;
 }
-/* line 383, ../sass/modules/_modules.scss */
+/* line 389, ../sass/modules/_modules.scss */
 #park-detail-info-container h1 {
   color: #282828;
   width: 300px;
 }
-/* line 388, ../sass/modules/_modules.scss */
+/* line 394, ../sass/modules/_modules.scss */
 #park-detail-info-container address {
   color: #282828;
   margin: 10px 0 30px 0;
@@ -10544,11 +10554,11 @@ html:hover [class^="ss-"] {
   line-height: 18px;
   font-weight: 300;
 }
-/* line 395, ../sass/modules/_modules.scss */
+/* line 401, ../sass/modules/_modules.scss */
 #park-detail-info-container h2 {
   color: #666666;
 }
-/* line 399, ../sass/modules/_modules.scss */
+/* line 405, ../sass/modules/_modules.scss */
 #park-detail-info-container p {
   color: #666666;
   font-family: "FuturaBook";
@@ -10556,30 +10566,30 @@ html:hover [class^="ss-"] {
   line-height: 18px;
   font-weight: 300;
 }
-/* line 404, ../sass/modules/_modules.scss */
+/* line 410, ../sass/modules/_modules.scss */
 #park-detail-info-container .button {
   margin-top: 30px;
 }
-/* line 408, ../sass/modules/_modules.scss */
+/* line 414, ../sass/modules/_modules.scss */
 #park-detail-info-container .close {
   color: #f26c4f;
   position: absolute;
   top: 40px;
   right: 30px;
 }
-/* line 413, ../sass/modules/_modules.scss */
+/* line 419, ../sass/modules/_modules.scss */
 #park-detail-info-container .close:hover {
   color: #f26c4f;
 }
 
-/* line 423, ../sass/modules/_modules.scss */
+/* line 429, ../sass/modules/_modules.scss */
 .map-popup {
   -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* line 427, ../sass/modules/_modules.scss */
+/* line 433, ../sass/modules/_modules.scss */
 .popup-header-container {
   background-color: #f26c4f;
   padding: 15px 15px 7px 15px;
@@ -10590,7 +10600,7 @@ html:hover [class^="ss-"] {
   -o-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0;
 }
-/* line 433, ../sass/modules/_modules.scss */
+/* line 439, ../sass/modules/_modules.scss */
 .popup-header-container p {
   color: white;
   margin: 0;
@@ -10602,7 +10612,7 @@ html:hover [class^="ss-"] {
   font-weight: 300;
 }
 
-/* line 442, ../sass/modules/_modules.scss */
+/* line 448, ../sass/modules/_modules.scss */
 .popup-links {
   background-color: white;
   margin: 0;
@@ -10615,13 +10625,13 @@ html:hover [class^="ss-"] {
   -o-border-radius: 0 0 3px 3px;
   border-radius: 0 0 3px 3px;
 }
-/* line 451, ../sass/modules/_modules.scss */
+/* line 457, ../sass/modules/_modules.scss */
 .popup-links li {
   margin: 0;
   padding: 4px 0;
   list-style-type: none;
 }
-/* line 457, ../sass/modules/_modules.scss */
+/* line 463, ../sass/modules/_modules.scss */
 .popup-links li a {
   color: #666666;
   display: block;
@@ -10631,14 +10641,14 @@ html:hover [class^="ss-"] {
   line-height: 35px;
   font-weight: 300;
 }
-/* line 463, ../sass/modules/_modules.scss */
+/* line 469, ../sass/modules/_modules.scss */
 .popup-links li a span {
   font-size: 18px;
   margin-right: 8px;
   position: relative;
   top: 4px;
 }
-/* line 470, ../sass/modules/_modules.scss */
+/* line 476, ../sass/modules/_modules.scss */
 .popup-links li a span.icon-google-maps {
   background: transparent url(/images/icon-google-maps.png) no-repeat left top;
   display: inline-block;
@@ -10647,7 +10657,7 @@ html:hover [class^="ss-"] {
   top: 3px;
   width: 16px;
 }
-/* line 481, ../sass/modules/_modules.scss */
+/* line 487, ../sass/modules/_modules.scss */
 .popup-links li + li {
   border-top: 1px solid #f2f2f2;
 }

@@ -102,12 +102,12 @@ define([
       };
 
       var results = [
-        // broomfield country commons
+        11229, // broomfield country commons
         11314, //community park
         11262, // industrial park
-        // northmoor park
-        // anthem park
-        // east interlocken park
+        11307, // northmoor park
+        11400, // anthem park
+        11318, // east interlocken park
       ];
 
       $.each(results, function(i, id){

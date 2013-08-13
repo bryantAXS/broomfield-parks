@@ -305,7 +305,13 @@
 
 .result-amenities{
   color:$grey;
+  margin-bottom:10px;
   @include font("FuturaBook", 14px, 20px);
+}
+
+.result-address{
+  color:$dark-green;
+  @include font("FuturaBold", 10px, 18px);
 }
 
 .result-description{
