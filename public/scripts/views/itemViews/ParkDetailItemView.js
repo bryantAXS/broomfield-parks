@@ -80,16 +80,21 @@ define([
 
       if(!galleryImages.length){ return ; }
 
-      this.ui.galleryContainer.backstretch(this.getGalleryImages(), {
-        duration: 20000,
-        fade: 750
-      });
+      var cb1 = function(){
+        self.ui.galleryContainer.backstretch(self.getGalleryImages(), {
+          duration: 20000,
+          fade: 750
+        });
+      };
+      setTimeout(cb1, 50);
+
+
 
       // hacky implementation for a loading issue
-      var cb = function(){
+      var cb2 = function(){
         self.ui.galleryContainer.backstretch("show", 0);
       };
-      setTimeout(cb, 500);
+      setTimeout(cb2, 500);
 
     },
 

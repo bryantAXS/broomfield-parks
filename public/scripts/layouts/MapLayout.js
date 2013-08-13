@@ -32,11 +32,20 @@ define([
      */
     showAllParks: function(){
 
-      this.map.addLayer(this.allParksLayer);
-      this.map.removeLayer(this.singleParkLayer);
-      this.map.removeLayer(this.resultsParkLayer);
+      var self = this;
 
-      this.currentLayer = this.allParksLayer;
+      // we want this to wait for our collection to be loaded
+      App.allParksCollectionLoaded.done(function(){
+
+        self.map.addLayer(self.allParksLayer);
+        self.map.removeLayer(self.singleParkLayer);
+        self.map.removeLayer(self.resultsParkLayer);
+
+        self.currentLayer = self.allParksLayer;
+        self.centerCurrentLayer();
+
+      });
+
     },
 
     /**
@@ -46,12 +55,21 @@ define([
      */
     showResults: function(collection){
 
-      this.removeMarkers(this.resultsParkLayer);
-      this.renderMarkers(this.resultsParkLayer, collection);
+      var self = this;
 
-      this.map.addLayer(this.resultsParkLayer);
-      this.map.removeLayer(this.singleParkLayer);
-      this.map.removeLayer(this.allParksLayer);
+      App.allParksCollectionLoaded.done(function(){
+
+        self.removeMarkers(self.resultsParkLayer);
+        self.renderMarkers(self.resultsParkLayer, collection);
+
+        self.map.addLayer(self.resultsParkLayer);
+        self.map.removeLayer(self.singleParkLayer);
+        self.map.removeLayer(self.allParksLayer);
+
+        self.currentLayer = self.resultsParkLayer;
+        self.centerCurrentLayer();
+
+      });
 
     },
 
@@ -62,25 +80,51 @@ define([
      */
     showSinglePark: function(model){
 
-      this.removeMarkers(this.singleParkLayer);
+      var self = this;
 
-      var fakeCollection = {
-        models: [model]
-      }
+      App.allParksCollectionLoaded.done(function(){
 
-      this.renderMarkers(this.singleParkLayer, fakeCollection);
+        self.removeMarkers(self.singleParkLayer);
 
-      var marker = model.get("marker");
+        var fakeCollection = {
+          models: [model]
+        };
 
-      this.map.panTo([marker._latlng.lat, marker._latlng.lng]);
+        self.renderMarkers(self.singleParkLayer, fakeCollection);
 
-      this.map.addLayer(this.singleParkLayer);
-      this.map.removeLayer(this.resultsParkLayer);
-      this.map.removeLayer(this.allParksLayer);
+        var marker = model.get("marker");
 
-      setTimeout(function(){
-        marker.openPopup();
-      }, 500);
+        self.map.panTo([marker._latlng.lat, marker._latlng.lng]);
+
+        self.map.addLayer(self.singleParkLayer);
+        self.map.removeLayer(self.resultsParkLayer);
+        self.map.removeLayer(self.allParksLayer);
+
+        setTimeout(function(){
+          marker.openPopup();
+        }, 500);
+
+      });
+
+    },
+
+    /**
+     * Iterate over the objects in our current layer, and center the map appropriately
+     * @return {void}
+     */
+    centerCurrentLayer: function(){
+
+      var arrOfBounds = [];
+
+      this.currentLayer.eachLayer(function (layer) {
+        arrOfBounds.push(layer._latlng);
+      });
+
+      var bounds = new L.LatLngBounds(arrOfBounds);
+
+      this.map.fitBounds(bounds, {
+        padding: [100, 100]
+      });
 
     },
 
@@ -111,6 +155,8 @@ define([
         self.initMap();
 
         App.allParksCollectionLoaded.done(function(){
+
+          console.log("test");
 
           self.allParksCollection = App.allParksCollection;
           self.renderMarkers(self.allParksLayer, self.allParksCollection);
