@@ -28,8 +28,6 @@ Class Main extends \system\Controller
 
   private function _get_all_parks(){
 
-    // Send out the submission
-
     $request_url = "http://test.broomfield.org/arcgis/rest/services/Parks/FindAPark/MapServer/0/query";
 
     $response_data = Curl::post($request_url, array(
@@ -40,6 +38,13 @@ Class Main extends \system\Controller
     ));
 
     $response_json = json_decode($response_data[0]->getContent());
+
+    return json_encode($this->_parse_park_results($response_json), JSON_HEX_QUOT);
+
+  }
+
+
+  private function _parse_park_results($response_json){
 
     $array_of_models = array();
 
@@ -59,9 +64,7 @@ Class Main extends \system\Controller
 
     }
 
-    $data_json = json_encode($array_of_models, JSON_HEX_QUOT);
-
-    return $data_json;
+    return $array_of_models;
 
   }
 
