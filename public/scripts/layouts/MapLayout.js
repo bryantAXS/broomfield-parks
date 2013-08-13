@@ -89,7 +89,9 @@ define([
 
       var marker = model.get("marker");
 
-      self.map.panTo([marker._latlng.lat, marker._latlng.lng]);
+      var latlng = new L.LatLng(marker._latlng.lat, marker._latlng.lng);
+
+      self.map.setView(latlng, 18);
 
       self.map.addLayer(self.singleParkLayer);
       self.map.removeLayer(self.resultsParkLayer);
@@ -175,11 +177,19 @@ define([
 
       // Creating our Map Layers
       this.allParksLayer = new L.LayerGroup();
-      this.singleParkLayer = new L.LayerGroup();
       this.resultsParkLayer = new L.LayerGroup();
+      this.singleParkLayer = new L.LayerGroup();
 
       // ArcGIS Online Basemaps - Streets, Topographic, Gray, GrayLabels, Oceans, NationalGeographic, Imagery, ImageryLabels
       L.esri.basemapLayer("Topographic").addTo(this.map);
+
+      // Park details layer;
+      this.parkDetailsLayer = new L.esri.dynamicMapLayer("http://test.broomfield.org/arcgis/rest/services/Parks/FindAPark/MapServer", {
+        opacity : 0.8,
+        type: 'ArcGISDynamicMapServiceLayer',
+        visible: true,
+        visibleLayers: [0,1,2,3,4]
+      }).addTo(this.map);
 
       // Event when a popup is opened
       this.map.on("popupopen", function(e){
