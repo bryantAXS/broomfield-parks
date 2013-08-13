@@ -2,6 +2,8 @@
 
 namespace controllers;
 
+use jyggen\Curl;
+
 Class Main extends \system\Controller
 {
 
@@ -16,10 +18,50 @@ Class Main extends \system\Controller
     $template_data = array();
 
     $template_data = array(
-      "templates" => $this->_find_all_files(ROOT . "/app/views/templates")
+      "templates" => $this->_find_all_files(ROOT . "/app/views/templates"),
+      "parks_json" => $this->_get_all_parks()
     );
 
     parent::render('index.twig', $template_data);
+
+  }
+
+  private function _get_all_parks(){
+
+    // Send out the submission
+
+    $request_url = "http://test.broomfield.org/arcgis/rest/services/Parks/FindAPark/MapServer/0/query";
+
+    $response_data = Curl::post($request_url, array(
+      "f"           => "json",
+      "outSR"       => 4326,
+      "outFields"   => "*",
+      "where"       => "1=1"
+    ));
+
+    $response_json = json_decode($response_data[0]->getContent());
+
+    $array_of_models = array();
+
+    foreach($response_json->features as $park){
+
+      $model = array();
+
+      $attribute_keys = get_object_vars($park->attributes);
+
+      foreach($attribute_keys as $key => $value){
+        $model[strtolower($key)] = $value;
+      }
+
+      $model["geometry"] = $park->geometry;
+
+      $array_of_models[] = $model;
+
+    }
+
+    $data_json = json_encode($array_of_models, JSON_HEX_QUOT);
+
+    return $data_json;
 
   }
 

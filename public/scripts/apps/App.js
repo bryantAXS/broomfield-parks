@@ -122,27 +122,6 @@ define([
 
 
   /**
-   * On App start, we create a collection containing all parks used for a few things in the app.
-   * 1. As a cache for the park detail views
-   * 2. To display map points on the map layout
-   * - We also are creating a deferred variable that tells the map layer it's ok to display our points
-   *   on the map.  Note: we use an anonymous function to return the actual collection, and not just a function.
-   * @return {void}
-   */
-  App.preloadData = function(){
-
-    var self = this;
-
-    // Preloading all parks
-    this.allParksCollection = new ResultsCollection();
-    this.allParksCollectionLoaded = this.allParksCollection.all();
-
-    return this.allParksCollectionLoaded;
-
-  },
-
-
-  /**
    * Getting a seo and uri friendly title.  Used primarily for the park name on the park detail view
    * ie: park/park-name-goes-here
    * @param  {string} string title to encode
@@ -228,20 +207,16 @@ define([
 
     var self = this;
 
-    self.preloadData();
+    App.initSpinner();
+
+    this.allParksCollection = new ResultsCollection(allParksJSON);
 
     // On the intial load we want to create our Map and Searchbar Layouts
     self.mapLayout = new MapLayout();
     App.mapRegion.show(self.mapLayout);
 
 
-    // lets start the spinner because we might need to  wait a little for the
-    // initial load of the parks collection
-    App.initSpinner();
-
-
     var arrayOfThingsToWaitForBeforeStartingRouting = [
-      this.allParksCollectionLoaded,
       this.mapLayout.$mapLoaded
     ];
 

@@ -34,17 +34,12 @@ define([
 
       var self = this;
 
-      // we want this to wait for our collection to be loaded
-      App.allParksCollectionLoaded.done(function(){
+      self.map.addLayer(self.allParksLayer);
+      self.map.removeLayer(self.singleParkLayer);
+      self.map.removeLayer(self.resultsParkLayer);
 
-        self.map.addLayer(self.allParksLayer);
-        self.map.removeLayer(self.singleParkLayer);
-        self.map.removeLayer(self.resultsParkLayer);
-
-        self.currentLayer = self.allParksLayer;
-        self.centerCurrentLayer();
-
-      });
+      self.currentLayer = self.allParksLayer;
+      self.centerCurrentLayer();
 
     },
 
@@ -57,19 +52,15 @@ define([
 
       var self = this;
 
-      App.allParksCollectionLoaded.done(function(){
+      self.removeMarkers(self.resultsParkLayer);
+      self.renderMarkers(self.resultsParkLayer, collection);
 
-        self.removeMarkers(self.resultsParkLayer);
-        self.renderMarkers(self.resultsParkLayer, collection);
+      self.map.addLayer(self.resultsParkLayer);
+      self.map.removeLayer(self.singleParkLayer);
+      self.map.removeLayer(self.allParksLayer);
 
-        self.map.addLayer(self.resultsParkLayer);
-        self.map.removeLayer(self.singleParkLayer);
-        self.map.removeLayer(self.allParksLayer);
-
-        self.currentLayer = self.resultsParkLayer;
-        self.centerCurrentLayer();
-
-      });
+      self.currentLayer = self.resultsParkLayer;
+      self.centerCurrentLayer();
 
     },
 
@@ -82,29 +73,26 @@ define([
 
       var self = this;
 
-      App.allParksCollectionLoaded.done(function(){
+      self.removeMarkers(self.singleParkLayer);
 
-        self.removeMarkers(self.singleParkLayer);
+      var fakeCollection = {
+        models: [model]
+      };
 
-        var fakeCollection = {
-          models: [model]
-        };
+      self.renderMarkers(self.singleParkLayer, fakeCollection);
 
-        self.renderMarkers(self.singleParkLayer, fakeCollection);
+      var marker = model.get("marker");
 
-        var marker = model.get("marker");
+      self.map.panTo([marker._latlng.lat, marker._latlng.lng]);
 
-        self.map.panTo([marker._latlng.lat, marker._latlng.lng]);
+      self.map.addLayer(self.singleParkLayer);
+      self.map.removeLayer(self.resultsParkLayer);
+      self.map.removeLayer(self.allParksLayer);
 
-        self.map.addLayer(self.singleParkLayer);
-        self.map.removeLayer(self.resultsParkLayer);
-        self.map.removeLayer(self.allParksLayer);
+      setTimeout(function(){
+        marker.openPopup();
+      }, 500);
 
-        setTimeout(function(){
-          marker.openPopup();
-        }, 500);
-
-      });
 
     },
 
@@ -151,19 +139,12 @@ define([
       // backbone stuff, where the el isn't quite rendered yet and we
       // need to create a short buffer.
       setTimeout(function(){
-
         self.initMap();
-
-        App.allParksCollectionLoaded.done(function(){
-
-          console.log("test");
-
-          self.allParksCollection = App.allParksCollection;
-          self.renderMarkers(self.allParksLayer, self.allParksCollection);
-
-        });
-
       }, 50);
+
+      setTimeout(function(){
+        self.renderMarkers(self.allParksLayer, App.allParksCollection);
+      }, 100);
 
     },
 
@@ -205,9 +186,6 @@ define([
       this.map.on('locationfound', function(location){ self.navigateWithLocation(location); });
       this.map.on('locationerror', function(e){ self.navigateWithoutLocation(e); });
 
-      // resolving this -- tells our routing it can start in App.js
-      this.$mapLoaded.resolve();
-
     },
 
 
@@ -224,6 +202,7 @@ define([
       _.each(collection.models, function(model){
 
         var latlng = new L.LatLng(model.get("geometry").y, model.get("geometry").x);
+
         var marker = L.marker(latlng, {
           icon: L.icon({
             iconUrl: '/images/icon-pin.png',
@@ -247,6 +226,9 @@ define([
         model.set("popupItemView", popupItemView);
 
       });
+
+      // resolving this -- tells our routing it can start in App.js
+      this.$mapLoaded.resolve();
 
     },
 

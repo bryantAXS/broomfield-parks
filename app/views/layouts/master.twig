@@ -39,6 +39,12 @@
     {% endfor %}
 
     <script>
+      {% autoescape false %}
+        var allParksJSON = {{ parks_json }}
+      {% endautoescape %}
+    </script>
+
+    <script>
     window.mapoptions = {
         toolItems: [
             {name: 'Search', eventToRaise: 'View:Search', iconclass: 'entypo-search'},
