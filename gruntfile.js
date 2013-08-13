@@ -35,66 +35,11 @@ module.exports = function(grunt) {
           {isFile: true, cwd: "bower_modules/url-parser", src: 'purl.js', dest: 'public/scripts/vendor', expand: true, flatten: false},
           {isFile: true, cwd: "bower_modules/typeahead.js/dist", src: 'typeahead.js', dest: 'public/scripts/vendor', expand: true, flatten: false},
 
+          {isFile: true, cwd: "bower_modules/requirejs", src: 'require.js', dest: 'public/scripts/vendor', expand: true, flatten: false}
+
         ]
       },
-      requirejs: {
-        files: [
-          {expand: true, flatten: false, cwd: "bower_modules/requirejs", src: 'require.js', dest: 'public/scripts/vendor'}
-        ]
-      },
-      dist: {
-        files: [
-          {src: ['public/.htaccess'], dest: 'dist/', filter: 'isFile'},
-          {src: ['public/**'], dest: 'dist/'},
-          {src: ['app/**'], dest: 'dist/'},
-          {src: ['composer_modules/**'], dest: 'dist/'}
-        ]
-      }
-    },
 
-
-    // Bower task
-    bower: {
-      install: {
-        options: {
-          copy: false
-        }
-      }
-    },
-
-
-    // Compass task
-    compass: {
-      dist: {
-        options: {
-            config: "config/compass.rb"
-        }
-      }
-    },
-
-    // Clean task
-    clean: {
-      dist: ["dist/app/src"],
-      development: ["tmp"],
-      production: ["tmp"]
-    },
-
-
-    // Mkdir task
-    mkdir: {
-      options: {
-        // Task-specific options go here.
-      },
-      clean: {
-        options: {
-          create: ['tmp','tmp/logs','tmp/cache']
-        }
-      },
-      dist: {
-        options: {
-          create: ['dist/tmp','dist/tmp/logs','dist/tmp/cache']
-        }
-      }
     },
 
     // Assemble task
@@ -123,40 +68,33 @@ module.exports = function(grunt) {
       }
     },
 
+    // Requirejs task
+    requirejs: {
+      compile: {
+        options: {
+          name: "main",
+          baseUrl: "public/scripts",
+          mainConfigFile: "public/scripts/main.js",
+          out: "public/scripts/main-built.js"
+        }
+      }
+    }
+
   });
 
-  //require js
-  grunt.loadNpmTasks('grunt-contrib-requirejs');
 
   // Basic tasks
-  grunt.loadNpmTasks('grunt-exec');
-  grunt.loadNpmTasks('grunt-mkdir');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-bower-task');
-  grunt.loadNpmTasks('grunt-open');
-
-  // Compile tools
-  grunt.loadNpmTasks('grunt-contrib-compass');
-
-  // Clean tools
-  grunt.loadNpmTasks('grunt-contrib-clean');
-
-  // Basic tasks.
-  grunt.registerTask('default', ['development']);
-  grunt.registerTask('build', ['compass']);
-  grunt.registerTask('fetch', ['exec','bower']);
-  grunt.registerTask('dist', ['production','copy:dist','clean:dist','mkdir:dist']);
-
-  // Testing tasks
-  // grunt.registerTask('test', ['jasmine']);
+  grunt.loadNpmTasks('assemble');
 
   // Setup foundation
   grunt.registerTask("init", ['copy:init']);
 
   // Setup environment for development
-  grunt.registerTask('development', ['build','assemble:development_html','clean:development','mkdir:clean']);
+  grunt.registerTask('development', ['assemble:development_html']);
 
   // Setup environment for production
-  grunt.registerTask('production', ['build','assemble:production_html','clean:production','mkdir:clean']);
+  grunt.registerTask('production', ['assemble:production_html', 'requirejs']);
 
 };
