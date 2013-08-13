@@ -129,11 +129,17 @@ define([
    *   on the map.  Note: we use an anonymous function to return the actual collection, and not just a function.
    * @return {void}
    */
-  App.allParksCollection = (function(){
-    var allParksCollection = new ResultsCollection();
-    App.allParksCollectionLoaded = allParksCollection.all();
-    return allParksCollection;
-  })();
+  App.preloadData = function(){
+
+    var self = this;
+
+    // Preloading all parks
+    this.allParksCollection = new ResultsCollection();
+    this.allParksCollectionLoaded = this.allParksCollection.all();
+
+    return this.allParksCollectionLoaded;
+
+  },
 
 
   /**
@@ -222,13 +228,11 @@ define([
 
     var self = this;
 
-    // On the intial load we want to create our Map and Searchbar Layouts
+    self.preloadData();
 
+    // On the intial load we want to create our Map and Searchbar Layouts
     self.mapLayout = new MapLayout();
     App.mapRegion.show(self.mapLayout);
-
-    self.searchBarLayout = new SearchBarLayout();
-    App.searchRegion.show(self.searchBarLayout);
 
 
     // lets start the spinner because we might need to  wait a little for the
@@ -236,9 +240,16 @@ define([
     App.initSpinner();
 
 
-    // After ALL parks have been cached in our collection, lets start
-    // the router and load our page
-    App.allParksCollectionLoaded.done(function(){
+    var arrayOfThingsToWaitForBeforeStartingRouting = [
+      this.allParksCollectionLoaded,
+      this.mapLayout.$mapLoaded
+    ];
+
+    // There are a few things we need to wait for, before we start routing
+    $.when.apply($, arrayOfThingsToWaitForBeforeStartingRouting).done(function () {
+
+      self.searchBarLayout = new SearchBarLayout();
+      App.searchRegion.show(self.searchBarLayout);
 
       App.Router = new Router();
       App.vent.trigger("routing:started");

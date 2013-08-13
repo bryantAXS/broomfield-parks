@@ -27,6 +27,7 @@ require.config( {
     "viewport-selectors":               'vendor/viewport',
     "spin":                             'bower_modules/spin.js/dist/spin',
     "purl":                             'bower_modules/url-parser/purl',
+    "typeahead":                        'bower_modules/typeahead.js/dist/typeahead',
 
     'esri-leaflet':                     'vendor/esri-leaflet',
     'leaflet':                          'vendor/leaflet'
@@ -66,6 +67,9 @@ require.config( {
       "deps": ["jquery"]
     },
     "purl":{
+      "deps": ["jquery"]
+    },
+    "typeahead":{
       "deps": ["jquery"]
     },
     "esri-leaflet":{

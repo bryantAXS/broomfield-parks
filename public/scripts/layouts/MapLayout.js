@@ -85,6 +85,17 @@ define([
     },
 
     /**
+     * We need to create a deferred, so we can wait for the map to fully load
+     * before starting our routing
+     * @return {void}
+     */
+    initialize: function(){
+
+      this.$mapLoaded = new $.Deferred();
+
+    },
+
+    /**
      * After our view had been rendered
      * @return {void}
      */
@@ -147,6 +158,9 @@ define([
       // Event bindings for the "locate" event, fired when we detect the users location
       this.map.on('locationfound', function(location){ self.navigateWithLocation(location); });
       this.map.on('locationerror', function(e){ self.navigateWithoutLocation(e); });
+
+      // resolving this -- tells our routing it can start in App.js
+      this.$mapLoaded.resolve();
 
     },
 

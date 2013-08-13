@@ -38,7 +38,7 @@
   z-index:3;
 }
 
-input[name='search-text']{
+.search-text{
   border:none;
   color:$dark-green;
   height:40px;
@@ -50,9 +50,24 @@ input[name='search-text']{
   @include box-shadow(none);
   @include calc(width, "100% - 95px");
   @include font("NeueLight", 30px, 44px);
+
+}
+
+.twitter-typeahead{
+  width:100%;
+}
+
+.tt-hint{
+  @extend .search-text;
+  color:$grey;
+}
+
+.tt-dropdown-menu{
+  display:none !important;
 }
 
 .search-button-container{
+
   height: 75px;
   position:absolute;
   right:0;

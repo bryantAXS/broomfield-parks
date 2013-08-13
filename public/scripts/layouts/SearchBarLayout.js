@@ -5,8 +5,9 @@ define([
   "underscore",
   "backbone",
   "marionette",
-  "transit"
-], function($, _, Backbone, Marionette, Transit){
+  "transit",
+  "typeahead"
+], function($, _, Backbone, Marionette, Transit, Typeahead){
 
   var SearchBarLayout = Backbone.Marionette.Layout.extend({
 
@@ -73,6 +74,8 @@ define([
         this.setSearchFieldsSilently(App.getSearchTerm());
       }
 
+      this.initTypeAhead();
+
     },
 
     toggleMapOptions: function(){
@@ -127,6 +130,7 @@ define([
 
     clearSearch: function(){
       this.ui.searchField.val("");
+      this.ui.searchField.typeahead('setQuery', "");
       this.showSearchButton();
     },
 
@@ -236,9 +240,22 @@ define([
 
     deactivateMapButton: function(){
       this.ui.gotoMapButton.removeClass("is-active");
+    },
+
+    initTypeAhead: function(){
+
+      this.ui.searchField.typeahead([
+        {
+          name: 'amenities',
+          local: App.allParksCollection.getAmenities()
+        },
+        {
+          name: 'parks',
+          local: App.allParksCollection.getParkNames()
+        }
+      ]);
+
     }
-
-
 
   });
 

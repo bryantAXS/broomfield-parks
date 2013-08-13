@@ -10146,7 +10146,7 @@ html:hover [class^="ss-"] {
 }
 
 /* line 41, ../sass/modules/_modules.scss */
-input[name='search-text'] {
+.search-text, .tt-hint {
   border: none;
   color: #4d7a49;
   height: 40px;
@@ -10167,7 +10167,22 @@ input[name='search-text'] {
   font-weight: 300;
 }
 
-/* line 55, ../sass/modules/_modules.scss */
+/* line 56, ../sass/modules/_modules.scss */
+.twitter-typeahead {
+  width: 100%;
+}
+
+/* line 60, ../sass/modules/_modules.scss */
+.tt-hint {
+  color: #999999;
+}
+
+/* line 65, ../sass/modules/_modules.scss */
+.tt-dropdown-menu {
+  display: none !important;
+}
+
+/* line 69, ../sass/modules/_modules.scss */
 .search-button-container {
   height: 75px;
   position: absolute;
@@ -10175,7 +10190,7 @@ input[name='search-text'] {
   top: 0;
   width: 75px;
 }
-/* line 62, ../sass/modules/_modules.scss */
+/* line 77, ../sass/modules/_modules.scss */
 .search-button-container button {
   background: transparent;
   border: none;
@@ -10188,20 +10203,20 @@ input[name='search-text'] {
   width: 100%;
   top: 0;
 }
-/* line 77, ../sass/modules/_modules.scss */
+/* line 92, ../sass/modules/_modules.scss */
 .search-button-container.is-searching #search-button {
   z-index: -1;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-/* line 82, ../sass/modules/_modules.scss */
+/* line 97, ../sass/modules/_modules.scss */
 .search-button-container.is-searching #clear-search-button {
   z-index: 1;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
 
-/* line 91, ../sass/modules/_modules.scss */
+/* line 106, ../sass/modules/_modules.scss */
 .search-button.ss-icon, .ss-icon#search-button, .ss-icon#clear-search-button {
   color: #7fc274;
   font-size: 30px;
@@ -10212,21 +10227,21 @@ input[name='search-text'] {
   transition: opacity 150ms linear;
 }
 
-/* line 98, ../sass/modules/_modules.scss */
+/* line 113, ../sass/modules/_modules.scss */
 #search-button {
   z-index: 1;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
 
-/* line 104, ../sass/modules/_modules.scss */
+/* line 119, ../sass/modules/_modules.scss */
 #clear-search-button {
   z-index: -1;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
 
-/* line 110, ../sass/modules/_modules.scss */
+/* line 125, ../sass/modules/_modules.scss */
 .green-nav-button, #goto-map-button, #map-options-button {
   background-color: transparent;
   background-position: center center;
@@ -10245,26 +10260,26 @@ input[name='search-text'] {
   -o-transition: box-shadow 50ms linear;
   transition: box-shadow 50ms linear;
 }
-/* line 125, ../sass/modules/_modules.scss */
+/* line 140, ../sass/modules/_modules.scss */
 .green-nav-button:active, #goto-map-button:active, #map-options-button:active, .green-nav-button.is-active, .is-active#goto-map-button, .is-active#map-options-button {
   -webkit-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.13);
   -moz-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.13);
   box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.13);
 }
 
-/* line 131, ../sass/modules/_modules.scss */
+/* line 146, ../sass/modules/_modules.scss */
 #goto-map-button {
   border-right: 1px solid #6eb567;
 }
 
-/* line 136, ../sass/modules/_modules.scss */
+/* line 151, ../sass/modules/_modules.scss */
 #map-options-button {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-/* line 143, ../sass/modules/_modules.scss */
+/* line 158, ../sass/modules/_modules.scss */
 .map-options-container {
   background-color: #7fc274;
   border-left: 1px solid #85d67e;
@@ -10274,24 +10289,24 @@ input[name='search-text'] {
   width: 0;
 }
 
-/* line 152, ../sass/modules/_modules.scss */
+/* line 167, ../sass/modules/_modules.scss */
 .map-options-content-container {
   height: 75px;
   width: 423px;
 }
-/* line 156, ../sass/modules/_modules.scss */
+/* line 171, ../sass/modules/_modules.scss */
 .map-options-content-container span, .map-options-content-container a {
   font-family: "FuturaBold";
   font-size: 14px;
   line-height: 78px;
   font-weight: 300;
 }
-/* line 160, ../sass/modules/_modules.scss */
+/* line 175, ../sass/modules/_modules.scss */
 .map-options-content-container span {
   color: #4d7a49;
   padding: 0 30px 0 30px;
 }
-/* line 164, ../sass/modules/_modules.scss */
+/* line 179, ../sass/modules/_modules.scss */
 .map-options-content-container a {
   color: #428c3c;
   -webkit-transition: color 150ms linear;
@@ -10299,16 +10314,16 @@ input[name='search-text'] {
   -o-transition: color 150ms linear;
   transition: color 150ms linear;
 }
-/* line 168, ../sass/modules/_modules.scss */
+/* line 183, ../sass/modules/_modules.scss */
 .map-options-content-container a.is-active, .map-options-content-container a:hover {
   color: white;
 }
-/* line 171, ../sass/modules/_modules.scss */
+/* line 186, ../sass/modules/_modules.scss */
 .map-options-content-container a + a {
   margin-left: 25px;
 }
 
-/* line 181, ../sass/modules/_modules.scss */
+/* line 196, ../sass/modules/_modules.scss */
 .search-bar-container.is-open {
   /*
   .search-bar-right-container{
@@ -10325,20 +10340,20 @@ input[name='search-text'] {
   */
 }
 
-/* line 206, ../sass/modules/_modules.scss */
+/* line 221, ../sass/modules/_modules.scss */
 #map-layout-container .backstretch img {
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
   filter: blur(5px);
 }
 
-/* line 222, ../sass/modules/_modules.scss */
+/* line 237, ../sass/modules/_modules.scss */
 #start-layout-container p a {
   border-bottom: 1px dotted #282828;
   color: #282828;
 }
 
-/* line 229, ../sass/modules/_modules.scss */
+/* line 244, ../sass/modules/_modules.scss */
 .start-title {
   color: #428c3c;
   margin-bottom: 30px;
@@ -10349,7 +10364,7 @@ input[name='search-text'] {
   font-weight: 300;
 }
 
-/* line 240, ../sass/modules/_modules.scss */
+/* line 255, ../sass/modules/_modules.scss */
 .results-title {
   display: block;
   margin-bottom: 35px;
@@ -10360,7 +10375,7 @@ input[name='search-text'] {
   font-weight: 300;
 }
 
-/* line 247, ../sass/modules/_modules.scss */
+/* line 262, ../sass/modules/_modules.scss */
 .result-container {
   background-color: white;
   display: block;
@@ -10374,7 +10389,7 @@ input[name='search-text'] {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* line 258, ../sass/modules/_modules.scss */
+/* line 273, ../sass/modules/_modules.scss */
 .result-image-container {
   position: absolute;
   height: 149px;
@@ -10382,24 +10397,24 @@ input[name='search-text'] {
   top: 0;
   width: 360px;
 }
-/* line 265, ../sass/modules/_modules.scss */
+/* line 280, ../sass/modules/_modules.scss */
 .result-image-container img {
   height: 149px;
   width: 360px;
 }
 
-/* line 272, ../sass/modules/_modules.scss */
+/* line 287, ../sass/modules/_modules.scss */
 .result-content-container {
   position: relative;
   padding-top: 149px;
 }
 
-/* line 277, ../sass/modules/_modules.scss */
+/* line 292, ../sass/modules/_modules.scss */
 .result-title-row {
   padding: 22px 0 9px 0;
 }
 
-/* line 281, ../sass/modules/_modules.scss */
+/* line 296, ../sass/modules/_modules.scss */
 .result-title {
   color: #282828;
   margin-bottom: 0;
@@ -10412,7 +10427,7 @@ input[name='search-text'] {
   font-weight: 300;
 }
 
-/* line 290, ../sass/modules/_modules.scss */
+/* line 305, ../sass/modules/_modules.scss */
 .result-amenities {
   color: #999999;
   font-family: "FuturaBook";
@@ -10421,7 +10436,7 @@ input[name='search-text'] {
   font-weight: 300;
 }
 
-/* line 295, ../sass/modules/_modules.scss */
+/* line 310, ../sass/modules/_modules.scss */
 .result-description {
   color: white;
   font-family: "FuturaBook";
@@ -10430,16 +10445,16 @@ input[name='search-text'] {
   font-weight: 300;
 }
 
-/* line 300, ../sass/modules/_modules.scss */
+/* line 315, ../sass/modules/_modules.scss */
 .result-container.direct-to-map {
   background-color: #f26c4f;
 }
-/* line 302, ../sass/modules/_modules.scss */
+/* line 317, ../sass/modules/_modules.scss */
 .result-container.direct-to-map .result-title {
   color: white;
 }
 
-/* line 312, ../sass/modules/_modules.scss */
+/* line 327, ../sass/modules/_modules.scss */
 #park-detail-item-container {
   background-color: rgba(255, 255, 255, 0.7);
   -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
@@ -10452,18 +10467,18 @@ input[name='search-text'] {
   border-radius: 3px;
 }
 
-/* line 318, ../sass/modules/_modules.scss */
+/* line 333, ../sass/modules/_modules.scss */
 #park-detail-gallery-container {
   height: 500px;
   position: relative;
   width: 770px;
   z-index: 100;
 }
-/* line 325, ../sass/modules/_modules.scss */
+/* line 340, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .placeholder {
   display: none;
 }
-/* line 329, ../sass/modules/_modules.scss */
+/* line 344, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .dummy {
   height: auto;
   position: relative;
@@ -10472,7 +10487,7 @@ input[name='search-text'] {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-/* line 337, ../sass/modules/_modules.scss */
+/* line 352, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .ss-icon {
   color: white;
   font-size: 46px;
@@ -10487,30 +10502,30 @@ input[name='search-text'] {
   -o-transition: opacity 150ms linear;
   transition: opacity 150ms linear;
 }
-/* line 347, ../sass/modules/_modules.scss */
+/* line 362, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .ss-icon:hover {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   opacity: 0.8;
 }
-/* line 353, ../sass/modules/_modules.scss */
+/* line 368, ../sass/modules/_modules.scss */
 #park-detail-gallery-container #park-detail-gallery-left {
   left: 20px;
 }
-/* line 357, ../sass/modules/_modules.scss */
+/* line 372, ../sass/modules/_modules.scss */
 #park-detail-gallery-container #park-detail-gallery-right {
   right: 20px;
 }
 
-/* line 363, ../sass/modules/_modules.scss */
+/* line 378, ../sass/modules/_modules.scss */
 #park-detail-info-container {
   padding: 40px 20px 40px 30px;
 }
-/* line 367, ../sass/modules/_modules.scss */
+/* line 382, ../sass/modules/_modules.scss */
 #park-detail-info-container h1 {
   color: #282828;
   width: 300px;
 }
-/* line 372, ../sass/modules/_modules.scss */
+/* line 387, ../sass/modules/_modules.scss */
 #park-detail-info-container address {
   color: #282828;
   margin: 10px 0 30px 0;
@@ -10520,11 +10535,11 @@ input[name='search-text'] {
   line-height: 18px;
   font-weight: 300;
 }
-/* line 379, ../sass/modules/_modules.scss */
+/* line 394, ../sass/modules/_modules.scss */
 #park-detail-info-container h2 {
   color: #666666;
 }
-/* line 383, ../sass/modules/_modules.scss */
+/* line 398, ../sass/modules/_modules.scss */
 #park-detail-info-container p {
   color: #666666;
   font-family: "FuturaBook";
@@ -10532,30 +10547,30 @@ input[name='search-text'] {
   line-height: 18px;
   font-weight: 300;
 }
-/* line 388, ../sass/modules/_modules.scss */
+/* line 403, ../sass/modules/_modules.scss */
 #park-detail-info-container .button {
   margin-top: 30px;
 }
-/* line 392, ../sass/modules/_modules.scss */
+/* line 407, ../sass/modules/_modules.scss */
 #park-detail-info-container .close {
   color: #f26c4f;
   position: absolute;
   top: 40px;
   right: 30px;
 }
-/* line 397, ../sass/modules/_modules.scss */
+/* line 412, ../sass/modules/_modules.scss */
 #park-detail-info-container .close:hover {
   color: #f26c4f;
 }
 
-/* line 407, ../sass/modules/_modules.scss */
+/* line 422, ../sass/modules/_modules.scss */
 .map-popup {
   -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* line 411, ../sass/modules/_modules.scss */
+/* line 426, ../sass/modules/_modules.scss */
 .popup-header-container {
   background-color: #f26c4f;
   padding: 15px 15px 7px 15px;
@@ -10566,7 +10581,7 @@ input[name='search-text'] {
   -o-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0;
 }
-/* line 417, ../sass/modules/_modules.scss */
+/* line 432, ../sass/modules/_modules.scss */
 .popup-header-container p {
   color: white;
   margin: 0;
@@ -10578,7 +10593,7 @@ input[name='search-text'] {
   font-weight: 300;
 }
 
-/* line 426, ../sass/modules/_modules.scss */
+/* line 441, ../sass/modules/_modules.scss */
 .popup-links {
   background-color: white;
   margin: 0;
@@ -10591,13 +10606,13 @@ input[name='search-text'] {
   -o-border-radius: 0 0 3px 3px;
   border-radius: 0 0 3px 3px;
 }
-/* line 435, ../sass/modules/_modules.scss */
+/* line 450, ../sass/modules/_modules.scss */
 .popup-links li {
   margin: 0;
   padding: 4px 0;
   list-style-type: none;
 }
-/* line 441, ../sass/modules/_modules.scss */
+/* line 456, ../sass/modules/_modules.scss */
 .popup-links li a {
   color: #666666;
   display: block;
@@ -10607,14 +10622,14 @@ input[name='search-text'] {
   line-height: 35px;
   font-weight: 300;
 }
-/* line 447, ../sass/modules/_modules.scss */
+/* line 462, ../sass/modules/_modules.scss */
 .popup-links li a span {
   font-size: 18px;
   margin-right: 8px;
   position: relative;
   top: 4px;
 }
-/* line 454, ../sass/modules/_modules.scss */
+/* line 469, ../sass/modules/_modules.scss */
 .popup-links li a span.icon-google-maps {
   background: transparent url(/images/icon-google-maps.png) no-repeat left top;
   display: inline-block;
@@ -10623,7 +10638,7 @@ input[name='search-text'] {
   top: 3px;
   width: 16px;
 }
-/* line 465, ../sass/modules/_modules.scss */
+/* line 480, ../sass/modules/_modules.scss */
 .popup-links li + li {
   border-top: 1px solid #f2f2f2;
 }
