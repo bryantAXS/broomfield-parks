@@ -37,7 +37,7 @@ define([
     },
 
     setSafeParkName: function(){
-      this.set("safe_place_name", App.getFriendlyString(this.get("place_name")));
+      this.set("safe_place_name", this.getFriendlyString(this.get("place_name")));
     },
 
     setGalleryImages: function(){
@@ -90,6 +90,11 @@ define([
 
       return obj;
 
+    },
+
+    getFriendlyString: function(string){
+      var cleanString = (string + "").replace(/[^a-zA-Z0-9]+/g, "-");
+      return cleanString.slice(0, cleanString.length).toLowerCase();
     }
 
   });

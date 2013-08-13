@@ -21,6 +21,11 @@ define([
       "click .more-information": "moreInformation"
     },
 
+    ui: {
+      clickOverlay: ".map-click-overlay",
+      mapContainer: "#map-container"
+    },
+
     /**
      * Showing all parks in the map layer
      * @return {void}
@@ -115,7 +120,7 @@ define([
 
       L.Icon.Default.imagePath = '/images';
 
-      this.map = L.map(this.el.id, {
+      this.map = L.map(this.ui.mapContainer.get(0).id, {
         center: [39.920541,-105.06665],
         zoom: 15,
       });

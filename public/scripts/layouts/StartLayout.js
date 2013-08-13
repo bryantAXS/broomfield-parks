@@ -28,7 +28,6 @@ define([
       // Show all parks on the map
       App.mapLayout.showAllParks();
 
-
     },
 
     triggerGuide: function(){
