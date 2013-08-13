@@ -244,6 +244,7 @@
 .start-title{
   color:$light-green;
   margin-bottom: 30px;
+  position:relative;
   letter-spacing: 0.02em;
   @include font("FuturaMedium", 53px, 63px);
 }

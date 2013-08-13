@@ -69,6 +69,14 @@ html {
     z-index:0;
   }
 
+  .map-intro-overlay{
+    background-color:$white;
+    height:100%;
+    position:absolute;
+    width:100%;
+    z-index:1;
+  }
+
   &.is-active{
     #map-container{
       img{

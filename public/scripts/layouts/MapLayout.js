@@ -23,7 +23,8 @@ define([
 
     ui: {
       clickOverlay: ".map-click-overlay",
-      mapContainer: "#map-container"
+      mapContainer: "#map-container",
+      introScreen: ".map-intro-overlay"
     },
 
     /**
@@ -39,7 +40,12 @@ define([
       self.map.removeLayer(self.resultsParkLayer);
 
       self.currentLayer = self.allParksLayer;
-      self.centerCurrentLayer();
+
+      // If it's our initial page load, we don't want to center the map,
+      // because we already did in our initMap() method
+      if(App.Router.routesHit > 0){
+        self.centerCurrentLayer();
+      }
 
     },
 
@@ -144,7 +150,11 @@ define([
 
       setTimeout(function(){
         self.renderMarkers(self.allParksLayer, App.allParksCollection);
-      }, 100);
+      }, 75);
+
+      setTimeout(function(){
+        self.disableIntroScreen();
+      }, 350);
 
     },
 
@@ -226,9 +236,6 @@ define([
         model.set("popupItemView", popupItemView);
 
       });
-
-      // resolving this -- tells our routing it can start in App.js
-      this.$mapLoaded.resolve();
 
     },
 
@@ -379,6 +386,18 @@ define([
       if(this.map !== undefined){
         this.map.closePopup();
       }
+    },
+
+    disableIntroScreen: function(){
+
+      var self = this;
+
+      this.ui.introScreen.fadeOut(500, function(){
+
+        // resolving this -- tells our routing it can start in App.js
+        self.$mapLoaded.resolve();
+
+      });
     }
 
   });
