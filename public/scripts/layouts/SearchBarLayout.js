@@ -27,16 +27,10 @@ define([
       clearSearchButton: "#clear-search-button",
       searchField: ".search-text",
 
-      //search options controls
-      gotoMapButton: "#goto-map-button",
-      mapOptionsButton: "#map-options-button",
-
-      //search options container
-      mapOptionsContainer: ".map-options-container"
+      gotoMapButton: "#goto-map-button"
     },
 
     events: {
-      "click #map-options-button": "toggleMapOptions",
       "submit #search-form": "submitSearch",
       "click #clear-search-button": "clearSearchGoHome",
       "focus .search-text": "searchFocused",
@@ -75,56 +69,6 @@ define([
       }
 
       this.initTypeAhead();
-
-    },
-
-    toggleMapOptions: function(){
-
-      if(this.ui.searchBarContainer.hasClass("is-open")){
-        this.closeMapOptions();
-      }else{
-        this.openMapOptions();
-      }
-
-    },
-
-    closeMapOptions: function(){
-
-      var self = this;
-
-      this.ui.searchBarLeftContainer.transition({
-        width: 1020
-      }, this.animationSpeed);
-
-      this.ui.searchBarRightContainer.transition({
-        width:150
-      }, this.animationSpeed);
-
-      this.ui.mapOptionsContainer.transition({
-        width: 0
-      }, this.animationSpeed, function(){
-        self.ui.searchBarContainer.removeClass("is-open");
-      });
-
-    },
-
-    openMapOptions: function(){
-
-      var self = this;
-
-      this.ui.searchBarLeftContainer.transition({
-        width: 595
-      }, this.animationSpeed);
-
-      this.ui.searchBarRightContainer.transition({
-        width:575
-      }, this.animationSpeed);
-
-      this.ui.mapOptionsContainer.transition({
-        width: 423
-      }, this.animationSpeed, function(){
-        self.ui.searchBarContainer.addClass("is-open");
-      });
 
     },
 

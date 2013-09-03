@@ -24,7 +24,7 @@
   left:0;
   position:absolute;
   top:0;
-  width: 1020px;
+  width: 1095px;
   z-index:2;
 }
 
@@ -34,7 +34,7 @@
   position:absolute;
   right:0;
   top:0;
-  width:150px;
+  width:75px;
   z-index:3;
 }
 
@@ -146,69 +146,6 @@
 #goto-map-button{
   @extend .green-nav-button;
   border-right:1px solid #6eb567;
-}
-
-#map-options-button{
-  @extend .green-nav-button;
-  position:absolute;
-  top:0;
-  right:0;
-}
-
-.map-options-container{
-  background-color:$green;
-  border-left:1px solid #85d67e;
-  float:left;
-  height:75px;
-  overflow:hidden;
-  width:0;
-}
-
-.map-options-content-container{
-  height:75px;
-  width:423px;
-
-  span, a{
-    @include font("FuturaBold", 14px, 78px);
-  }
-
-  span{
-    color:$dark-green;
-    padding: 0 30px 0 30px;
-  }
-  a{
-    color: $light-green;
-    @include transition(color $fast linear);
-
-    &.is-active, &:hover{
-      color:$white;
-    }
-    &+a{
-      margin-left:25px;
-    }
-
-  }
-}
-
-// defining the is-open state here -- many styles for base
-// elements are defined above
-
-.search-bar-container.is-open{
-
-  /*
-  .search-bar-right-container{
-    width:500px;
-  }
-
-  .map-options-button{
-    @include opacity(0);
-  }
-
-  .map-options-container{
-    width:423px;
-  }
-  */
-
 }
 
 
