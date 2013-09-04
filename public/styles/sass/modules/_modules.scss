@@ -192,9 +192,9 @@
 
 .results-title{
   display:block;
-  margin-bottom:35px;
+  margin:17px 0 35px 0;
   text-align:center;
-  @include font("FuturaLight", 36px, 36px);
+  @include font("FuturaLight", 36px, 41px);
 }
 
 .result-container{
@@ -276,7 +276,7 @@
 
 #park-detail-gallery-container{
 
-  height:500px;
+  min-height:500px;
   position:relative;
   width:770px;
   z-index:100;

@@ -59,14 +59,20 @@ define([
       var self = this;
 
       self.removeMarkers(self.resultsParkLayer);
-      self.renderMarkers(self.resultsParkLayer, collection);
+
+      if(collection.length){
+        self.renderMarkers(self.resultsParkLayer, collection);
+      }
 
       self.map.addLayer(self.resultsParkLayer);
       self.map.removeLayer(self.singleParkLayer);
       self.map.removeLayer(self.allParksLayer);
 
       self.currentLayer = self.resultsParkLayer;
-      self.centerCurrentLayer();
+
+      if(collection.length){
+        self.centerCurrentLayer();
+      }
 
     },
 

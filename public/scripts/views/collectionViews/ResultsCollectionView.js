@@ -57,7 +57,7 @@ define([
     addDirectToMapItem: function(){
 
       this.directToMapItemView = new DirectToMapItemView();
-      this.$el.append(this.directToMapItemView.render().el);
+      this.$el.prepend(this.directToMapItemView.render().el);
 
     }
 

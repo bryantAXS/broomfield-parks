@@ -49,6 +49,14 @@ define([
         collection: this.resultsCollection
       });
 
+      this.resultsCollectionView.on("render", function(){
+
+        if(self.resultsCollection.length === 0){
+          self.setTitle("Sorry, we couldn't find any parks matching your search.");
+        }
+
+      });
+
     },
 
     onRender: function(){
@@ -73,7 +81,7 @@ define([
       return this.resultsCollection.search(this.options.searchTerm);
     },
 
-    setTitle: function(){
+    setTitle: function(title){
 
       var term = App.getSearchTerm();
 
@@ -81,6 +89,8 @@ define([
         this.ui.title.html("You're getting started! Here are a few recomendations.");
       }else if(term === "all"){
         this.ui.title.html("Here's a list of all our parks.");
+      }else if(title !== undefined){
+        this.ui.title.html(title);
       }else{
         this.ui.title.html("The following results best matched your search.");
       }
