@@ -31,9 +31,9 @@
 .white{
   color: $light-green;
   border-bottom: 2px solid #ccc;
-  background-color: rgba($white, .7);
+  background-color: rgba($white, .85);
   padding: 0 15px;
-  @include font("FuturaBold", 14px, 41px);
+  @include font("FuturaBold", 14px, 43px);
 }
 
 .orange{

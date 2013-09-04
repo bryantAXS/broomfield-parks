@@ -10080,11 +10080,11 @@ html:hover [class^="ss-"] {
 .white {
   color: #428c3c;
   border-bottom: 2px solid #ccc;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.85);
   padding: 0 15px;
   font-family: "FuturaBold";
   font-size: 14px;
-  line-height: 41px;
+  line-height: 43px;
   font-weight: 300;
 }
 
@@ -10322,7 +10322,7 @@ html:hover [class^="ss-"] {
 .walk-through-text {
   color: #428c3c;
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
-  font-family: "FuturaBook";
+  font-family: "Neue";
   font-size: 30px;
   line-height: 35px;
   font-weight: 300;
@@ -10330,7 +10330,7 @@ html:hover [class^="ss-"] {
 /* line 190, ../sass/modules/_modules.scss */
 .walk-through-text a {
   display: inline-block;
-  margin: 0 15px;
+  margin: 0 10px;
   position: relative;
   text-shadow: none;
   top: -3px;
