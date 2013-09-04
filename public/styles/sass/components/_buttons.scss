@@ -2,8 +2,8 @@
   color:$white;
   display:inline-block;
   height:40px;
-  line-height:40px !important;
   text-align:center;
+  text-transform: uppercase;
   @include border-radius(3px);
 
   .ss-icon{
@@ -28,20 +28,37 @@
 
 }
 
+.white{
+  color: $light-green;
+  border-bottom: 2px solid #ccc;
+  background-color: rgba($white, .7);
+  padding: 0 15px;
+  @include font("FuturaBold", 14px, 41px);
+}
+
 .orange{
   color:$white;
+  border-bottom: 2px solid $dark-orange;
   background-color: $orange;
   padding: 0 15px;
-  @include font("FuturaBold", 14px, inherit);
+  @include font("FuturaBold", 14px, 41px);
 }
 
 .lighter-green{
   color:$white;
+  border-bottom: 2px solid lighten($dark-green, 10%);
   background-color: $lighter-green;
   padding: 0 15px;
-  @include font("FuturaBold", 16px, inherit);
+  @include font("FuturaBold", 14px, 43px);
 }
 
 .map-it-button{
   padding-right: 20px;
+}
+
+.to-green{
+  @include transition(all 150ms linear);
+  &:hover{
+    @extend .lighter-green
+  }
 }

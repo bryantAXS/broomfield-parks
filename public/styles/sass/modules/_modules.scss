@@ -169,21 +169,32 @@
 
 
 #start-layout-container{
-  p{
-    //text-align:center;
-    a{
-      border-bottom:1px dotted $black;
-      color:$black;
-    }
-  }
+
 }
 
 .start-title{
-  color:$light-green;
+  color:$dark-green;
   margin-bottom: 30px;
   position:relative;
   letter-spacing: 0.02em;
-  @include font("FuturaMedium", 53px, 63px);
+  @include text-shadow(0 1px 2px rgba(255,255,255,.5));
+  @include font("NeueLight", 53px, 63px);
+}
+
+.walk-through-text{
+  color:$light-green;
+  @include text-shadow(0 1px 2px rgba(255,255,255,.5));
+  @include font("FuturaBook", 30px, 35px);
+
+
+  a{
+    display:inline-block;
+    margin:0 15px;
+    position:relative;
+    text-shadow:none;
+    top:-3px;
+  }
+
 }
 
 //
@@ -191,10 +202,12 @@
 //
 
 .results-title{
+  color:$dark-green;
   display:block;
   margin:17px 0 35px 0;
   text-align:center;
-  @include font("FuturaLight", 36px, 41px);
+  @include text-shadow(0 1px 2px rgba(255,255,255,.5));
+  @include font("NeueLight", 36px, 41px);
 }
 
 .result-container{
@@ -237,18 +250,18 @@
   margin-top:0;
   padding-bottom:0;
   padding-top:0;
-  @include font("Neue", 18px, 22px);
+  @include font("FuturaBook", 18px, 22px);
 }
 
 .result-amenities{
   color:$grey;
   margin-bottom:10px;
-  @include font("FuturaBook", 14px, 20px);
+  @include font("Neue", 14px, 20px);
 }
 
 .result-address{
   color:$dark-green;
-  @include font("FuturaBold", 10px, 18px);
+  @include font("FuturaBold", 12px, 18px);
 }
 
 .result-description{
@@ -330,9 +343,9 @@
 
   address{
     color:$black;
-    margin: 10px 0 30px 0;
+    margin: 5px 0 25px 0;
     font-style:normal;
-    @include font("FuturaBook", 14px, 18px);
+    @include font("FuturaBook", 14px, 20px);
   }
 
   h2{
@@ -341,7 +354,8 @@
 
   p{
     color:$dark-grey;
-    @include font("FuturaBook", 14px, 18px);
+    padding: 5px 0;
+    @include font("Neue", 14px, 18px);
   }
 
   .button{
