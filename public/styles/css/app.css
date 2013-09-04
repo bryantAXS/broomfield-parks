@@ -5417,19 +5417,15 @@ html {
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
   filter: blur(5px);
-  -webkit-transition: all 150ms linear;
-  -moz-transition: all 150ms linear;
-  -o-transition: all 150ms linear;
-  transition: all 150ms linear;
 }
-/* line 65, ../sass/base/_layout.scss */
+/* line 64, ../sass/base/_layout.scss */
 #map-layout-container .map-click-overlay {
   height: 100%;
   position: absolute;
   width: 100%;
   z-index: 0;
 }
-/* line 72, ../sass/base/_layout.scss */
+/* line 71, ../sass/base/_layout.scss */
 #map-layout-container .map-intro-overlay {
   background-color: white;
   height: 100%;
@@ -5437,28 +5433,28 @@ html {
   width: 100%;
   z-index: 1;
 }
-/* line 82, ../sass/base/_layout.scss */
+/* line 81, ../sass/base/_layout.scss */
 #map-layout-container.is-active #map-container img {
   -webkit-filter: blur(0);
   -moz-filter: blur(0);
   filter: blur(0);
 }
-/* line 86, ../sass/base/_layout.scss */
+/* line 85, ../sass/base/_layout.scss */
 #map-layout-container.is-active .map-click-overlay {
   display: none;
 }
 
-/* line 93, ../sass/base/_layout.scss */
+/* line 92, ../sass/base/_layout.scss */
 #start-layout-container {
   margin-top: 240px;
 }
 
-/* line 97, ../sass/base/_layout.scss */
+/* line 96, ../sass/base/_layout.scss */
 #results-layout-container {
   margin-top: 160px;
 }
 
-/* line 101, ../sass/base/_layout.scss */
+/* line 100, ../sass/base/_layout.scss */
 #park-detail-layout-container {
   margin-top: 160px;
 }

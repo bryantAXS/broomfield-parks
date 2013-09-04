@@ -57,7 +57,6 @@ html {
 
     img{
       @include filter(blur(5px));
-      @include transition(all $fast linear);
     }
 
   }
