@@ -49,9 +49,9 @@ define([
         collection: this.resultsCollection
       });
 
-      this.resultsCollectionView.on("render", function(){
+      this.resultsCollection.on("change", function(){
 
-        if(self.resultsCollection.length === 0){
+        if(self.resultsCollection.length == 0){
           self.setTitle("Sorry, we couldn't find any parks matching your search.");
         }
 

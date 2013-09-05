@@ -170,6 +170,10 @@
 
 #start-layout-container{
 
+  .button{
+    width:155px;
+  }
+
 }
 
 .start-title{
@@ -177,15 +181,23 @@
   margin-bottom: 30px;
   position:relative;
   letter-spacing: 0.02em;
+  margin-bottom:15px;
+  text-align:center;
   @include text-shadow(0 1px 2px rgba(255,255,255,.5));
-  @include font("NeueLight", 53px, 63px);
+  @include font("NeueLight", 45px, 52px);
+}
+
+.start-buttons-container{
+  margin: 50px 0 15px 0;
+  text-align:center;
 }
 
 .walk-through-text{
-  color:$light-green;
+  color:$dark-green;
+  margin-bottom:15px;
+  text-align:center;
   @include text-shadow(0 1px 2px rgba(255,255,255,.5));
-  @include font("Neue", 30px, 35px);
-
+  @include font("Neue", 24px, 28px);
 
   a{
     display:inline-block;
