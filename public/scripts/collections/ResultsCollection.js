@@ -182,7 +182,7 @@ define([
 
         $.each(facArr, function(j, fac){
 
-          fac = fac.trim();
+          fac = $.trim(fac);
 
           if(fac.indexOf("and") === 0){
             fac = fac.replace("and ", "");

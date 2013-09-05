@@ -31,8 +31,9 @@
 .white{
   color: $light-green;
   border-bottom: 2px solid #ccc;
-  background-color: rgba($white, .85);
+  background-color: $white;
   padding: 0 15px;
+  @include opacity(.85);
   @include font("FuturaBold", 14px, 43px);
 }
 
@@ -58,7 +59,8 @@
 
 .to-green{
   @include transition(all 150ms linear);
+  @include opacity(1);
   &:hover{
-    @extend .lighter-green
+    @extend .lighter-green;
   }
 }

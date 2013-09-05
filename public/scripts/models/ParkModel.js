@@ -47,7 +47,7 @@ define([
       var imagesArray = [];
       var images = this.get("gallery_images").split("|");
       _.each(images, function(image){
-        imagesArray.push(image.trim());
+        imagesArray.push($.trim(image));
       });
 
       this.set("gallery_images", imagesArray);

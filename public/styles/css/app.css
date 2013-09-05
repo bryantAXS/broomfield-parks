@@ -10081,15 +10081,17 @@ html:hover [class^="ss-"] {
 .white {
   color: #428c3c;
   border-bottom: 2px solid #ccc;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: white;
   padding: 0 15px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=85);
+  opacity: 0.85;
   font-family: "FuturaBold";
   font-size: 14px;
   line-height: 43px;
   font-weight: 300;
 }
 
-/* line 39, ../sass/components/_buttons.scss */
+/* line 40, ../sass/components/_buttons.scss */
 .orange {
   color: white;
   border-bottom: 2px solid #b94329;
@@ -10101,7 +10103,7 @@ html:hover [class^="ss-"] {
   font-weight: 300;
 }
 
-/* line 47, ../sass/components/_buttons.scss */
+/* line 48, ../sass/components/_buttons.scss */
 .lighter-green, .to-green:hover {
   color: white;
   border-bottom: 2px solid #619a5c;
@@ -10113,17 +10115,19 @@ html:hover [class^="ss-"] {
   font-weight: 300;
 }
 
-/* line 55, ../sass/components/_buttons.scss */
+/* line 56, ../sass/components/_buttons.scss */
 .map-it-button {
   padding-right: 20px;
 }
 
-/* line 59, ../sass/components/_buttons.scss */
+/* line 60, ../sass/components/_buttons.scss */
 .to-green {
   -webkit-transition: all 150ms linear;
   -moz-transition: all 150ms linear;
   -o-transition: all 150ms linear;
   transition: all 150ms linear;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
 }
 
 /* line 6, ../sass/modules/_modules.scss */
