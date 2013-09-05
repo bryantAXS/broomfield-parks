@@ -171,7 +171,12 @@
 #start-layout-container{
 
   .button{
+    height:50px;
+    line-height:50px;
     width:155px;
+    &:hover{
+      line-height:50px;
+    }
   }
 
 }
