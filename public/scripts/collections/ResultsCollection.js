@@ -34,7 +34,7 @@ define([
           f: "json"
         },
         type:"POST",
-        dataType: "json",
+        dataType: "jsonp",
         success: function(data){
 
           self.reset();
@@ -48,7 +48,7 @@ define([
           });
 
         },
-        error: function(){
+        error: function(jqXHR, textStatus, errorThrown){
           console.log("There was an error performing a search for: " + searchTerm);
         }
       });
@@ -76,11 +76,11 @@ define([
           where: "1=1"
         },
         type:"POST",
-        dataType: "json",
+        dataType: "jsonp",
         success: function(data){
           self.set(self.parseAllResults(data));
         },
-        error: function(){
+        error: function(jqXHR, textStatus, errorThrown){
           console.log("There was an error fetching all parks.");
         }
       });

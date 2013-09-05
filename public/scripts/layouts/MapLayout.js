@@ -191,7 +191,7 @@ define([
 
       // Park details layer
       this.parkDetailsLayer = new L.esri.dynamicMapLayer("http://test.broomfield.org/arcgis/rest/services/Parks/FindAPark/MapServer", {
-        opacity : 0.8,
+        opacity : 1,
         type: 'ArcGISDynamicMapServiceLayer',
         visible: true,
         layers: [1,2,3,4]
@@ -389,6 +389,10 @@ define([
      */
     activate: function(){
       this.$el.addClass("is-active");
+
+      if(App.isIe()){
+        this.disableIntroScreen();
+      }
     },
 
 
@@ -402,6 +406,35 @@ define([
       if(this.map !== undefined){
         this.map.closePopup();
       }
+
+      if(App.isIe()){
+        this.activateIntroScreen(.2);
+      }
+    },
+
+    changeIntroScreenColor: function(color){
+
+      this.ui.introScreen.css({
+        "background-color": color
+      });
+
+    },
+
+    activateIntroScreen: function(opacity){
+
+      var self = this;
+
+      if(App.isIe()){
+        this.changeIntroScreenColor("#282828");
+      }
+
+      this.ui.introScreen.css({
+        "opacity": 0,
+        "display": "block"
+      }).animate({
+        "opacity": opacity
+      }, 300);
+
     },
 
     disableIntroScreen: function(){

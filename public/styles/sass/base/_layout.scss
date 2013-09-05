@@ -55,10 +55,6 @@ html {
     width:100%;
     z-index:-1;
 
-    img{
-      @include filter(blur(5px));
-    }
-
   }
 
   .map-click-overlay{
@@ -77,17 +73,39 @@ html {
   }
 
   &.is-active{
-    #map-container{
-      img{
-        @include filter(blur(0));
-      }
-    }
     .map-click-overlay{
       display:none;
     }
   }
 
 }
+
+// bluring -- we only want this on non-ie browsers
+
+.cssfilters{
+
+  #map-layout-container{
+
+    #map-container{
+
+      img{
+        @include filter(blur(5px));
+      }
+
+    }
+
+    &.is-active{
+      #map-container{
+        img{
+          @include filter(blur(0));
+        }
+      }
+    }
+
+  }
+
+}
+
 
 #start-layout-container{
   margin-top:240px;

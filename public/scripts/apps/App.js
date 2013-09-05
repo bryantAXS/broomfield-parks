@@ -15,6 +15,14 @@ define([
   var App = new Backbone.Marionette.Application();
 
   /**
+   * Is the user using Internet Explorer?
+   * @return {Boolean}
+   */
+  App.isIe = function(){
+    return $("html").hasClass("ie");
+  };
+
+  /**
    * Is the URI indicidive of a search
    * @return {boolean} are we searching?
    */
@@ -22,7 +30,16 @@ define([
 
     var url = $.url();
 
-    if(url.attr("path").indexOf("search") > -1){
+    var path;
+
+    // compensating for ie
+    if($("html").hasClass("history")){
+      path = url.attr("path");
+    }else{
+      path = url.attr("fragment");
+    }
+
+    if(path.indexOf("search") > -1){
       return true;
     }else{
       return false;
@@ -38,7 +55,18 @@ define([
   App.getSearchTerm = function(){
 
     var url = $.url();
-    return decodeURIComponent(url.attr("path").split("/")[2]);
+
+    var path;
+
+    // compensating for ie
+    if($("html").hasClass("history")){
+      path = url.attr("path").split("/")[2];
+    }else{
+      path = url.attr("fragment").split("/")[1];
+    }
+
+    return decodeURIComponent(path);
+
   };
 
 
@@ -209,6 +237,9 @@ define([
 
     var self = this;
 
+    // A global thing that needs to happen for all ajax requests
+    $.support.cors = true;
+
     App.initSpinner();
 
     this.allParksCollection = new ResultsCollection(allParksJSON);
@@ -216,7 +247,6 @@ define([
     // On the intial load we want to create our Map and Searchbar Layouts
     self.mapLayout = new MapLayout();
     App.mapRegion.show(self.mapLayout);
-
 
     var arrayOfThingsToWaitForBeforeStartingRouting = [
       this.mapLayout.$mapLoaded

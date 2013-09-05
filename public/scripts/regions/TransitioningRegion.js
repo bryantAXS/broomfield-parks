@@ -41,7 +41,7 @@ define([
 
       var self = this;
 
-      if(view.el.id === "park-detail-layout-container"){
+      if(view.el.id === "park-detail-layout-container" && ! App.isIe()){
         this.openSlideFromLeft(view);
       }else{
         this.openNoTransition(view);
@@ -65,8 +65,10 @@ define([
 
       if(view.el.id === "park-detail-layout-container"){
         this.closeSlideToLeft(view);
-      }else{
+      }else if(! App.isIe()){
         this.closeSlideToRight(view);
+      }else{
+        this.closeNoTransition(view);
       }
 
 
@@ -183,6 +185,12 @@ define([
         self.hasClosed.resolve();
 
       });
+
+    },
+
+    closeNoTransition: function(view){
+
+      this.closeView(view);
 
     }
 

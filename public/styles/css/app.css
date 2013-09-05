@@ -5412,20 +5412,14 @@ html {
   width: 100%;
   z-index: -1;
 }
-/* line 58, ../sass/base/_layout.scss */
-#map-layout-container #map-container img {
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  filter: blur(5px);
-}
-/* line 64, ../sass/base/_layout.scss */
+/* line 60, ../sass/base/_layout.scss */
 #map-layout-container .map-click-overlay {
   height: 100%;
   position: absolute;
   width: 100%;
   z-index: 0;
 }
-/* line 71, ../sass/base/_layout.scss */
+/* line 67, ../sass/base/_layout.scss */
 #map-layout-container .map-intro-overlay {
   background-color: white;
   height: 100%;
@@ -5433,28 +5427,35 @@ html {
   width: 100%;
   z-index: 1;
 }
-/* line 81, ../sass/base/_layout.scss */
-#map-layout-container.is-active #map-container img {
-  -webkit-filter: blur(0);
-  -moz-filter: blur(0);
-  filter: blur(0);
-}
-/* line 85, ../sass/base/_layout.scss */
+/* line 76, ../sass/base/_layout.scss */
 #map-layout-container.is-active .map-click-overlay {
   display: none;
 }
 
-/* line 92, ../sass/base/_layout.scss */
+/* line 91, ../sass/base/_layout.scss */
+.cssfilters #map-layout-container #map-container img {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  filter: blur(5px);
+}
+/* line 99, ../sass/base/_layout.scss */
+.cssfilters #map-layout-container.is-active #map-container img {
+  -webkit-filter: blur(0);
+  -moz-filter: blur(0);
+  filter: blur(0);
+}
+
+/* line 110, ../sass/base/_layout.scss */
 #start-layout-container {
   margin-top: 240px;
 }
 
-/* line 96, ../sass/base/_layout.scss */
+/* line 114, ../sass/base/_layout.scss */
 #results-layout-container {
   margin-top: 160px;
 }
 
-/* line 100, ../sass/base/_layout.scss */
+/* line 118, ../sass/base/_layout.scss */
 #park-detail-layout-container {
   margin-top: 160px;
 }
@@ -10296,13 +10297,6 @@ html:hover [class^="ss-"] {
 /* line 146, ../sass/modules/_modules.scss */
 #goto-map-button {
   border-right: 1px solid #6eb567;
-}
-
-/* line 158, ../sass/modules/_modules.scss */
-#map-layout-container .backstretch img {
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  filter: blur(5px);
 }
 
 /* line 173, ../sass/modules/_modules.scss */
