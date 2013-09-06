@@ -34,6 +34,7 @@ module.exports = function(grunt) {
           {isFile: true, cwd: "bower_modules/spin.js", src: 'spin.js', dest: 'public/scripts/vendor', expand: true, flatten: false},
           {isFile: true, cwd: "bower_modules/url-parser", src: 'purl.js', dest: 'public/scripts/vendor', expand: true, flatten: false},
           {isFile: true, cwd: "bower_modules/typeahead.js/dist", src: 'typeahead.js', dest: 'public/scripts/vendor', expand: true, flatten: false},
+          {isFile: true, cwd: "bower_modules/jquery.validation", src: 'jquery.validate.js', dest: 'public/scripts/vendor', expand: true, flatten: false},
 
           {isFile: true, cwd: "bower_modules/requirejs", src: 'require.js', dest: 'public/scripts/vendor', expand: true, flatten: false}
 

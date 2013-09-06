@@ -43,7 +43,7 @@
   color:$dark-green;
   height:40px;
   display:block;
-  margin-top:19px;
+  margin-top:21px;
   outline:none;
   padding-left:15px;
 
@@ -173,7 +173,7 @@
   .button{
     height:50px;
     line-height:50px;
-    width:155px;
+    width:170px;
     &:hover{
       line-height:50px;
     }
@@ -457,5 +457,128 @@
     }
 
   }
+
+}
+
+
+// Feedback module
+
+#feedback-button{
+  bottom:-10px;
+  left:50%;
+  margin-left:500px;
+  position:fixed;
+  z-index:100;
+  @include transition(bottom $fast linear);
+
+  &:hover{
+    bottom:-2px;
+  }
+}
+
+#feedback-region-container{
+  display:none;
+  height:100%;
+  left:0;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:-1;
+}
+
+#feedback-layout-container {
+
+  background-color: rgba(#000, .5);
+  height:100%;
+  left:0;
+  position:absolute;
+  top:0;
+  width:100%;
+
+  .title {
+
+    color:$black;
+    display:block;
+    margin-bottom:40px;
+    text-align:center;
+    @include font("FuturaMedium", 18px);
+
+  }
+
+  form {
+
+    .close{
+      color:$orange;
+      position:absolute;
+      right:25px;
+      top:25px;
+    }
+
+    background-color:$white;
+    height:600px;
+    margin: -300px 0 0 -200px;
+    padding:40px 30px;
+    position:absolute;
+    text-align:center;
+    top:50%;
+    left:50%;
+    width:400px;
+
+    input[type='text']{
+      background-color:$light-grey;
+      border:none;
+      color:$black;
+      display:block;
+      height:40px;
+      outline:none;
+      padding: 14px 10px 10px 10px;
+      width:100%;
+      @include font("Neue", 14px, 20px);
+
+      &+input{
+        margin-top:20px;
+      }
+
+    }
+
+    button{
+      display:inline-block;
+      margin: 20px auto 0 auto;
+    }
+
+  }
+
+}
+
+.feedback-errors{
+  color:$orange;
+  height:20px;
+  margin-top:20px;
+  margin-bottom:10px;
+  padding: 8px 0;
+  @include font("Neue", 14px, 20px);
+}
+
+#feedback-name {
+}
+
+#feedback-email {
+}
+
+#feedback-purpose {
+}
+
+#feedback-comments {
+
+  background-color:$light-grey;
+  border:none;
+  color:$black;
+  height:170px;
+  margin-top:20px;
+  outline:none;
+  padding:15px;
+  resize:none;
+  width:100%;
+  @include font("Neue", 14px, 20px);
 
 }

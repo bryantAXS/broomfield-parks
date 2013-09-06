@@ -6,11 +6,12 @@ define([
   "routers/Router",
   "layouts/MapLayout",
   "layouts/SearchBarLayout",
+  "layouts/FeedbackLayout",
   "regions/TransitioningRegion",
   "collections/ResultsCollection",
   "spin",
   "purl"
-], function($, _, Backbone, Marionette, Router, MapLayout, SearchBarLayout, TransitioningRegion, ResultsCollection, Spinner, Purl){
+], function($, _, Backbone, Marionette, Router, MapLayout, SearchBarLayout, FeedbackLayout, TransitioningRegion, ResultsCollection, Spinner, Purl){
 
   var App = new Backbone.Marionette.Application();
 
@@ -160,6 +161,7 @@ define([
     return cleanString.slice(0, cleanString.length).toLowerCase();
   };
 
+
   /**
    * Adding regions to the app
    */
@@ -169,8 +171,10 @@ define([
       selector: "#content-region-container",
       regionType: TransitioningRegion
     },
-    mapRegion: "#map-region-container"
+    mapRegion: "#map-region-container",
+    feedbackRegion: "#feedback-region-container"
   });
+
 
   /**
    * Starting our routing
@@ -229,6 +233,20 @@ define([
 
   };
 
+  App.initFeedbackIcon = function(){
+
+    var self = this;
+
+    var $a = $("<a id='feedback-button' href='javascript:;'><img src='/images/icon-feedback.png' /></a>");
+    $("body").append($a);
+    $a.on({
+      click: function(){
+        self.feedbackLayout.toggle();
+      }
+    })
+
+  };
+
   /**
    * Starting up our Router
    * @return {void}
@@ -248,6 +266,9 @@ define([
     self.mapLayout = new MapLayout();
     App.mapRegion.show(self.mapLayout);
 
+    self.feedbackLayout = new FeedbackLayout();
+    App.feedbackRegion.show(self.feedbackLayout);
+
     var arrayOfThingsToWaitForBeforeStartingRouting = [
       this.mapLayout.$mapLoaded
     ];
@@ -260,6 +281,8 @@ define([
 
       App.Router = new Router();
       App.vent.trigger("routing:started");
+
+      App.initFeedbackIcon();
 
       App.spinner.stop();
 

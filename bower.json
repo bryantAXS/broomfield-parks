@@ -18,6 +18,7 @@
     "url-parser": "~2.3.1",
     "typeahead.js": "~0.9.3",
     "leaflet": "~0.6.4",
-    "jquery.lazyload": "~1.8.5"
+    "jquery.lazyload": "~1.8.5",
+    "jquery.validation": "~1.11.1"
   }
 }

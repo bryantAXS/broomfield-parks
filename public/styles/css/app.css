@@ -5332,18 +5332,18 @@ a.th {
     margin-top: -5px;
   }
 }
-/* line 21, ../sass/base/_config.scss */
+/* line 22, ../sass/base/_config.scss */
 .row, .clearfix {
   zoom: 1;
 }
-/* line 23, ../sass/base/_config.scss */
+/* line 24, ../sass/base/_config.scss */
 .row:before, .row:after, .clearfix:before, .clearfix:after {
   content: "\0020";
   display: block;
   height: 0;
   overflow: hidden;
 }
-/* line 29, ../sass/base/_config.scss */
+/* line 30, ../sass/base/_config.scss */
 .row:after, .clearfix:after {
   clear: both;
 }
@@ -10045,39 +10045,43 @@ html:hover [class^="ss-"] {
 
 /* line 1, ../sass/components/_buttons.scss */
 .button {
+  border: none;
   color: white;
   display: inline-block;
   height: 40px;
+  outline: none;
   text-align: center;
   text-transform: uppercase;
+  letter-spacing: 1px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
+  text-shadow: none;
 }
-/* line 9, ../sass/components/_buttons.scss */
+/* line 13, ../sass/components/_buttons.scss */
 .button .ss-icon {
   font-size: 16px;
   position: relative;
   margin-right: 5px;
   top: 2px;
 }
-/* line 16, ../sass/components/_buttons.scss */
+/* line 20, ../sass/components/_buttons.scss */
 .button:hover {
   color: white;
 }
 
-/* line 22, ../sass/components/_buttons.scss */
+/* line 26, ../sass/components/_buttons.scss */
 .start {
   margin-right: 10px;
 }
-/* line 25, ../sass/components/_buttons.scss */
+/* line 29, ../sass/components/_buttons.scss */
 .start:last-child {
   margin-right: 0;
 }
 
-/* line 31, ../sass/components/_buttons.scss */
+/* line 35, ../sass/components/_buttons.scss */
 .white {
   color: #428c3c;
   border-bottom: 2px solid #ccc;
@@ -10091,7 +10095,7 @@ html:hover [class^="ss-"] {
   font-weight: 300;
 }
 
-/* line 40, ../sass/components/_buttons.scss */
+/* line 44, ../sass/components/_buttons.scss */
 .orange {
   color: white;
   border-bottom: 2px solid #b94329;
@@ -10103,7 +10107,7 @@ html:hover [class^="ss-"] {
   font-weight: 300;
 }
 
-/* line 48, ../sass/components/_buttons.scss */
+/* line 52, ../sass/components/_buttons.scss */
 .lighter-green, .to-green:hover {
   color: white;
   border-bottom: 2px solid #619a5c;
@@ -10115,12 +10119,12 @@ html:hover [class^="ss-"] {
   font-weight: 300;
 }
 
-/* line 56, ../sass/components/_buttons.scss */
+/* line 60, ../sass/components/_buttons.scss */
 .map-it-button {
   padding-right: 20px;
 }
 
-/* line 60, ../sass/components/_buttons.scss */
+/* line 64, ../sass/components/_buttons.scss */
 .to-green {
   -webkit-transition: all 150ms linear;
   -moz-transition: all 150ms linear;
@@ -10182,7 +10186,7 @@ html:hover [class^="ss-"] {
   color: #4d7a49;
   height: 40px;
   display: block;
-  margin-top: 19px;
+  margin-top: 21px;
   outline: none;
   padding-left: 15px;
   -webkit-box-shadow: none;
@@ -10307,7 +10311,7 @@ html:hover [class^="ss-"] {
 #start-layout-container .button {
   height: 50px;
   line-height: 50px;
-  width: 155px;
+  width: 170px;
 }
 /* line 177, ../sass/modules/_modules.scss */
 #start-layout-container .button:hover {
@@ -10645,4 +10649,126 @@ html:hover [class^="ss-"] {
 /* line 455, ../sass/modules/_modules.scss */
 .popup-links li + li {
   border-top: 1px solid #f2f2f2;
+}
+
+/* line 466, ../sass/modules/_modules.scss */
+#feedback-button {
+  bottom: -10px;
+  left: 50%;
+  margin-left: 500px;
+  position: fixed;
+  z-index: 100;
+  -webkit-transition: bottom 150ms linear;
+  -moz-transition: bottom 150ms linear;
+  -o-transition: bottom 150ms linear;
+  transition: bottom 150ms linear;
+}
+/* line 474, ../sass/modules/_modules.scss */
+#feedback-button:hover {
+  bottom: -2px;
+}
+
+/* line 479, ../sass/modules/_modules.scss */
+#feedback-region-container {
+  display: none;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+/* line 489, ../sass/modules/_modules.scss */
+#feedback-layout-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+/* line 498, ../sass/modules/_modules.scss */
+#feedback-layout-container .title {
+  color: #282828;
+  display: block;
+  margin-bottom: 40px;
+  text-align: center;
+  font-family: "FuturaMedium";
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 300;
+}
+/* line 508, ../sass/modules/_modules.scss */
+#feedback-layout-container form {
+  background-color: white;
+  height: 600px;
+  margin: -300px 0 0 -200px;
+  padding: 40px 30px;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+}
+/* line 510, ../sass/modules/_modules.scss */
+#feedback-layout-container form .close {
+  color: #f26c4f;
+  position: absolute;
+  right: 25px;
+  top: 25px;
+}
+/* line 527, ../sass/modules/_modules.scss */
+#feedback-layout-container form input[type='text'] {
+  background-color: #f4f4f4;
+  border: none;
+  color: #282828;
+  display: block;
+  height: 40px;
+  outline: none;
+  padding: 14px 10px 10px 10px;
+  width: 100%;
+  font-family: "Neue";
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 300;
+}
+/* line 538, ../sass/modules/_modules.scss */
+#feedback-layout-container form input[type='text'] + input {
+  margin-top: 20px;
+}
+/* line 544, ../sass/modules/_modules.scss */
+#feedback-layout-container form button {
+  display: inline-block;
+  margin: 20px auto 0 auto;
+}
+
+/* line 553, ../sass/modules/_modules.scss */
+.feedback-errors {
+  color: #f26c4f;
+  height: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 8px 0;
+  font-family: "Neue";
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 300;
+}
+
+/* line 571, ../sass/modules/_modules.scss */
+#feedback-comments {
+  background-color: #f4f4f4;
+  border: none;
+  color: #282828;
+  height: 170px;
+  margin-top: 20px;
+  outline: none;
+  padding: 15px;
+  resize: none;
+  width: 100%;
+  font-family: "Neue";
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 300;
 }

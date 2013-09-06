@@ -27,6 +27,7 @@ require.config( {
     "spin":                             'vendor/spin',
     "purl":                             'vendor/purl',
     "typeahead":                        'vendor/typeahead',
+    "validate":                         'vendor/jquery.validate',
 
     'esri-leaflet':                     'vendor/esri-leaflet',
     'leaflet':                          'vendor/leaflet'
@@ -74,6 +75,11 @@ require.config( {
     "esri-leaflet":{
       "deps": [
         "leaflet"
+      ]
+    },
+    "validate":{
+      "deps": [
+        "jquery"
       ]
     }
   }

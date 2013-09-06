@@ -1,10 +1,14 @@
 .button{
+  border:none;
   color:$white;
   display:inline-block;
   height:40px;
+  outline:none;
   text-align:center;
   text-transform: uppercase;
+  letter-spacing: 1px;
   @include border-radius(3px);
+  @include text-shadow(none);
 
   .ss-icon{
     font-size:16px;
