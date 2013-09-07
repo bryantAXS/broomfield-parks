@@ -10307,6 +10307,13 @@ html:hover [class^="ss-"] {
   border-right: 1px solid #6eb567;
 }
 
+/* line 158, ../sass/modules/_modules.scss */
+#map-layout-container .backstretch img {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  filter: blur(5px);
+}
+
 /* line 173, ../sass/modules/_modules.scss */
 #start-layout-container .button {
   height: 50px;
