@@ -20,7 +20,9 @@ define([
 
     ui: {
       "submitButton": ".button",
-      "errorMessage": ".feedback-errors"
+      "errorMessage": ".feedback-errors",
+      "selectWrapper": ".select-wrapper",
+      "select": ".select-wrapper select"
     },
 
     initialize: function(options){
@@ -66,8 +68,15 @@ define([
             type: "POST",
             url: "/feedback",
             success: function(data){
-              self.disableLoading();
-              self.thanksAndClose();
+
+              if(data.success == 1){
+                self.disableLoading();
+                self.thanksAndClose();
+              }else{
+                self.disableLoading();
+                self.showError("There was an error. Plase try again.");
+              }
+
             },
             error: function(){
               self.disableLoading();
@@ -105,6 +114,31 @@ define([
 
 
       });
+
+      this.initDropdown();
+
+    },
+
+    initDropdown: function(){
+
+      var self = this;
+
+      self.resetDropdown();
+
+      this.ui.select.on({
+        change: function(){
+          var val = $(this).val();
+          var text = $("option[value='"+val+"']").data("text");
+          self.ui.selectWrapper.find(".select-text").html(text);
+        }
+      })
+
+    },
+
+    resetDropdown: function(){
+
+      var defaultText = this.ui.selectWrapper.data('default-text');
+      this.ui.selectWrapper.find(".select-text").html(defaultText);
 
     },
 
@@ -170,6 +204,8 @@ define([
       var self = this;
 
       this.ui.errorMessage.addClass("is-success").html("Thanks!");
+      this.$el.find("input, textarea").val("");
+      this.resetDropdown();
 
       var cb = function(){
         self.ui.errorMessage.html("");

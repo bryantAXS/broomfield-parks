@@ -8,7 +8,16 @@
 
     <input type="text" autocomplete="off" name="name" id="feedback-name" placeholder="name" />
     <input type="text" autocomplete="off" name="email" id="feedback-email" placeholder="email" />
-    <input type="text" autocomplete="off" name="purpose" id="feedback-purpose" placeholder="purpose" />
+    <div class="select-wrapper" data-default-text="choose a purpose">
+      <span class="select-text"></span>
+      <span class="ss-dropdown"></span>
+      <select name="purpose" id="feedback-purpose">
+        <option data-text="Problem" value="problem">Problem</option>
+        <option data-text="Suggestion" value="suggestion">Suggestion</option>
+        <option data-text="Compliment" value="compliment">Compliment</option>
+        <option data-text="Other" value="other">Other</option>
+      </select>
+    </div>
     <textarea name="comments" id='feedback-comments'></textarea>
 
     <p class="feedback-errors">

@@ -524,7 +524,7 @@
     left:50%;
     width:400px;
 
-    input[type='text']{
+    input[type='text'], .select-wrapper{
       background-color:$light-grey;
       border:none;
       color:$black;
@@ -535,7 +535,7 @@
       width:100%;
       @include font("Neue", 14px, 20px);
 
-      &+input{
+      &+input, &+.select-wrapper{
         margin-top:20px;
       }
 
@@ -559,6 +559,39 @@
         }
       }
 
+    }
+
+    .select-wrapper{
+
+      position:relative;
+      text-align:left;
+      -webkit-backface-visibility: hidden;
+
+      .select-text{
+        color: lighten($dark-grey, 15%);
+        position:relative;
+        text-align:left;
+        z-index:2;
+        @include font("Neue", 14px, 20px);
+      }
+
+      .ss-dropdown{
+        color: lighten($dark-grey, 15%);
+        font-size:10px;
+        position:absolute;
+        right:10px;
+        top:14px;
+      }
+
+      select{
+        position:absolute;
+        left:10px;
+        top:14px;
+        width:100%;
+        z-index:3;
+        -webkit-backface-visibility: hidden;
+        @include opacity(0);
+      }
     }
 
   }

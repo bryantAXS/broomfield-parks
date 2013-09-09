@@ -29,7 +29,8 @@ Class Feedback extends \system\Controller
 
     $mail = new \PHPMailer();
     $mail->CharSet = "UTF-8";
-    $mail->AddAddress("bryant@thegoodlab.com", "Bryant Hughes");
+    $mail->AddAddress("gis@broomfield.org", "Broomfield GIS");
+    $mail->AddAddress("bryant@thegoodlab.com", "Broomfield GIS");
     $mail->SetFrom("bryant@thegoodlab.com","The Good Lab");
     $mail->Subject = "Broomfield Parks Search Feedback Message";
     $mail->Body = $body;

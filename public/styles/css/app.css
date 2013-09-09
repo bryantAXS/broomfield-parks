@@ -10726,7 +10726,7 @@ html:hover [class^="ss-"] {
   top: 25px;
 }
 /* line 527, ../sass/modules/_modules.scss */
-#feedback-layout-container form input[type='text'] {
+#feedback-layout-container form input[type='text'], #feedback-layout-container form .select-wrapper {
   background-color: #f4f4f4;
   border: none;
   color: #282828;
@@ -10741,7 +10741,7 @@ html:hover [class^="ss-"] {
   font-weight: 300;
 }
 /* line 538, ../sass/modules/_modules.scss */
-#feedback-layout-container form input[type='text'] + input {
+#feedback-layout-container form input[type='text'] + input, #feedback-layout-container form input[type='text'] + .select-wrapper, #feedback-layout-container form .select-wrapper + input, #feedback-layout-container form .select-wrapper + .select-wrapper {
   margin-top: 20px;
 }
 /* line 544, ../sass/modules/_modules.scss */
@@ -10762,8 +10762,44 @@ html:hover [class^="ss-"] {
 #feedback-layout-container form button.is-loading span {
   display: none;
 }
+/* line 564, ../sass/modules/_modules.scss */
+#feedback-layout-container form .select-wrapper {
+  position: relative;
+  text-align: left;
+  -webkit-backface-visibility: hidden;
+}
+/* line 570, ../sass/modules/_modules.scss */
+#feedback-layout-container form .select-wrapper .select-text {
+  color: #8c8c8c;
+  position: relative;
+  text-align: left;
+  z-index: 2;
+  font-family: "Neue";
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 300;
+}
+/* line 578, ../sass/modules/_modules.scss */
+#feedback-layout-container form .select-wrapper .ss-dropdown {
+  color: #8c8c8c;
+  font-size: 10px;
+  position: absolute;
+  right: 10px;
+  top: 14px;
+}
+/* line 586, ../sass/modules/_modules.scss */
+#feedback-layout-container form .select-wrapper select {
+  position: absolute;
+  left: 10px;
+  top: 14px;
+  width: 100%;
+  z-index: 3;
+  -webkit-backface-visibility: hidden;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
 
-/* line 568, ../sass/modules/_modules.scss */
+/* line 601, ../sass/modules/_modules.scss */
 .feedback-errors {
   color: #f26c4f;
   height: 20px;
@@ -10775,12 +10811,12 @@ html:hover [class^="ss-"] {
   line-height: 20px;
   font-weight: 300;
 }
-/* line 576, ../sass/modules/_modules.scss */
+/* line 609, ../sass/modules/_modules.scss */
 .feedback-errors.is-success {
   color: #4d7a49;
 }
 
-/* line 590, ../sass/modules/_modules.scss */
+/* line 623, ../sass/modules/_modules.scss */
 #feedback-comments {
   background-color: #f4f4f4;
   border: none;
