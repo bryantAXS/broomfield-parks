@@ -10748,9 +10748,22 @@ html:hover [class^="ss-"] {
 #feedback-layout-container form button {
   display: inline-block;
   margin: 20px auto 0 auto;
+  width: 91px;
+}
+/* line 549, ../sass/modules/_modules.scss */
+#feedback-layout-container form button img {
+  display: none;
+}
+/* line 554, ../sass/modules/_modules.scss */
+#feedback-layout-container form button.is-loading img {
+  display: inline;
+}
+/* line 557, ../sass/modules/_modules.scss */
+#feedback-layout-container form button.is-loading span {
+  display: none;
 }
 
-/* line 553, ../sass/modules/_modules.scss */
+/* line 568, ../sass/modules/_modules.scss */
 .feedback-errors {
   color: #f26c4f;
   height: 20px;
@@ -10762,8 +10775,12 @@ html:hover [class^="ss-"] {
   line-height: 20px;
   font-weight: 300;
 }
+/* line 576, ../sass/modules/_modules.scss */
+.feedback-errors.is-success {
+  color: #4d7a49;
+}
 
-/* line 571, ../sass/modules/_modules.scss */
+/* line 590, ../sass/modules/_modules.scss */
 #feedback-comments {
   background-color: #f4f4f4;
   border: none;

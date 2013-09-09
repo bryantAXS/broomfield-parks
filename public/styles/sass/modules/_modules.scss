@@ -544,6 +544,21 @@
     button{
       display:inline-block;
       margin: 20px auto 0 auto;
+      width:91px;
+
+      img{
+        display:none;
+      }
+
+      &.is-loading{
+        img{
+          display:inline;
+        }
+        span{
+          display:none;
+        }
+      }
+
     }
 
   }
@@ -557,6 +572,10 @@
   margin-bottom:10px;
   padding: 8px 0;
   @include font("Neue", 14px, 20px);
+
+  &.is-success{
+    color:$dark-green;
+  }
 }
 
 #feedback-name {

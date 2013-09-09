@@ -18,11 +18,19 @@ define([
       "click .close": "toggle"
     },
 
+    ui: {
+      "submitButton": ".button",
+      "errorMessage": ".feedback-errors"
+    },
+
     initialize: function(options){
       this.isOpen = false;
+      this.isLoading = false;
     },
 
     onShow: function(){
+
+      var self = this;
 
       $("#feedback-form").validate({
 
@@ -31,19 +39,25 @@ define([
         showErrors: function(errorMap, errorList) {
 
           if(errorList.length == 1){
-            $(".feedback-errors").html(errorList[0].message);
+            self.ui.errorMessage.html(errorList[0].message);
           }else if(errorList.length > 1){
-            $(".feedback-errors").html("All fields are required.");
+            self.ui.errorMessage.html("All fields are required.");
           }else{
-            $(".feedback-errors").html("");
+            self.ui.errorMessage.html("");
           }
 
         },
 
         submitHandler: function(form){
 
+          if(self.isLoading){
+            return false;
+          }
+
           var formData = $(form).serializeArray();
-          formData["honey"] = 918272635437;
+          formData.push({"name": "honey", "value": 918272635437});
+
+          self.enableLoading();
 
           $.ajax({
 
@@ -52,10 +66,12 @@ define([
             type: "POST",
             url: "/feedback",
             success: function(data){
-              console.log("success", data);
+              self.disableLoading();
+              self.thanksAndClose();
             },
             error: function(){
-              console.log("There was an error submitting feedback");
+              self.disableLoading();
+              self.showError("There was an error. Plase try again.");
             }
 
           });
@@ -94,8 +110,6 @@ define([
 
     toggle: function(){
 
-      console.log("toggle");
-
       if(this.isOpen){
         this.hide();
       }else{
@@ -128,6 +142,42 @@ define([
       });
 
       this.isOpen = false;
+
+    },
+
+    enableLoading: function(){
+
+      this.ui.submitButton.addClass("is-loading");
+      this.isLoading = true;
+
+    },
+
+    disableLoading: function(){
+
+      this.ui.submitButton.removeClass("is-loading");
+      this.isLoading = false;
+
+    },
+
+    showError: function(message){
+
+      this.ui.errorMessage.html(message);
+
+    },
+
+    thanksAndClose: function(){
+
+      var self = this;
+
+      this.ui.errorMessage.addClass("is-success").html("Thanks!");
+
+      var cb = function(){
+        self.ui.errorMessage.html("");
+        self.ui.errorMessage.removeClass("is-success");
+        self.hide();
+      }
+
+      setTimeout(cb, 1500);
 
     }
 

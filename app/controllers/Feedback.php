@@ -2,9 +2,6 @@
 
 namespace controllers;
 
-use jyggen\Curl;
-use phpmailer\PHPMailer;
-
 Class Feedback extends \system\Controller
 {
 
@@ -16,11 +13,42 @@ Class Feedback extends \system\Controller
   public function index()
   {
 
-    $return_data = array(
-      "success" => 1
-    );
+    $req = parent::request();
+    $allPostVars = $req->post();
+
+    if($allPostVars["honey"] != "918272635437"){
+      return;
+    }
+
+    $body = "-------------------------------\r\n";
+    $body .= "Name:" . $allPostVars["name"] . "\r\n";
+    $body .= "Email:" . $allPostVars["email"] . "\r\n";
+    $body .= "Purpose:" . $allPostVars["purpose"] . "\r\n";
+    $body .= "Comments:" . $allPostVars["comments"] . "\r\n";
+    $body .= "-------------------------------\r\n";
+
+    $mail = new \PHPMailer();
+    $mail->CharSet = "UTF-8";
+    $mail->AddAddress("bryant@thegoodlab.com", "Bryant Hughes");
+    $mail->SetFrom("bryant@thegoodlab.com","The Good Lab");
+    $mail->Subject = "Broomfield Parks Search Feedback Message";
+    $mail->Body = $body;
+
+    if(!$mail->Send()) {
+      $return_data = array(
+        "success" => 0,
+        "message" => $mail->ErrorInfo
+      );
+    }else{
+      $return_data = array(
+        "success" => 1,
+        "message" => ""
+      );
+    }
 
     echo json_encode($return_data);
+
+    exit;
 
   }
 
