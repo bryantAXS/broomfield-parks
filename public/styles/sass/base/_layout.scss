@@ -1,6 +1,9 @@
 html {
-  -webkit-font-smoothing: antialiased;
+  height:100%;
+  width:100%;
   overflow-y: scroll;
+  -webkit-font-smoothing: antialiased;
+  -webkit-backface-visibility: hidden;
 }
 
 .spinner{
@@ -18,6 +21,7 @@ html {
 
 #content-region-container{
   position:relative;
+  overflow:hidden;
   z-index:1;
 }
 
