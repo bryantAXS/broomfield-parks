@@ -3,7 +3,6 @@
 /node_modules
 /bower_modules
 /composer_modules
-/composer.lock
 /composer.phar
 /.sass-cache
 /*.sublime-project
