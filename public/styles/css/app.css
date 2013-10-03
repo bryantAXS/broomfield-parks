@@ -10665,8 +10665,8 @@ html:hover [class^="ss-"] {
 /* line 466, ../sass/modules/_modules.scss */
 #feedback-button {
   bottom: -10px;
-  left: 50%;
-  margin-left: 500px;
+  right: 50%;
+  margin-right: 500px;
   position: fixed;
   z-index: 100;
   -webkit-transition: bottom 150ms linear;

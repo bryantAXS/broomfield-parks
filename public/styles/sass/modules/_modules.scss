@@ -465,8 +465,8 @@
 
 #feedback-button{
   bottom:-10px;
-  left:50%;
-  margin-left:500px;
+  right:50%;
+  margin-right:500px;
   position:fixed;
   z-index:100;
   @include transition(bottom $fast linear);
