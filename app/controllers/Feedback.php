@@ -10,6 +10,10 @@ Class Feedback extends \system\Controller
     parent::__construct();
   }
 
+  /**
+   * Method used to send an email on the Feedback form submission.
+   * @return void
+   */
   public function index()
   {
 

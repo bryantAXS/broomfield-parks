@@ -190,7 +190,7 @@ define([
       L.esri.basemapLayer("Topographic").addTo(this.map);
 
       // Park details layer
-      this.parkDetailsLayer = new L.esri.dynamicMapLayer("http://test.broomfield.org/arcgis/rest/services/Parks/FindAPark/MapServer", {
+      this.parkDetailsLayer = new L.esri.dynamicMapLayer("http://gis1.broomfield.org/arcgis/rest/services/Parks/FindAPark/MapServer", {
         opacity : 1,
         type: 'ArcGISDynamicMapServiceLayer',
         visible: true,

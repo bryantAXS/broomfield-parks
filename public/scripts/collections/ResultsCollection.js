@@ -26,7 +26,10 @@ define([
         return model.get("score");
       };
 
-      return $.ajax("http://test.broomfield.org/arcgis/rest/services/Parks/ParkSearch/GeocodeServer/findAddressCandidates", {
+      // older test api
+      // http://test.broomfield.org/arcgis/rest/services/Parks/ParkSearch/GeocodeServer/findAddressCandidates
+
+      return $.ajax("http://gis1.broomfield.org/arcgis/rest/services/Parks/ParkSearch/GeocodeServer/findAddressCanidates", {
         data: {
           PlaceName: searchTerm,
           outFields: "*",
@@ -68,7 +71,10 @@ define([
         return model.get("place_name");
       };
 
-      return $.ajax("http://test.broomfield.org/arcgis/rest/services/Parks/FindAPark/MapServer/0/query", {
+      // older test api
+      // http://test.broomfield.org/arcgis/rest/services/Parks/FindAPark/MapServer/0/query
+
+      return $.ajax("http://gis1.broomfield.org/arcgis/rest/services/Parks/FindAPark/MapServer/0/query", {
         data: {
           f: 'json',
           outSR: 4326,
@@ -102,12 +108,12 @@ define([
       };
 
       var results = [
-        11229, // broomfield country commons
-        11314, //community park
-        11262, // industrial park
-        11307, // northmoor park
-        11400, // anthem park
-        11318, // east interlocken park
+        235681, // broomfield country commons
+        235685, //community park
+        235690, // industrial park
+        235682, // northmoor park
+        235675, // anthem park
+        235688, // east interlocken park
       ];
 
       $.each(results, function(i, id){
