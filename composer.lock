@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "ae2d265fe2e0f67ad3410da7985cf56f",
+    "hash": "4a73d2581b8dc0f9f590476390f11fd5",
     "packages": [
         {
             "name": "gabordemooij/redbean",
@@ -106,16 +106,16 @@
         },
         {
             "name": "phpmailer/phpmailer",
-            "version": "dev-master",
+            "version": "v5.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "70a52186f01402717f455a5a1d5d1670841c1273"
+                "reference": "8717a79565b2c0ed67f851d70e1949febdf3b226"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/70a52186f01402717f455a5a1d5d1670841c1273",
-                "reference": "70a52186f01402717f455a5a1d5d1670841c1273",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/8717a79565b2c0ed67f851d70e1949febdf3b226",
+                "reference": "8717a79565b2c0ed67f851d70e1949febdf3b226",
                 "shasum": ""
             },
             "require": {
@@ -155,7 +155,7 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2013-10-02 23:14:39"
+            "time": "2013-09-12 07:52:38"
         },
         {
             "name": "slim/extras",
@@ -360,7 +360,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "gabordemooij/redbean": 20,
-        "phpmailer/phpmailer": 20,
         "jyggen/curl": 20
     },
     "platform": [

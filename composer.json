@@ -8,7 +8,7 @@
 		"slim/extras": "2.*",
 		"twig/twig": "1.*",
 		"gabordemooij/redbean": "dev-master",
-		"phpmailer/phpmailer": "dev-master",
+		"phpmailer/phpmailer": "5.2.7",
     "jyggen/curl": "3.1.*@dev"
 	},
 	"autoload": {
