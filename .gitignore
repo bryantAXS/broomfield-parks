@@ -2,7 +2,6 @@
 /dist
 /node_modules
 /bower_modules
-/composer_modules
 /composer.phar
 /.sass-cache
 /*.sublime-project
