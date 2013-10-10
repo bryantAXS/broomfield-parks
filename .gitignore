@@ -7,3 +7,4 @@
 /*.sublime-project
 /*.sublime-workspace
 /config/deploy.rb
+/composer_modules
