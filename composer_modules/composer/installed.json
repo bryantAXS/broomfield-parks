@@ -98,57 +98,6 @@
         ]
     },
     {
-        "name": "twig/twig",
-        "version": "v1.13.2",
-        "version_normalized": "1.13.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/fabpot/Twig.git",
-            "reference": "v1.13.2"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/fabpot/Twig/zipball/v1.13.2",
-            "reference": "v1.13.2",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.2.4"
-        },
-        "time": "2013-08-03 15:35:31",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.13-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Twig_": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Armin Ronacher",
-                "email": "armin.ronacher@active-4.com"
-            }
-        ],
-        "description": "Twig, the flexible, fast, and secure template language for PHP",
-        "homepage": "http://twig.sensiolabs.org",
-        "keywords": [
-            "templating"
-        ]
-    },
-    {
         "name": "jyggen/curl",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -207,25 +156,76 @@
         ]
     },
     {
+        "name": "twig/twig",
+        "version": "v1.14.0",
+        "version_normalized": "1.14.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/fabpot/Twig.git",
+            "reference": "224fc55635d544a2ec8edb3592be18db5a093f59"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/fabpot/Twig/zipball/224fc55635d544a2ec8edb3592be18db5a093f59",
+            "reference": "224fc55635d544a2ec8edb3592be18db5a093f59",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.4"
+        },
+        "time": "2013-10-03 06:41:20",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.14-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Twig_": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Armin Ronacher",
+                "email": "armin.ronacher@active-4.com"
+            }
+        ],
+        "description": "Twig, the flexible, fast, and secure template language for PHP",
+        "homepage": "http://twig.sensiolabs.org",
+        "keywords": [
+            "templating"
+        ]
+    },
+    {
         "name": "symfony/http-foundation",
-        "version": "v2.3.4",
-        "version_normalized": "2.3.4.0",
+        "version": "v2.3.6",
+        "version_normalized": "2.3.6.0",
         "target-dir": "Symfony/Component/HttpFoundation",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/HttpFoundation.git",
-            "reference": "fdf130fe65457aedbc4639a22f4ef9d3be5c002c"
+            "reference": "59e712338cd05463ebcb8da6422a01b1291871e3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/fdf130fe65457aedbc4639a22f4ef9d3be5c002c",
-            "reference": "fdf130fe65457aedbc4639a22f4ef9d3be5c002c",
+            "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/59e712338cd05463ebcb8da6422a01b1291871e3",
+            "reference": "59e712338cd05463ebcb8da6422a01b1291871e3",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.3"
         },
-        "time": "2013-08-26 05:49:51",
+        "time": "2013-09-29 19:41:41",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -265,12 +265,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/PHPMailer/PHPMailer.git",
-            "reference": "86ef725e80d0426bc6d69fe4412d477d0003fffa"
+            "reference": "70a52186f01402717f455a5a1d5d1670841c1273"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/86ef725e80d0426bc6d69fe4412d477d0003fffa",
-            "reference": "86ef725e80d0426bc6d69fe4412d477d0003fffa",
+            "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/70a52186f01402717f455a5a1d5d1670841c1273",
+            "reference": "70a52186f01402717f455a5a1d5d1670841c1273",
             "shasum": ""
         },
         "require": {
@@ -280,7 +280,7 @@
             "phpdocumentor/phpdocumentor": "*",
             "phpunit/phpunit": "*"
         },
-        "time": "2013-08-30 09:58:27",
+        "time": "2013-10-02 23:14:39",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -320,18 +320,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/gabordemooij/redbean.git",
-            "reference": "a0318c24f3f701e8f05d27fec407f1eb23241c47"
+            "reference": "95cf7d231b60acdeee050041d44503df1b288b74"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/a0318c24f3f701e8f05d27fec407f1eb23241c47",
-            "reference": "a0318c24f3f701e8f05d27fec407f1eb23241c47",
+            "url": "https://api.github.com/repos/gabordemooij/redbean/zipball/95cf7d231b60acdeee050041d44503df1b288b74",
+            "reference": "95cf7d231b60acdeee050041d44503df1b288b74",
             "shasum": ""
         },
         "require": {
             "php": ">=5.2.0"
         },
-        "time": "2013-09-05 20:38:19",
+        "time": "2013-10-01 18:01:43",
         "type": "library",
         "installation-source": "source",
         "autoload": {
