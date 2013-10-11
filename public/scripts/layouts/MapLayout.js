@@ -388,11 +388,14 @@ define([
      * @return {void}
      */
     activate: function(){
-      this.$el.addClass("is-active");
 
+      var self = this;
+
+      self.$el.addClass("is-active");
       if(App.isIe()){
-        this.disableIntroScreen();
+        self.disableIntroScreen();
       }
+
     },
 
 
@@ -401,15 +404,19 @@ define([
      * @return {void}
      */
     deactivate: function(){
-      this.$el.removeClass("is-active");
 
-      if(this.map !== undefined){
-        this.map.closePopup();
+      var self = this;
+
+      self.$el.removeClass("is-active");
+
+      if(self.map !== undefined){
+        self.map.closePopup();
       }
 
       if(App.isIe()){
-        this.activateIntroScreen(.2);
+        self.activateIntroScreen(.2);
       }
+
     },
 
     changeIntroScreenColor: function(color){

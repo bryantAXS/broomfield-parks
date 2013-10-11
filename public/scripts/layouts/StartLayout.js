@@ -28,7 +28,7 @@ define([
       // Show all parks on the map
       setTimeout(function(){
         App.mapLayout.showAllParks();
-      }, 2000);
+      }, 1000);
 
     },
 
