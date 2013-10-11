@@ -57,4 +57,11 @@ Class Feedback extends \system\Controller
 
   }
 
+  public function test()
+  {
+
+    echo "Well hey there guy.";
+
+  }
+
 }
