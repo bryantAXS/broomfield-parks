@@ -24,11 +24,14 @@ define([
       title: ".results-title"
     },
 
+    noResultsText: "Sorry, we couldn't find any parks matching your search.",
+
     initialize: function(){
 
       var self = this;
 
-      this.resultsCollection = new ResultsCollection();
+      //creating our collection and setting a few events
+      this.initCollection();
 
       var callback;
 
@@ -40,21 +43,35 @@ define([
         callback = this.initSearch();
       }
 
+      // adjusting our map -- waiting a few seconds to help performance
+      // and experience
       callback.done(function(){
-        App.mapLayout.showResults(self.resultsCollection);
+        setTimeout(function(){
+          App.mapLayout.showResults(self.resultsCollection);
+        }, 2000);
       });
 
+      // showing the actual results view
       this.resultsCollectionView = new ResultsCollectionView({
         isGuideTrigger: App.getSearchTerm() === "guide" || App.getSearchTerm() === "all" ? true : false,
         collection: this.resultsCollection
       });
 
+    },
+
+    initCollection: function(){
+
+      var self = this;
+      this.resultsCollection = new ResultsCollection();
+
+      this.resultsCollection.on("noresults", function(){
+        self.setTitle(self.noResultsText);
+      });
+
       this.resultsCollection.on("change", function(){
-
         if(self.resultsCollection.length == 0){
-          self.setTitle("Sorry, we couldn't find any parks matching your search.");
+          self.setTitle(self.noResultsText);
         }
-
       });
 
     },

@@ -26,7 +26,9 @@ define([
     initialize: function(){
 
       // Show all parks on the map
-      App.mapLayout.showAllParks();
+      setTimeout(function(){
+        App.mapLayout.showAllParks();
+      }, 2000);
 
     },
 

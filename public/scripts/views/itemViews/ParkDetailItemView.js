@@ -17,7 +17,8 @@ define([
     ui: {
       galleryContainer: "#park-detail-gallery-container",
       nextButton: "#park-detail-gallery-right",
-      previousButton: "#park-detail-gallery-left"
+      previousButton: "#park-detail-gallery-left",
+      loader: ".gallery-loader"
     },
 
     events: {
@@ -31,26 +32,62 @@ define([
 
       var self = this;
 
-      this.model.bind("change", this.render);
+      // Before we init the gallery, we're preloading the images, so we don't have
+      // weird delays when backstretch inits.
+      //
+      // We also have a "pseudoLoad" that mandates at least a 2 second
+      // "loading" time, where the loading icon is displayed.  This makes the overall
+      // loading process appear a little smoother.
 
-      // sometimes our model data isn't quite loaded fast enough
-      setTimeout(function(){
-        self.initMarker();
-      }, 100);
+      var loadingPromises = [];
+      loadingPromises.push(this.preloadImages());
+      loadingPromises.push(this.pseudoLoad());
+
+      // waiting for both promises to be resolved
+      $.when.apply($, loadingPromises).done(function(){
+
+        self.initGallery();
+
+        // we're waiting 1 second after the gallery has loaded to
+        // reposition the map. Again, something to make the experience
+        // a little smoother
+        setTimeout(function(){
+          App.mapLayout.showSinglePark(self.model);
+        }, 1000);
+
+      });
 
     },
 
     initMarker: function(){
 
       var self = this;
-      App.mapLayout.showSinglePark(self.model);
 
     },
 
     onRender: function(){
 
       var self = this;
-      self.initGallery();
+      self.ui.loader.css("display", "block");
+
+    },
+
+    preloadImages: function(){
+
+      var galleryImages = this.getGalleryImages();
+      return App.preloadImages(galleryImages);
+
+    },
+
+    pseudoLoad: function(){
+
+      var promise = $.Deferred();
+
+      setTimeout(function(){
+        promise.resolve();
+      }, 2000);
+
+      return promise;
 
     },
 
@@ -80,21 +117,17 @@ define([
 
       if(!galleryImages.length){ return ; }
 
-      var cb1 = function(){
-        self.ui.galleryContainer.backstretch(self.getGalleryImages(), {
-          duration: 20000,
-          fade: 750
-        });
-      };
-      setTimeout(cb1, 50);
-
-
+      self.ui.loader.fadeOut(100);
+      self.ui.galleryContainer.backstretch(self.getGalleryImages(), {
+        duration: 20000,
+        fade: 750
+      });
 
       // hacky implementation for a loading issue
-      var cb2 = function(){
-        self.ui.galleryContainer.backstretch("show", 0);
-      };
-      setTimeout(cb2, 500);
+      // var cb2 = function(){
+      //   self.ui.galleryContainer.backstretch("show", 0);
+      // };
+      // setTimeout(cb2, 2500);
 
     },
 

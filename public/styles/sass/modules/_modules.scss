@@ -306,6 +306,7 @@
 
 #park-detail-gallery-container{
 
+  background-color: rgba(255,255,255, .85);
   min-height:500px;
   position:relative;
   width:770px;
@@ -316,9 +317,8 @@
   }
 
   .dummy{
-    height:auto;
     position:relative;
-    width:100%;
+    height:100%;
     z-index:-1;
     @include opacity(0);
   }
@@ -329,7 +329,7 @@
     margin-top:-23px;
     position:absolute;
     top:50%;
-    z-index:2;
+    z-index:10;
     @include opacity(.6);
     @include transition(opacity $fast linear);
 
@@ -345,6 +345,14 @@
 
   #park-detail-gallery-right{
     right:20px;
+  }
+
+  .gallery-loader{
+    left:50%;
+    margin: -16px 0 0 -16px;
+    position:absolute;
+    top:50%;
+    z-index:1;
   }
 
 }

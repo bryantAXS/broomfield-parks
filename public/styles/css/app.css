@@ -5357,19 +5357,13 @@ html {
 }
 
 /* line 8, ../sass/base/_layout.scss */
-body {
-  height: 100%;
-  margin-bottom: 1px;
-}
-
-/* line 13, ../sass/base/_layout.scss */
 .spinner {
   position: fixed !important;
   top: 50% !important;
   left: 50% !important;
 }
 
-/* line 19, ../sass/base/_layout.scss */
+/* line 14, ../sass/base/_layout.scss */
 #search-bar-layout-container {
   position: fixed;
   top: 60px;
@@ -5377,14 +5371,14 @@ body {
   z-index: 10;
 }
 
-/* line 26, ../sass/base/_layout.scss */
+/* line 21, ../sass/base/_layout.scss */
 #content-region-container {
   position: relative;
   overflow: hidden;
   z-index: 1;
 }
 
-/* line 32, ../sass/base/_layout.scss */
+/* line 27, ../sass/base/_layout.scss */
 #blur-layer {
   background-color: white;
   position: fixed;
@@ -5397,7 +5391,7 @@ body {
   opacity: 0.5;
 }
 
-/* line 44, ../sass/base/_layout.scss */
+/* line 39, ../sass/base/_layout.scss */
 #map-region-container {
   height: 100%;
   left: 0;
@@ -5407,28 +5401,28 @@ body {
   z-index: 0;
 }
 
-/* line 53, ../sass/base/_layout.scss */
+/* line 48, ../sass/base/_layout.scss */
 #map-layout-container {
   position: absolute;
   height: 100%;
   width: 100%;
   z-index: 0;
 }
-/* line 59, ../sass/base/_layout.scss */
+/* line 54, ../sass/base/_layout.scss */
 #map-layout-container #map-container {
   height: 100%;
   position: absolute;
   width: 100%;
   z-index: -1;
 }
-/* line 68, ../sass/base/_layout.scss */
+/* line 63, ../sass/base/_layout.scss */
 #map-layout-container .map-click-overlay {
   height: 100%;
   position: absolute;
   width: 100%;
   z-index: 0;
 }
-/* line 75, ../sass/base/_layout.scss */
+/* line 70, ../sass/base/_layout.scss */
 #map-layout-container .map-intro-overlay {
   background-color: white;
   height: 100%;
@@ -5436,35 +5430,35 @@ body {
   width: 100%;
   z-index: 1;
 }
-/* line 84, ../sass/base/_layout.scss */
+/* line 79, ../sass/base/_layout.scss */
 #map-layout-container.is-active .map-click-overlay {
   display: none;
 }
 
-/* line 99, ../sass/base/_layout.scss */
+/* line 94, ../sass/base/_layout.scss */
 .cssfilters #map-layout-container #map-container img {
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
   filter: blur(5px);
 }
-/* line 107, ../sass/base/_layout.scss */
+/* line 102, ../sass/base/_layout.scss */
 .cssfilters #map-layout-container.is-active #map-container img {
   -webkit-filter: blur(0);
   -moz-filter: blur(0);
   filter: blur(0);
 }
 
-/* line 118, ../sass/base/_layout.scss */
+/* line 113, ../sass/base/_layout.scss */
 #start-layout-container {
   margin-top: 240px;
 }
 
-/* line 122, ../sass/base/_layout.scss */
+/* line 117, ../sass/base/_layout.scss */
 #results-layout-container {
   margin-top: 160px;
 }
 
-/* line 126, ../sass/base/_layout.scss */
+/* line 121, ../sass/base/_layout.scss */
 #park-detail-layout-container {
   margin-top: 160px;
 }
@@ -10492,20 +10486,20 @@ html:hover [class^="ss-"] {
 
 /* line 307, ../sass/modules/_modules.scss */
 #park-detail-gallery-container {
+  background-color: rgba(255, 255, 255, 0.85);
   min-height: 500px;
   position: relative;
   width: 770px;
   z-index: 100;
 }
-/* line 314, ../sass/modules/_modules.scss */
+/* line 315, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .placeholder {
   display: none;
 }
-/* line 318, ../sass/modules/_modules.scss */
+/* line 319, ../sass/modules/_modules.scss */
 #park-detail-gallery-container .dummy {
-  height: auto;
   position: relative;
-  width: 100%;
+  height: 100%;
   z-index: -1;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
@@ -10517,7 +10511,7 @@ html:hover [class^="ss-"] {
   margin-top: -23px;
   position: absolute;
   top: 50%;
-  z-index: 2;
+  z-index: 10;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
   opacity: 0.6;
   -webkit-transition: opacity 150ms linear;
@@ -10538,17 +10532,25 @@ html:hover [class^="ss-"] {
 #park-detail-gallery-container #park-detail-gallery-right {
   right: 20px;
 }
+/* line 350, ../sass/modules/_modules.scss */
+#park-detail-gallery-container .gallery-loader {
+  left: 50%;
+  margin: -16px 0 0 -16px;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+}
 
-/* line 352, ../sass/modules/_modules.scss */
+/* line 360, ../sass/modules/_modules.scss */
 #park-detail-info-container {
   padding: 40px 20px 40px 30px;
 }
-/* line 356, ../sass/modules/_modules.scss */
+/* line 364, ../sass/modules/_modules.scss */
 #park-detail-info-container h1 {
   color: #282828;
   width: 300px;
 }
-/* line 361, ../sass/modules/_modules.scss */
+/* line 369, ../sass/modules/_modules.scss */
 #park-detail-info-container address {
   color: #282828;
   margin: 5px 0 25px 0;
@@ -10558,11 +10560,11 @@ html:hover [class^="ss-"] {
   line-height: 20px;
   font-weight: 300;
 }
-/* line 368, ../sass/modules/_modules.scss */
+/* line 376, ../sass/modules/_modules.scss */
 #park-detail-info-container h2 {
   color: #666666;
 }
-/* line 372, ../sass/modules/_modules.scss */
+/* line 380, ../sass/modules/_modules.scss */
 #park-detail-info-container p {
   color: #666666;
   padding: 5px 0;
@@ -10571,30 +10573,30 @@ html:hover [class^="ss-"] {
   line-height: 18px;
   font-weight: 300;
 }
-/* line 378, ../sass/modules/_modules.scss */
+/* line 386, ../sass/modules/_modules.scss */
 #park-detail-info-container .button {
   margin-top: 30px;
 }
-/* line 382, ../sass/modules/_modules.scss */
+/* line 390, ../sass/modules/_modules.scss */
 #park-detail-info-container .close {
   color: #f26c4f;
   position: absolute;
   top: 40px;
   right: 30px;
 }
-/* line 387, ../sass/modules/_modules.scss */
+/* line 395, ../sass/modules/_modules.scss */
 #park-detail-info-container .close:hover {
   color: #f26c4f;
 }
 
-/* line 397, ../sass/modules/_modules.scss */
+/* line 405, ../sass/modules/_modules.scss */
 .map-popup {
   -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-/* line 401, ../sass/modules/_modules.scss */
+/* line 409, ../sass/modules/_modules.scss */
 .popup-header-container {
   background-color: #f26c4f;
   padding: 15px 15px 7px 15px;
@@ -10605,7 +10607,7 @@ html:hover [class^="ss-"] {
   -o-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0;
 }
-/* line 407, ../sass/modules/_modules.scss */
+/* line 415, ../sass/modules/_modules.scss */
 .popup-header-container p {
   color: white;
   margin: 0;
@@ -10617,7 +10619,7 @@ html:hover [class^="ss-"] {
   font-weight: 300;
 }
 
-/* line 416, ../sass/modules/_modules.scss */
+/* line 424, ../sass/modules/_modules.scss */
 .popup-links {
   background-color: white;
   margin: 0;
@@ -10630,13 +10632,13 @@ html:hover [class^="ss-"] {
   -o-border-radius: 0 0 3px 3px;
   border-radius: 0 0 3px 3px;
 }
-/* line 425, ../sass/modules/_modules.scss */
+/* line 433, ../sass/modules/_modules.scss */
 .popup-links li {
   margin: 0;
   padding: 4px 0;
   list-style-type: none;
 }
-/* line 431, ../sass/modules/_modules.scss */
+/* line 439, ../sass/modules/_modules.scss */
 .popup-links li a {
   color: #666666;
   display: block;
@@ -10646,14 +10648,14 @@ html:hover [class^="ss-"] {
   line-height: 35px;
   font-weight: 300;
 }
-/* line 437, ../sass/modules/_modules.scss */
+/* line 445, ../sass/modules/_modules.scss */
 .popup-links li a span {
   font-size: 18px;
   margin-right: 8px;
   position: relative;
   top: 4px;
 }
-/* line 444, ../sass/modules/_modules.scss */
+/* line 452, ../sass/modules/_modules.scss */
 .popup-links li a span.icon-google-maps {
   background: transparent url(/images/icon-google-maps.png) no-repeat left top;
   display: inline-block;
@@ -10662,12 +10664,12 @@ html:hover [class^="ss-"] {
   top: 3px;
   width: 16px;
 }
-/* line 455, ../sass/modules/_modules.scss */
+/* line 463, ../sass/modules/_modules.scss */
 .popup-links li + li {
   border-top: 1px solid #f2f2f2;
 }
 
-/* line 466, ../sass/modules/_modules.scss */
+/* line 474, ../sass/modules/_modules.scss */
 #feedback-button {
   bottom: -10px;
   right: 50%;
@@ -10679,12 +10681,12 @@ html:hover [class^="ss-"] {
   -o-transition: bottom 150ms linear;
   transition: bottom 150ms linear;
 }
-/* line 474, ../sass/modules/_modules.scss */
+/* line 482, ../sass/modules/_modules.scss */
 #feedback-button:hover {
   bottom: -2px;
 }
 
-/* line 479, ../sass/modules/_modules.scss */
+/* line 487, ../sass/modules/_modules.scss */
 #feedback-region-container {
   display: none;
   height: 100%;
@@ -10695,7 +10697,7 @@ html:hover [class^="ss-"] {
   z-index: -1;
 }
 
-/* line 489, ../sass/modules/_modules.scss */
+/* line 497, ../sass/modules/_modules.scss */
 #feedback-layout-container {
   background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
@@ -10704,7 +10706,7 @@ html:hover [class^="ss-"] {
   top: 0;
   width: 100%;
 }
-/* line 498, ../sass/modules/_modules.scss */
+/* line 506, ../sass/modules/_modules.scss */
 #feedback-layout-container .title {
   color: #282828;
   display: block;
@@ -10715,7 +10717,7 @@ html:hover [class^="ss-"] {
   line-height: 24px;
   font-weight: 300;
 }
-/* line 508, ../sass/modules/_modules.scss */
+/* line 516, ../sass/modules/_modules.scss */
 #feedback-layout-container form {
   background-color: white;
   height: 600px;
@@ -10727,14 +10729,14 @@ html:hover [class^="ss-"] {
   left: 50%;
   width: 400px;
 }
-/* line 510, ../sass/modules/_modules.scss */
+/* line 518, ../sass/modules/_modules.scss */
 #feedback-layout-container form .close {
   color: #f26c4f;
   position: absolute;
   right: 25px;
   top: 25px;
 }
-/* line 527, ../sass/modules/_modules.scss */
+/* line 535, ../sass/modules/_modules.scss */
 #feedback-layout-container form input[type='text'], #feedback-layout-container form .select-wrapper {
   background-color: #f4f4f4;
   border: none;
@@ -10749,35 +10751,35 @@ html:hover [class^="ss-"] {
   line-height: 20px;
   font-weight: 300;
 }
-/* line 538, ../sass/modules/_modules.scss */
+/* line 546, ../sass/modules/_modules.scss */
 #feedback-layout-container form input[type='text'] + input, #feedback-layout-container form input[type='text'] + .select-wrapper, #feedback-layout-container form .select-wrapper + input, #feedback-layout-container form .select-wrapper + .select-wrapper {
   margin-top: 20px;
 }
-/* line 544, ../sass/modules/_modules.scss */
+/* line 552, ../sass/modules/_modules.scss */
 #feedback-layout-container form button {
   display: inline-block;
   margin: 20px auto 0 auto;
   width: 91px;
 }
-/* line 549, ../sass/modules/_modules.scss */
+/* line 557, ../sass/modules/_modules.scss */
 #feedback-layout-container form button img {
   display: none;
 }
-/* line 554, ../sass/modules/_modules.scss */
+/* line 562, ../sass/modules/_modules.scss */
 #feedback-layout-container form button.is-loading img {
   display: inline;
 }
-/* line 557, ../sass/modules/_modules.scss */
+/* line 565, ../sass/modules/_modules.scss */
 #feedback-layout-container form button.is-loading span {
   display: none;
 }
-/* line 564, ../sass/modules/_modules.scss */
+/* line 572, ../sass/modules/_modules.scss */
 #feedback-layout-container form .select-wrapper {
   position: relative;
   text-align: left;
   -webkit-backface-visibility: hidden;
 }
-/* line 570, ../sass/modules/_modules.scss */
+/* line 578, ../sass/modules/_modules.scss */
 #feedback-layout-container form .select-wrapper .select-text {
   color: #8c8c8c;
   position: relative;
@@ -10788,7 +10790,7 @@ html:hover [class^="ss-"] {
   line-height: 20px;
   font-weight: 300;
 }
-/* line 578, ../sass/modules/_modules.scss */
+/* line 586, ../sass/modules/_modules.scss */
 #feedback-layout-container form .select-wrapper .ss-dropdown {
   color: #8c8c8c;
   font-size: 10px;
@@ -10796,7 +10798,7 @@ html:hover [class^="ss-"] {
   right: 10px;
   top: 14px;
 }
-/* line 586, ../sass/modules/_modules.scss */
+/* line 594, ../sass/modules/_modules.scss */
 #feedback-layout-container form .select-wrapper select {
   position: absolute;
   left: 10px;
@@ -10808,7 +10810,7 @@ html:hover [class^="ss-"] {
   opacity: 0;
 }
 
-/* line 601, ../sass/modules/_modules.scss */
+/* line 609, ../sass/modules/_modules.scss */
 .feedback-errors {
   color: #f26c4f;
   height: 20px;
@@ -10820,12 +10822,12 @@ html:hover [class^="ss-"] {
   line-height: 20px;
   font-weight: 300;
 }
-/* line 609, ../sass/modules/_modules.scss */
+/* line 617, ../sass/modules/_modules.scss */
 .feedback-errors.is-success {
   color: #4d7a49;
 }
 
-/* line 623, ../sass/modules/_modules.scss */
+/* line 631, ../sass/modules/_modules.scss */
 #feedback-comments {
   background-color: #f4f4f4;
   border: none;

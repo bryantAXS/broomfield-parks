@@ -247,6 +247,29 @@ define([
 
   };
 
+
+  App.preloadImages = function(arrayOfImages){
+
+    var promises = [];
+
+    for(var i = 0; i < arrayOfImages.length; i++){
+      (function(url, promise) {
+
+        var img = new Image();
+
+        img.onload = function() {
+          promise.resolve();
+        };
+
+        img.src = url;
+
+      })(arrayOfImages[i], promises[i] = $.Deferred());
+    }
+
+    return $.when.apply($, promises);
+
+  }
+
   /**
    * Starting up our Router
    * @return {void}

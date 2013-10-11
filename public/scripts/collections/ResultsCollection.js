@@ -29,7 +29,7 @@ define([
       // older test api
       // http://test.broomfield.org/arcgis/rest/services/Parks/ParkSearch/GeocodeServer/findAddressCandidates
 
-      return $.ajax("http://gis1.broomfield.org/arcgis/rest/services/Parks/ParkSearch/GeocodeServer/findAddressCanidates", {
+      return $.ajax("http://gis1.broomfield.org/arcgis/rest/services/Parks/ParkSearch/GeocodeServer/findAddressCandidates", {
         data: {
           PlaceName: searchTerm,
           outFields: "*",
@@ -41,6 +41,12 @@ define([
         success: function(data){
 
           self.reset();
+
+          if(!data.hasOwnProperty("candidates")){
+            self.trigger("noresults");
+            return;
+          }
+
           $.each(data.candidates, function(i, result){
 
             var id = Number(result.attributes.City);
