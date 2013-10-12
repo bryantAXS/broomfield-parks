@@ -24,11 +24,18 @@ Class Feedback extends \system\Controller
       return;
     }
 
+    // $body = "-------------------------------\r\n";
+    // $body .= "Name:" . $allPostVars["name"] . "\r\n";
+    // $body .= "Email:" . $allPostVars["email"] . "\r\n";
+    // $body .= "Purpose:" . $allPostVars["purpose"] . "\r\n";
+    // $body .= "Comments:" . $allPostVars["comments"] . "\r\n";
+    // $body .= "-------------------------------\r\n";
+
     $body = "-------------------------------\r\n";
-    $body .= "Name:" . $allPostVars["name"] . "\r\n";
-    $body .= "Email:" . $allPostVars["email"] . "\r\n";
-    $body .= "Purpose:" . $allPostVars["purpose"] . "\r\n";
-    $body .= "Comments:" . $allPostVars["comments"] . "\r\n";
+    $body .= "Name:" . "Test" . "\r\n";
+    $body .= "Email:" . "Test Email" . "\r\n";
+    $body .= "Purpose:" . "Text Purpose" . "\r\n";
+    $body .= "Comments:" . "Text Comments" . "\r\n";
     $body .= "-------------------------------\r\n";
 
     $mail = new \PHPMailer();
@@ -54,13 +61,6 @@ Class Feedback extends \system\Controller
     echo json_encode($return_data);
 
     exit;
-
-  }
-
-  public function test()
-  {
-
-    echo "Well hey there guy.";
 
   }
 
