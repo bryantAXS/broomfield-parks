@@ -20,9 +20,9 @@ Class Feedback extends \system\Controller
     $req = parent::request();
     $allPostVars = $req->post();
 
-    if($allPostVars["honey"] != "918272635437"){
-      return;
-    }
+    // if($allPostVars["honey"] != "918272635437"){
+    //   return;
+    // }
 
     // $body = "-------------------------------\r\n";
     // $body .= "Name:" . $allPostVars["name"] . "\r\n";
