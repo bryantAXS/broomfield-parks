@@ -11,8 +11,7 @@ $router = new \system\Router;
 
 $routes = array(
   "/" => "Main:index@get",
-  "/feedback" => "Feedback:index@post",
-  "/feedback" => "Feedback:index@get"
+  "/feedback" => "Feedback:index@post"
 );
 
 $router->addRoutes($routes);
