@@ -1,13 +1,11 @@
 <?php
 
-namespace controllers;
-
-Class Feedback extends \system\Controller
+Class Feedback
 {
 
-  public function __construct()
+  public function __construct($app)
   {
-    parent::__construct();
+    $this->app = $app;
   }
 
   /**
@@ -17,7 +15,7 @@ Class Feedback extends \system\Controller
   public function index()
   {
 
-    $req = parent::request();
+    $req = $this->app->request();
     $allPostVars = $req->post();
 
     if($allPostVars["honey"] != "918272635437"){

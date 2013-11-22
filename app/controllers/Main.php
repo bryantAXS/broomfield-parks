@@ -1,15 +1,14 @@
 <?php
 
-namespace controllers;
 
 use jyggen\Curl;
 
-Class Main extends \system\Controller
+Class Main
 {
 
-  public function __construct()
+  public function __construct($app)
   {
-    parent::__construct();
+    $this->app = $app;
   }
 
   /**
@@ -17,7 +16,7 @@ Class Main extends \system\Controller
    * @param  integer/boolean $event_id The event ID, if passed
    * @return void
    */
-  public function index($event_id = false)
+  public function index($uri = false)
   {
 
     $template_data = array();
@@ -28,7 +27,7 @@ Class Main extends \system\Controller
       "environment" => $_ENV["SLIM_MODE"]
     );
 
-    parent::render('index.twig', $template_data);
+    $this->app->render('index.twig', $template_data);
 
   }
 
