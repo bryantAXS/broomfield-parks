@@ -80,6 +80,9 @@ define([
       // older test api
       // http://test.broomfield.org/arcgis/rest/services/Parks/FindAPark/MapServer/0/query
 
+      // an example request mostly for testing
+      // http://gis1.broomfield.org/arcgis/rest/services/Parks/FindAPark/MapServer/0/query?f=json&outSR=4326&outFields='*'&where='1=1'
+
       return $.ajax("http://gis1.broomfield.org/arcgis/rest/services/Parks/FindAPark/MapServer/0/query", {
         data: {
           f: 'json',

@@ -38,6 +38,8 @@ Class Main extends \system\Controller
    */
   private function _get_all_parks(){
 
+    //http://gis1.broomfield.org/arcgis/rest/services/Parks/FindAPark/MapServer/0/query?f=json&outSR=4326&outFields=*&where='1=1'
+
     $request_url = "http://gis1.broomfield.org/arcgis/rest/services/Parks/FindAPark/MapServer/0/query";
 
     $response_data = Curl::post($request_url, array(
