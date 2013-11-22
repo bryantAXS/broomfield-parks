@@ -24,7 +24,8 @@ Class Main extends \system\Controller
 
     $template_data = array(
       "templates" => $this->_find_all_files(ROOT . "/app/views/templates"),
-      "parks_json" => $this->_get_all_parks()
+      "parks_json" => $this->_get_all_parks(),
+      "environment" => $_ENV["SLIM_MODE"]
     );
 
     parent::render('index.twig', $template_data);

@@ -14,10 +14,10 @@ module.exports = function(grunt) {
         files: [
 
           // Foundation
-          {cwd: "bower_modules/foundation/js", src: '**', dest: 'public/scripts/vendor', expand: true, flatten: false},
-          {cwd: "bower_modules/foundation/scss", src: 'foundation', dest: 'public/styles/sass', expand: true, flatten: false},
-          {isFile: true, rename: function(dest, src){ return dest + "_" + src; }, cwd: "bower_modules/foundation/scss", src: 'foundation.scss', dest: 'public/styles/sass/', expand: true, flatten: false},
-          {isFile: true, rename: function(dest, src){ return dest + "_" + src; }, cwd: "bower_modules/foundation/scss", src: 'normalize.scss', dest: 'public/styles/sass/', expand: true, flatten: false},
+          // {cwd: "bower_modules/foundation/js", src: '**', dest: 'public/scripts/vendor', expand: true, flatten: false},
+          // {cwd: "bower_modules/foundation/scss", src: 'foundation', dest: 'public/styles/sass', expand: true, flatten: false},
+          // {isFile: true, rename: function(dest, src){ return dest + "_" + src; }, cwd: "bower_modules/foundation/scss", src: 'foundation.scss', dest: 'public/styles/sass/', expand: true, flatten: false},
+          // {isFile: true, rename: function(dest, src){ return dest + "_" + src; }, cwd: "bower_modules/foundation/scss", src: 'normalize.scss', dest: 'public/styles/sass/', expand: true, flatten: false},
 
 
           {isFile: true, cwd: "bower_modules/jquery", src: 'jquery.js', dest: 'public/scripts/vendor', expand: true, flatten: false},
@@ -76,7 +76,7 @@ module.exports = function(grunt) {
           name: "main",
           baseUrl: "public/scripts",
           mainConfigFile: "public/scripts/main.js",
-          out: "public/scripts/main-built.js"
+          out: "public/scripts/built.js"
         }
       }
     }

@@ -6,20 +6,16 @@
 <!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
 
-      {% block meta %}
       <meta charset="utf-8">
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width">
-      {% endblock %}
 
       <title>City of Broomfield Parks Search</title>
 
-      {% block link %}
-      {% endblock %}
-
       <script type="text/javascript" src="/scripts/vendor/vendor/custom.modernizr.js"></script>
 
-      {% include 'partials/header_styles.html' %}
+      <link rel="stylesheet" href="/styles/css/app.css" />
+      <link rel="stylesheet" href="/styles/css/ie.css" />
 
       <!--[if lt IE 9]>
         <link rel="stylesheet" href="/styles/css/ie.css" />
@@ -36,11 +32,6 @@
         {% block content %}{{ content|raw }}{% endblock content %}
     </div>
 
-    {% block inline%}{% endblock inline %}
-
-    {% block script %}
-    {% endblock %}
-
     {% for template in templates %}
     {% include template %}
     {% endfor %}
@@ -51,7 +42,14 @@
       {% endautoescape %}
     </script>
 
-    {% include 'partials/footer_scripts.html' %}
+    {% if environment == "development" %}
+    <script data-main="/scripts/main.js" src="/scripts/vendor/require.js"></script>
+    {% endif %}
+
+    {% if environment == "production" %}
+    <script data-main="/scripts/main-built.js" src="/scripts/vendor/require.js"></script>
+    {% endif %}
+
 
     </body>
 </html>

@@ -193,6 +193,10 @@ define([
 
       $.each(this.pluck("facilities"), function(i, facString){
 
+        if(facString === null){
+          return;
+        }
+
         var facArr = facString.split(",");
 
         $.each(facArr, function(j, fac){

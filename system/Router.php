@@ -9,7 +9,24 @@ class Router
 
   public function __construct()
   {
+
+    if(strrpos($_SERVER["HTTP_HOST"], "parks.broomfield.org") > -1){
+      $_ENV["SLIM_MODE"] = "production";
+    }else{
+      $_ENV["SLIM_MODE"] = "development";
+    }
+
+    // $app = new \Slim\Slim;
+    // $app->error(function (\Exception $e) use ($app) {
+    //   var_dump("test");
+    //   $bugsnag = new Bugsnag_Client("5d2ff64c4da0e9b86bc0d2c32b32991b");
+    //   $bugsnag->setReleaseStage($_ENV["SLIM_MODE"]);
+    //   $bugsnag->setNotifyReleaseStages(array("development", "production"));
+    //   $bugsnag->notifyException($e);
+    // });
+
     $env = \Slim\Environment::getInstance();
+
     $this->request = new \Slim\Http\Request($env);
     $this->routes = array();
   }
