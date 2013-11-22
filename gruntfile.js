@@ -76,7 +76,7 @@ module.exports = function(grunt) {
           name: "main",
           baseUrl: "public/scripts",
           mainConfigFile: "public/scripts/main.js",
-          out: "public/scripts/built.js"
+          out: "public/scripts/main-built.js"
         }
       }
     }
@@ -96,6 +96,6 @@ module.exports = function(grunt) {
   grunt.registerTask('development', ['assemble:development_html']);
 
   // Setup environment for production
-  grunt.registerTask('production', ['assemble:production_html', 'requirejs']);
+  grunt.registerTask('compile_requirejs', ['requirejs']);
 
 };
