@@ -1,0 +1,38 @@
+{
+	"require": {
+		"laravel/framework": "4.0.*",
+		"way/generators": "dev-master",
+		"juy/profiler" : "dev-master",
+		"bugsnag/bugsnag": "2.*",
+		"mailgun/mailgun-php": "dev-master",
+		"orchestra/testbench": "2.0.*",
+		"jyggen/curl": "3.1.*@dev",
+		"phpmailer/phpmailer": "5.2.7"
+	},
+	"autoload": {
+		"classmap": [
+			"app/commands",
+			"app/controllers",
+			"app/models",
+			"app/database/migrations",
+			"app/database/seeds",
+			"app/tests/TestCase.php"
+
+		]
+	},
+	"scripts": {
+		"pre-update-cmd": [
+			"php artisan clear-compiled"
+		],
+		"post-install-cmd": [
+			"php artisan optimize"
+		],
+		"post-update-cmd": [
+			"php artisan optimize"
+		]
+	},
+	"config": {
+		"preferred-install": "dist"
+	},
+	"minimum-stability": "dev"
+}

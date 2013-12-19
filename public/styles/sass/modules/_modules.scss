@@ -1,0 +1,644 @@
+
+//
+// SEARCH BAR
+//
+
+.search-bar-container{
+  background-color:$white;
+  height:75px;
+  padding:0;
+  position:relative;
+  @include box-shadow(0 3px 10px rgba(0,0,0,.15));
+  @include opacity(.9);
+  @include transition(box-shadow $fast linear, opacity $fast linear);
+
+  &.has-focus{
+    @include box-shadow(0 3px 10px rgba(0,0,0,.35));
+    @include opacity(1);
+  }
+
+}
+
+.search-bar-left-container{
+  height:75px;
+  left:0;
+  position:absolute;
+  top:0;
+  width: 1095px;
+  z-index:2;
+}
+
+.search-bar-right-container{
+  background-color:$green;
+  height:75px;
+  position:absolute;
+  right:0;
+  top:0;
+  width:75px;
+  z-index:3;
+}
+
+.search-text{
+  border:none;
+  color:$dark-green;
+  height:40px;
+  display:block;
+  margin-top:21px;
+  outline:none;
+  padding-left:15px;
+
+  @include box-shadow(none);
+  @include calc(width, "100% - 95px");
+  @include font("NeueLight", 30px, 44px);
+
+}
+
+.twitter-typeahead{
+  width:100%;
+}
+
+.tt-hint{
+  @extend .search-text;
+  color:$grey;
+}
+
+.tt-dropdown-menu{
+  display:none !important;
+}
+
+.search-button-container{
+
+  height: 75px;
+  position:absolute;
+  right:0;
+  top:0;
+  width: 75px;
+
+  button{
+    background:transparent;
+    border:none;
+    display:block;
+    height:100%;
+    left:0;
+    outline:none;
+    padding:0;
+    position:absolute;
+    width:100%;
+    top:0;
+  }
+
+  &.is-searching{
+
+    #search-button{
+      z-index:-1;
+      @include opacity(0);
+    }
+
+    #clear-search-button{
+      z-index:1;
+      @include opacity(1);
+    }
+
+  }
+
+}
+
+.search-button.ss-icon{
+  color:$green;
+  font-size:30px;
+  padding-top:7px;
+  @include transition(opacity $fast linear);
+}
+
+#search-button{
+  @extend .search-button;
+  z-index:1;
+  @include opacity(1);
+}
+
+#clear-search-button{
+  @extend .search-button;
+  z-index:-1;
+  @include opacity(0);
+}
+
+.green-nav-button{
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border:none;
+  color:$dark-green;
+  display:block;
+  float:left;
+  font-size:21px;
+  height:75px;
+  outline:none;
+  padding-top:8px;
+  width:75px;
+  @include transition(box-shadow 50ms linear);
+
+  &:active, &.is-active{
+    @include box-shadow(inset 0 0 15px rgba(0,0,0,.3));
+  }
+
+}
+
+#goto-map-button{
+  @extend .green-nav-button;
+  border-right:1px solid #6eb567;
+}
+
+
+//
+// MAP LAYOUT
+//
+
+#map-layout-container{
+  .backstretch{
+    img{
+      @include filter(blur(5px));
+    }
+  }
+}
+
+
+
+//
+// START PAGE
+//
+
+
+#start-layout-container{
+
+  .button{
+    height:50px;
+    line-height:50px;
+    width:170px;
+    &:hover{
+      line-height:50px;
+    }
+  }
+
+}
+
+.start-title{
+  color:$dark-green;
+  margin-bottom: 30px;
+  position:relative;
+  letter-spacing: 0.02em;
+  margin-bottom:15px;
+  text-align:center;
+  @include text-shadow(0 1px 2px rgba(255,255,255,.5));
+  @include font("NeueLight", 45px, 52px);
+}
+
+.start-buttons-container{
+  margin: 50px 0 15px 0;
+  text-align:center;
+}
+
+.walk-through-text{
+  color:$dark-green;
+  margin-bottom:15px;
+  text-align:center;
+  @include text-shadow(0 1px 2px rgba(255,255,255,.5));
+  @include font("Neue", 24px, 28px);
+
+  a{
+    display:inline-block;
+    margin:0 10px;
+    position:relative;
+    text-shadow:none;
+    top:-3px;
+  }
+
+}
+
+//
+// RESULTS PAGE
+//
+
+.results-title{
+  color:$dark-green;
+  display:block;
+  margin:17px 0 35px 0;
+  text-align:center;
+  @include text-shadow(0 1px 2px rgba(255,255,255,.5));
+  @include font("NeueLight", 36px, 41px);
+}
+
+.result-container{
+  background-color:$white;
+  display:block;
+  min-height:326px;
+  margin-bottom:30px;
+  padding-left:20px;
+  padding-right:20px;
+  position:relative;
+  @include box-shadow(0 3px 10px rgba(0,0,0,.25));
+}
+
+.result-image-container{
+  position:absolute;
+  height:149px;
+  left:0;
+  top:0;
+  width:360px;
+
+  img{
+    height:149px;
+    width:360px;
+  }
+
+}
+
+.result-content-container{
+  position:relative;
+  padding-top:149px;
+}
+
+.result-title-row{
+  padding: 22px 0 9px 0;
+}
+
+.result-title{
+  color:$black;
+  margin-bottom:0;
+  margin-top:0;
+  padding-bottom:0;
+  padding-top:0;
+  @include font("FuturaBook", 18px, 22px);
+}
+
+.result-amenities{
+  color:$grey;
+  margin-bottom:10px;
+  @include font("Neue", 14px, 20px);
+}
+
+.result-address{
+  color:$dark-green;
+  @include font("FuturaBold", 12px, 18px);
+}
+
+.result-description{
+  color:$white;
+  @include font("FuturaBook", 14px, 20px);
+}
+
+.result-container.direct-to-map{
+  background-color:$orange;
+  .result-title{
+    color: $white;
+  }
+}
+
+
+//
+// PARK DETAIL
+//
+
+#park-detail-item-container{
+  background-color: rgba($white, 0.7);
+  @include box-shadow(0 3px 10px rgba(0,0,0,.25));
+  @include border-radius(3px);
+}
+
+#park-detail-gallery-container{
+
+  background-color: rgba(255,255,255, .85);
+  min-height:500px;
+  position:relative;
+  width:770px;
+  z-index:100;
+
+  .placeholder{
+    display:none;
+  }
+
+  .dummy{
+    position:relative;
+    height:100%;
+    z-index:-1;
+    @include opacity(0);
+  }
+
+  .ss-icon{
+    color:$white;
+    font-size:46px;
+    margin-top:-23px;
+    position:absolute;
+    top:50%;
+    z-index:10;
+    @include opacity(.6);
+    @include transition(opacity $fast linear);
+
+    &:hover{
+      @include opacity(.8);
+    }
+
+  }
+
+  #park-detail-gallery-left{
+    left:20px;
+  }
+
+  #park-detail-gallery-right{
+    right:20px;
+  }
+
+  .gallery-loader{
+    left:50%;
+    margin: -16px 0 0 -16px;
+    position:absolute;
+    top:50%;
+    z-index:1;
+  }
+
+}
+
+#park-detail-info-container{
+
+  padding: 40px 20px 40px 30px;
+
+  h1{
+    color:$black;
+    width: 300px;
+  }
+
+  address{
+    color:$black;
+    margin: 5px 0 25px 0;
+    font-style:normal;
+    @include font("FuturaBook", 14px, 20px);
+  }
+
+  h2{
+    color: $dark-grey;
+  }
+
+  p{
+    color:$dark-grey;
+    padding: 5px 0;
+    @include font("Neue", 14px, 18px);
+  }
+
+  .button{
+    margin-top:30px;
+  }
+
+  .close{
+    color:$orange;
+    position:absolute;
+    top:40px;
+    right:30px;
+    &:hover{
+      color:$orange;
+    }
+  }
+
+}
+
+
+// Pop Up Item View
+
+.map-popup{
+  @include box-shadow(0 2px 2px rgba(0,0,0,.2));
+}
+
+.popup-header-container{
+
+  background-color:$orange;
+  padding: 15px 15px 7px 15px;
+  width:200px;
+  @include border-radius(3px 3px 0 0);
+  p{
+    color:$white;
+    margin:0;
+    padding:0;
+    width: 160px;
+    @include font("Neue", 16px, 21px);
+  }
+}
+
+.popup-links{
+
+  background-color:$white;
+  margin:0;
+  padding:0;
+  width:200px;
+  text-transform: uppercase;
+  @include border-radius(0 0 3px 3px);
+
+  li{
+
+    margin:0;
+    padding:4px 0;
+    list-style-type:none;
+
+    a{
+      color:$dark-grey;
+      display:block;
+      padding-left:15px;
+      @include font("FuturaBold", 11px, 35px);
+
+      span{
+        font-size:18px;
+        margin-right:8px;
+        position:relative;
+        top:4px;
+      }
+
+      span.icon-google-maps{
+        background: transparent url(/images/icon-google-maps.png) no-repeat left top;
+        display:inline-block;
+        height:16px;
+        margin-right:11px;
+        top:3px;
+        width:16px;
+      }
+
+    }
+
+    &+li{
+      border-top:1px solid #f2f2f2;
+    }
+
+  }
+
+}
+
+
+// Feedback module
+
+#feedback-button{
+  bottom:-10px;
+  right:50%;
+  margin-right:500px;
+  position:fixed;
+  z-index:100;
+  @include transition(bottom $fast linear);
+
+  &:hover{
+    bottom:-2px;
+  }
+}
+
+#feedback-region-container{
+  display:none;
+  height:100%;
+  left:0;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:-1;
+}
+
+#feedback-layout-container {
+
+  background-color: rgba(#000, .5);
+  height:100%;
+  left:0;
+  position:absolute;
+  top:0;
+  width:100%;
+
+  .title {
+
+    color:$black;
+    display:block;
+    margin-bottom:40px;
+    text-align:center;
+    @include font("FuturaMedium", 18px);
+
+  }
+
+  form {
+
+    .close{
+      color:$orange;
+      position:absolute;
+      right:25px;
+      top:25px;
+    }
+
+    background-color:$white;
+    height:600px;
+    margin: -300px 0 0 -200px;
+    padding:40px 30px;
+    position:absolute;
+    text-align:center;
+    top:50%;
+    left:50%;
+    width:400px;
+
+    input[type='text'], .select-wrapper{
+      background-color:$light-grey;
+      border:none;
+      color:$black;
+      display:block;
+      height:40px;
+      outline:none;
+      padding: 14px 10px 10px 10px;
+      width:100%;
+      @include font("Neue", 14px, 20px);
+
+      &+input, &+.select-wrapper{
+        margin-top:20px;
+      }
+
+    }
+
+    button{
+      display:inline-block;
+      margin: 20px auto 0 auto;
+      width:91px;
+
+      img{
+        display:none;
+      }
+
+      &.is-loading{
+        img{
+          display:inline;
+        }
+        span{
+          display:none;
+        }
+      }
+
+    }
+
+    .select-wrapper{
+
+      position:relative;
+      text-align:left;
+      -webkit-backface-visibility: hidden;
+
+      .select-text{
+        color: lighten($dark-grey, 15%);
+        position:relative;
+        text-align:left;
+        z-index:2;
+        @include font("Neue", 14px, 20px);
+      }
+
+      .ss-dropdown{
+        color: lighten($dark-grey, 15%);
+        font-size:10px;
+        position:absolute;
+        right:10px;
+        top:14px;
+      }
+
+      select{
+        position:absolute;
+        left:10px;
+        top:14px;
+        width:100%;
+        z-index:3;
+        -webkit-backface-visibility: hidden;
+        @include opacity(0);
+      }
+    }
+
+  }
+
+}
+
+.feedback-errors{
+  color:$orange;
+  height:20px;
+  margin-top:20px;
+  margin-bottom:10px;
+  padding: 8px 0;
+  @include font("Neue", 14px, 20px);
+
+  &.is-success{
+    color:$dark-green;
+  }
+}
+
+#feedback-name {
+}
+
+#feedback-email {
+}
+
+#feedback-purpose {
+}
+
+#feedback-comments {
+
+  background-color:$light-grey;
+  border:none;
+  color:$black;
+  height:170px;
+  margin-top:20px;
+  outline:none;
+  padding:15px;
+  resize:none;
+  width:100%;
+  @include font("Neue", 14px, 20px);
+
+}

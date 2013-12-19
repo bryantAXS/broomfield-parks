@@ -1,0 +1,13 @@
+/bootstrap/compiled.php
+/vendor
+composer.phar
+composer.lock
+.DS_Store
+
+/node_modules
+/bower_modules
+/.sass-cache
+/*.sublime-project
+/*.sublime-workspace
+/config/deploy.rb
+/composer_modules

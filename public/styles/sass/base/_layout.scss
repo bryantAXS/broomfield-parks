@@ -1,0 +1,133 @@
+html {
+  height:101%;
+  width:100%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-backface-visibility: hidden;
+}
+
+.spinner{
+  position:fixed !important;
+  top:50% !important;
+  left:50% !important;
+}
+
+#search-bar-layout-container{
+  position:fixed;
+  top:60px;
+  width:100%;
+  z-index:10
+}
+
+#content-region-container{
+  position:relative;
+  overflow:hidden;
+  z-index:1;
+}
+
+#blur-layer{
+  background-color:$white;
+  position:fixed;
+  height:100%;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1;
+  @include opacity(.5);
+
+}
+
+#map-region-container{
+  height:100%;
+  left:0;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:0;
+}
+
+#map-layout-container{
+  position:absolute;
+  height:100%;
+  width:100%;
+  z-index:0;
+
+  #map-container{
+
+    height:100%;
+    position:absolute;
+    width:100%;
+    z-index:-1;
+
+  }
+
+  .map-click-overlay{
+    height:100%;
+    position:absolute;
+    width:100%;
+    z-index:0;
+  }
+
+  .map-intro-overlay{
+    background-color:$white;
+    height:100%;
+    position:absolute;
+    width:100%;
+    z-index:1;
+  }
+
+  &.is-active{
+    .map-click-overlay{
+      display:none;
+    }
+  }
+
+}
+
+// bluring -- we only want this on non-ie browsers
+
+.cssfilters{
+
+  #map-layout-container{
+
+    #map-container{
+
+      //@include opacity(.4);
+      //@include transition(opacity 150ms linear);
+
+      img{
+        @include filter(blur(5px));
+      }
+
+    }
+
+    &.is-active{
+      #map-container{
+
+        //@include opacity(1);
+
+        img{
+          @include filter(blur(0));
+        }
+      }
+    }
+
+  }
+
+}
+
+
+#start-layout-container{
+  margin-top:240px;
+}
+
+#results-layout-container{
+  margin-top:160px;
+}
+
+#park-detail-layout-container{
+  margin-top:160px;
+}
+
+
+
+

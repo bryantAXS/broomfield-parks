@@ -1,0 +1,70 @@
+.button{
+  border:none;
+  color:$white;
+  display:inline-block;
+  height:40px;
+  outline:none;
+  text-align:center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  @include border-radius(3px);
+  @include text-shadow(none);
+
+  .ss-icon{
+    font-size:16px;
+    position:relative;
+    margin-right:5px;
+    top:2px;
+  }
+
+  &:hover{
+    color:$white;
+  }
+
+}
+
+.start{
+  margin-right: 10px;
+
+  &:last-child{
+    margin-right: 0;
+  }
+
+}
+
+.white{
+  color: $light-green;
+  border-bottom: 2px solid #ccc;
+  background-color: $white;
+  padding: 0 15px;
+  @include opacity(.85);
+  @include font("FuturaBold", 14px, 43px);
+}
+
+.orange{
+  color:$white;
+  border-bottom: 2px solid $dark-orange;
+  background-color: $orange;
+  padding: 0 15px;
+  @include font("FuturaBold", 14px, 41px);
+}
+
+.lighter-green{
+  color:$white;
+  border-bottom: 2px solid lighten($dark-green, 10%);
+  background-color: $lighter-green;
+  padding: 0 15px;
+  @include font("FuturaBold", 14px, 43px);
+}
+
+.map-it-button{
+  padding-right: 20px;
+}
+
+.to-green{
+  @include transition(all 150ms linear);
+  @include opacity(1);
+  &:hover{
+    @extend .lighter-green;
+  }
+}
