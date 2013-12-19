@@ -29,7 +29,9 @@ class AppController extends BaseController {
 	public function index($uri = false)
 	{
 
-		$this->layout->parksJSON = $this->getParksJSON();
+		Profiler::disable();
+
+    $this->layout->parksJSON = $this->getParksJSON();
 		//$this->layout->content = View::make('pages.index');
 
 	}
