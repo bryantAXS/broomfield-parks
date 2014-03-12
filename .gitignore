@@ -1,13 +1,15 @@
-/bootstrap/compiled.php
+
+.DS_Store
+
 /vendor
 composer.phar
-composer.lock
-.DS_Store
 
 /node_modules
 /bower_modules
+
 /.sass-cache
+
 /*.sublime-project
 /*.sublime-workspace
-/config/deploy.rb
-/composer_modules
+
+config/deploy.rb

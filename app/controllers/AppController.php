@@ -1,6 +1,6 @@
 <?php
 
-class ParksRequest extends \jyggen\Curl\Request
+class ParksRequest extends \Jyggen\Curl\Request
 {
 	public function execute()
   {
@@ -28,8 +28,6 @@ class AppController extends BaseController {
 	 */
 	public function index($uri = false)
 	{
-
-		Profiler::disable();
 
     $this->layout->parksJSON = $this->getParksJSON();
 		//$this->layout->content = View::make('pages.index');
@@ -85,7 +83,6 @@ class AppController extends BaseController {
 
 		}else{
 
-			var_dump("backup");
 		  $encoded_json = Cache::get('backupParksJson', false);
 
 		}
